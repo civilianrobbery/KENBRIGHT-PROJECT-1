@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const db = require('../database');
 
 // Register new user
 router.post('/register', async (req, res) => {
     try {
+        const db = req.db; // Get db from middleware
         const { email, name, password } = req.body;
         
         // Validation
@@ -18,46 +18,41 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ error: 'Password must be at least 6 characters' });
         }
         
-        // Check if user exists using better-sqlite3
-        try {
-            const user = db.prepare('SELECT id FROM users WHERE email = ?').get(email);
-            
-            if (user) {
-                return res.status(400).json({ error: 'User already exists' });
-            }
-            
-            // Hash password
-            const hashedPassword = bcrypt.hashSync(password, 10);
-            
-            // Create user using better-sqlite3
-            const result = db.prepare(
-                'INSERT INTO users (email, name, password) VALUES (?, ?, ?)'
-            ).run(email, name, hashedPassword);
-            
-            const newUser = {
-                id: result.lastInsertRowid,
-                email,
-                name,
-                role: 'user'
-            };
-            
-            // Create JWT token
-            const token = jwt.sign(
-                { id: newUser.id, email: newUser.email },
-                process.env.JWT_SECRET || 'kenbright-ifrs17-secret-key',
-                { expiresIn: process.env.JWT_EXPIRE || '30d' }
-            );
-            
-            res.status(201).json({
-                message: 'User registered successfully',
-                user: newUser,
-                token
-            });
-            
-        } catch (dbError) {
-            console.error('Database error:', dbError);
-            return res.status(500).json({ error: 'Database error' });
+        // Check if user exists
+        const user = await db.get('SELECT id FROM users WHERE email = ?', email);
+        
+        if (user) {
+            return res.status(400).json({ error: 'User already exists' });
         }
+        
+        // Hash password
+        const hashedPassword = bcrypt.hashSync(password, 10);
+        
+        // Create user
+        const result = await db.run(
+            'INSERT INTO users (email, name, password) VALUES (?, ?, ?)',
+            email, name, hashedPassword
+        );
+        
+        const newUser = {
+            id: result.lastID,
+            email,
+            name,
+            role: 'user'
+        };
+        
+        // Create JWT token
+        const token = jwt.sign(
+            { id: newUser.id, email: newUser.email },
+            process.env.JWT_SECRET || 'kenbright-ifrs17-secret-key',
+            { expiresIn: process.env.JWT_EXPIRE || '30d' }
+        );
+        
+        res.status(201).json({
+            message: 'User registered successfully',
+            user: newUser,
+            token
+        });
         
     } catch (error) {
         console.error('Registration error:', error);
@@ -68,6 +63,7 @@ router.post('/register', async (req, res) => {
 // Login user
 router.post('/login', async (req, res) => {
     try {
+        const db = req.db; // Get db from middleware
         const { email, password } = req.body;
         
         // Validation
@@ -75,45 +71,39 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ error: 'Email and password are required' });
         }
         
-        // Find user using better-sqlite3
-        try {
-            const user = db.prepare('SELECT * FROM users WHERE email = ?').get(email);
-            
-            if (!user) {
-                return res.status(401).json({ error: 'Invalid credentials' });
-            }
-            
-            // Check password
-            const isPasswordValid = bcrypt.compareSync(password, user.password);
-            if (!isPasswordValid) {
-                return res.status(401).json({ error: 'Invalid credentials' });
-            }
-            
-            // Create user object without password
-            const userResponse = {
-                id: user.id,
-                email: user.email,
-                name: user.name,
-                role: user.role
-            };
-            
-            // Create JWT token
-            const token = jwt.sign(
-                { id: user.id, email: user.email },
-                process.env.JWT_SECRET || 'kenbright-ifrs17-secret-key',
-                { expiresIn: process.env.JWT_EXPIRE || '30d' }
-            );
-            
-            res.json({
-                message: 'Login successful',
-                user: userResponse,
-                token
-            });
-            
-        } catch (dbError) {
-            console.error('Database error:', dbError);
-            return res.status(500).json({ error: 'Database error' });
+        // Find user
+        const user = await db.get('SELECT * FROM users WHERE email = ?', email);
+        
+        if (!user) {
+            return res.status(401).json({ error: 'Invalid credentials' });
         }
+        
+        // Check password
+        const isPasswordValid = bcrypt.compareSync(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ error: 'Invalid credentials' });
+        }
+        
+        // Create user object without password
+        const userResponse = {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            role: user.role
+        };
+        
+        // Create JWT token
+        const token = jwt.sign(
+            { id: user.id, email: user.email },
+            process.env.JWT_SECRET || 'kenbright-ifrs17-secret-key',
+            { expiresIn: process.env.JWT_EXPIRE || '30d' }
+        );
+        
+        res.json({
+            message: 'Login successful',
+            user: userResponse,
+            token
+        });
         
     } catch (error) {
         console.error('Login error:', error);
@@ -122,13 +112,13 @@ router.post('/login', async (req, res) => {
 });
 
 // Guest login
-router.post('/guest', (req, res) => {
-    const demoEmail = 'demo@kenbright.com';
-    const demoPassword = 'demo123';
-    
-    // Find demo user using better-sqlite3
+router.post('/guest', async (req, res) => {
     try {
-        const user = db.prepare('SELECT * FROM users WHERE email = ?').get(demoEmail);
+        const db = req.db; // Get db from middleware
+        const demoEmail = 'demo@kenbright.com';
+        
+        // Find demo user
+        const user = await db.get('SELECT * FROM users WHERE email = ?', demoEmail);
         
         if (!user) {
             return res.status(500).json({ error: 'Demo account not available' });
@@ -156,14 +146,14 @@ router.post('/guest', (req, res) => {
             isGuest: true
         });
         
-    } catch (dbError) {
-        console.error('Database error:', dbError);
-        return res.status(500).json({ error: 'Database error' });
+    } catch (error) {
+        console.error('Guest login error:', error);
+        res.status(500).json({ error: 'Server error' });
     }
 });
 
 // Verify token
-router.get('/verify', (req, res) => {
+router.get('/verify', async (req, res) => {
     const token = req.headers.authorization?.split(' ')[1];
     
     if (!token) {
@@ -171,21 +161,16 @@ router.get('/verify', (req, res) => {
     }
     
     try {
+        const db = req.db; // Get db from middleware
         const decoded = jwt.verify(token, process.env.JWT_SECRET || 'kenbright-ifrs17-secret-key');
         
-        try {
-            const user = db.prepare('SELECT id, email, name, role FROM users WHERE id = ?').get(decoded.id);
-            
-            if (!user) {
-                return res.status(401).json({ error: 'User not found' });
-            }
-            
-            res.json({ valid: true, user });
-            
-        } catch (dbError) {
-            console.error('Database error:', dbError);
-            return res.status(500).json({ error: 'Database error' });
+        const user = await db.get('SELECT id, email, name, role FROM users WHERE id = ?', decoded.id);
+        
+        if (!user) {
+            return res.status(401).json({ error: 'User not found' });
         }
+        
+        res.json({ valid: true, user });
         
     } catch (error) {
         console.error('Token verification error:', error);

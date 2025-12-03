@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const db = require('../database');
 
 // Middleware to verify token
 const verifyToken = (req, res, next) => {
@@ -11,7 +10,6 @@ const verifyToken = (req, res, next) => {
         return res.status(401).json({ error: 'No token provided' });
     }
     
-    // Simple verification - in production, use JWT properly
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET || 'kenbright-ifrs17-secret-key');
         req.userId = decoded.id;
@@ -31,25 +29,27 @@ const verifyToken = (req, res, next) => {
     }
 };
 
-
 // Get user's overall progress
-router.get('/', verifyToken, (req, res) => {
-    const userId = req.userId;
-    
+router.get('/', verifyToken, async (req, res) => {
     try {
-        // Get all modules progress using better-sqlite3
-        const modules = db.prepare(
-            `SELECT * FROM user_progress WHERE user_id = ? ORDER BY module_id`
-        ).all(userId);
+        const db = req.db; // Get db from middleware
+        const userId = req.userId;
+        
+        // Get all modules progress
+        const modules = await db.all(
+            `SELECT * FROM user_progress WHERE user_id = ? ORDER BY module_id`,
+            userId
+        );
         
         // Get assessments
-        const assessments = db.prepare(
-            `SELECT * FROM assessments WHERE user_id = ? ORDER BY taken_at DESC LIMIT 10`
-        ).all(userId);
+        const assessments = await db.all(
+            `SELECT * FROM assessments WHERE user_id = ? ORDER BY taken_at DESC LIMIT 10`,
+            userId
+        );
         
         // Calculate overall stats
         const completedModules = modules.filter(m => m.completed).length;
-        const totalModules = 15; // Total modules in the system
+        const totalModules = 15;
         
         const completedWithScore = modules.filter(m => m.completed && m.score > 0);
         const averageScore = completedWithScore.length > 0
@@ -62,7 +62,7 @@ router.get('/', verifyToken, (req, res) => {
             completedModules,
             totalModules,
             averageScore,
-            timeSpent: Math.round(totalTimeSpent / 60), // Convert to hours
+            timeSpent: Math.round(totalTimeSpent / 60),
             overallProgress: Math.round((completedModules / totalModules) * 100),
             modules,
             assessments
@@ -75,49 +75,52 @@ router.get('/', verifyToken, (req, res) => {
 });
 
 // Update module progress
-router.post('/:moduleId', verifyToken, (req, res) => {
-    const userId = req.userId;
-    const moduleId = parseInt(req.params.moduleId);
-    const { progress, score, timeSpent } = req.body;
-    
-    if (isNaN(moduleId) || moduleId < 1 || moduleId > 15) {
-        return res.status(400).json({ error: 'Invalid module ID' });
-    }
-    
+router.post('/:moduleId', verifyToken, async (req, res) => {
     try {
-        // Check if progress record exists using better-sqlite3
-        const existing = db.prepare(
-            `SELECT * FROM user_progress WHERE user_id = ? AND module_id = ?`
-        ).get(userId, moduleId);
+        const db = req.db; // Get db from middleware
+        const userId = req.userId;
+        const moduleId = parseInt(req.params.moduleId);
+        const { progress, score, timeSpent } = req.body;
+        
+        if (isNaN(moduleId) || moduleId < 1 || moduleId > 15) {
+            return res.status(400).json({ error: 'Invalid module ID' });
+        }
+        
+        // Check if progress record exists
+        const existing = await db.get(
+            `SELECT * FROM user_progress WHERE user_id = ? AND module_id = ?`,
+            userId, moduleId
+        );
         
         const completed = progress >= 100;
         const timeToAdd = timeSpent || 0;
         
         if (existing) {
             // Update existing record
-            // Use MAX for progress and score to only increase them
             const newProgress = Math.max(progress || 0, existing.progress || 0);
             const newScore = Math.max(score || 0, existing.score || 0);
             
-            db.prepare(
+            await db.run(
                 `UPDATE user_progress SET 
                     progress = ?,
                     completed = ?,
                     score = ?,
                     time_spent = time_spent + ?,
                     last_accessed = CURRENT_TIMESTAMP
-                 WHERE user_id = ? AND module_id = ?`
-            ).run(newProgress, completed, newScore, timeToAdd, userId, moduleId);
+                 WHERE user_id = ? AND module_id = ?`,
+                newProgress, completed, newScore, timeToAdd, userId, moduleId
+            );
             
             res.json({ message: 'Progress updated' });
             
         } else {
             // Create new record
-            db.prepare(
+            await db.run(
                 `INSERT INTO user_progress 
                  (user_id, module_id, progress, completed, score, time_spent, last_accessed)
-                 VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)`
-            ).run(userId, moduleId, progress || 0, completed, score || 0, timeToAdd);
+                 VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)`,
+                userId, moduleId, progress || 0, completed, score || 0, timeToAdd
+            );
             
             res.json({ message: 'Progress saved' });
         }
@@ -129,33 +132,36 @@ router.post('/:moduleId', verifyToken, (req, res) => {
 });
 
 // Save assessment result
-router.post('/:moduleId/assessment', verifyToken, (req, res) => {
-    const userId = req.userId;
-    const moduleId = parseInt(req.params.moduleId);
-    const { score, totalQuestions, correctAnswers, timeSpent, feedback } = req.body;
-    
-    if (isNaN(moduleId) || moduleId < 1 || moduleId > 15) {
-        return res.status(400).json({ error: 'Invalid module ID' });
-    }
-    
+router.post('/:moduleId/assessment', verifyToken, async (req, res) => {
     try {
-        // Save assessment using better-sqlite3
-        const result = db.prepare(
+        const db = req.db; // Get db from middleware
+        const userId = req.userId;
+        const moduleId = parseInt(req.params.moduleId);
+        const { score, totalQuestions, correctAnswers, timeSpent, feedback } = req.body;
+        
+        if (isNaN(moduleId) || moduleId < 1 || moduleId > 15) {
+            return res.status(400).json({ error: 'Invalid module ID' });
+        }
+        
+        // Save assessment
+        const result = await db.run(
             `INSERT INTO assessments 
              (user_id, module_id, score, total_questions, correct_answers, time_spent, feedback)
-             VALUES (?, ?, ?, ?, ?, ?, ?)`
-        ).run(userId, moduleId, score, totalQuestions, correctAnswers, timeSpent, feedback);
+             VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            userId, moduleId, score, totalQuestions, correctAnswers, timeSpent, feedback
+        );
         
         // Update module progress to mark as completed with score
-        db.prepare(
+        await db.run(
             `INSERT OR REPLACE INTO user_progress 
              (user_id, module_id, progress, completed, score, time_spent, last_accessed)
-             VALUES (?, ?, 100, 1, ?, COALESCE((SELECT time_spent FROM user_progress WHERE user_id = ? AND module_id = ?), 0), CURRENT_TIMESTAMP)`
-        ).run(userId, moduleId, score, userId, moduleId);
+             VALUES (?, ?, 100, 1, ?, COALESCE((SELECT time_spent FROM user_progress WHERE user_id = ? AND module_id = ?), 0), CURRENT_TIMESTAMP)`,
+            userId, moduleId, score, userId, moduleId
+        );
         
         res.json({ 
             message: 'Assessment saved',
-            assessmentId: result.lastInsertRowid 
+            assessmentId: result.lastID 
         });
         
     } catch (error) {

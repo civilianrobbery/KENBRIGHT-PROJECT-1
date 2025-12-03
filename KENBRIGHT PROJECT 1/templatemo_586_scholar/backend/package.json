@@ -12,7 +12,8 @@
     "cors": "^2.8.5",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.0",
-    "better-sqlite3": "^9.0.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
