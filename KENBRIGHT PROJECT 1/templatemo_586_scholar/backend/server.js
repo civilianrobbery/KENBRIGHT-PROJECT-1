@@ -3,7 +3,8 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 
-const initializeDatabase = require('./database-sqlite');
+// CHANGE THIS LINE: Use memory database instead of sqlite
+const MemoryDatabase = require('./database-memory');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,8 +29,10 @@ app.use(express.static(basePath));
 // Initialize database and start server
 async function startServer() {
     try {
-        console.log('🔄 Initializing database...');
-        const db = await initializeDatabase();
+        console.log('🔄 Initializing in-memory database...');
+        
+        // CHANGE: Create memory database instance
+        const db = new MemoryDatabase();
         
         // Make db available to all requests via middleware
         app.use((req, res, next) => {
@@ -55,11 +58,12 @@ async function startServer() {
                 status: 'OK', 
                 message: 'Kenbright IFRS 17 Backend is running',
                 environment: process.env.NODE_ENV || 'development',
-                timestamp: new Date().toISOString()
+                timestamp: new Date().toISOString(),
+                database: 'in-memory'
             });
         });
         
-        // Serve frontend pages - make sure this comes AFTER API routes
+        // Serve frontend pages
         app.get('/', (req, res) => {
             res.sendFile(path.join(basePath, 'index.html'));
         });
