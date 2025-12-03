@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Module 13 Assessment | Kenbright IFRS 17 Training</title>
+    
+    <!-- CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <style>
+        /* Apply Gill Sans font to entire page */
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .nav li a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .btn, .main-button a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Simplified header styling */
+        .header-area {
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        /* Ensure navigation items are properly spaced */
+        .main-nav .nav {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+
+        .main-nav .nav li a:hover {
+            color: #3B82F6;
+        }
+
+        /* Search input styling */
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input input {
+            width: 100%;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+
+        .search-input i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 130px;
+            width: auto;
+            max-width: 500px;
+        }
+
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .assessment-container {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 30px 0;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .question-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .question-number {
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .option-item {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .option-item:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+        
+        .option-item.selected {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+        
+        .option-item.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .option-item.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .quiz-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .results-container {
+            display: none;
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 2px solid #e9ecef;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .score-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .progress-summary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-input {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .main-nav .nav {
+                gap: 15px;
+            }
+            
+            .logo-image {
+                height: 35px;
+                max-width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 30px;
+                max-width: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+          <div class="kenbright-loader">Kenbright</div>
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading Assessment...</div>
+      </div>
+  </div>
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+                    </a>
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="modules.html">Training Modules</a></li>
+                        <li><a href="assessments.html" class="active">Test Assessments</a></li>
+                        <li><a href="progress.html">My Progress</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2>Module 13 Assessment</h2>
+            <p>Presentation & Disclosure Requirements</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Assessment Container -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <div class="quiz-header">
+            <h3><i class="fa fa-question-circle"></i> Module 13 Quiz</h3>
+            <p>Test your understanding of Presentation & Disclosure</p>
+            <div class="progress" style="height: 8px; background: rgba(255,255,255,0.3);">
+              <div class="progress-bar" id="quizProgress" style="width: 0%"></div>
+            </div>
+            <small id="progressText">Question 1 of 15</small>
+          </div>
+
+          <div class="assessment-container">
+            <div id="questionsContainer">
+              <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="navigation-buttons">
+              <button class="main-button outline" id="prevQuestion" style="display: none;">
+                <i class="fa fa-arrow-left"></i> Previous
+              </button>
+              <button class="main-button" id="submitQuiz" style="display: none;">
+                Submit Assessment
+              </button>
+              <button class="main-button" id="nextQuestion" style="display: none;">
+                Next <i class="fa fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="results-container" id="resultsContainer">
+            <h3 class="text-center"><i class="fa fa-chart-bar"></i> Assessment Results</h3>
+            <div class="score-display" id="finalScore">0/15</div>
+            
+            <div class="progress-summary">
+              <div class="progress" style="height: 20px;">
+                <div class="progress-bar" id="scoreProgress" role="progressbar" style="width: 0%"></div>
+              </div>
+              <div class="progress-text text-center mt-2">
+                <span id="scorePercentage">0%</span> - <span id="performanceText">Beginner Level</span>
+              </div>
+            </div>
+
+            <div id="questionsReview">
+              <!-- Questions review will be loaded here -->
+            </div>
+
+            <div class="text-center mt-4">
+              <button class="main-button outline" onclick="window.location.href='module-13.html'">
+                <i class="fa fa-book"></i> Review Module
+              </button>
+              <button class="main-button" id="nextModuleBtn" onclick="window.location.href='module-14.html'">
+                <i class="fa fa-arrow-right"></i> Proceed to Module 14
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  
+  <script>
+    // Module 13 Questions Data with UPDATED CORRECT answers
+    const module13Questions = [
+      {
+        question: "How are changes in the risk adjustment presented if not disaggregated?",
+        options: [
+          "Fully within the insurance service result",
+          "In other comprehensive income",
+          "As a deferred liability",
+          "As finance income"
+        ],
+        correctAnswer: 1, // 2nd choice
+        explanation: "Changes in risk adjustment are presented fully within the insurance service result if not disaggregated."
+      },
+      {
+        question: "How should an entity present a group of contracts with a net obligation (i.e., expected outflows exceed inflows) in the statement of financial position?",
+        options: [
+          "As a liability",
+          "As an asset",
+          "Under equity",
+          "Offset against premiums receivable"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "Groups with net obligations (outflows > inflows) are presented as liabilities."
+      },
+      {
+        question: "How should an entity present insurance contracts issued in the statement of financial position?",
+        options: [
+          "As either assets or liabilities, depending on the net fulfilment cash flows",
+          "Only when the contracts are profitable",
+          "Combined with acquisition cash flows only",
+          "Net of reinsurance recoverables"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "Insurance contracts are presented as either assets or liabilities based on net fulfilment cash flows."
+      },
+      {
+        question: "What drives the distinction between insurance revenue and insurance finance income/expenses?",
+        options: [
+          "Time value of money and discount rates",
+          "Policy type",
+          "Underwriting year",
+          "Geographical spread"
+        ],
+        correctAnswer: 0, // 1st choice
+        explanation: "The distinction is driven by time value of money and discount rate effects."
+      },
+      {
+        question: "What is the appropriate presentation of acquisition costs related to a group of reinsurance contracts held?",
+        options: [
+          "Included in the carrying amount of reinsurance contracts held",
+          "Expensed immediately",
+          "Included in insurance service expenses",
+          "Reported under administrative expenses"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "Acquisition costs for reinsurance contracts held are included in the contract's carrying amount."
+      },
+      {
+        question: "Which of the following would most likely be presented as an insurance liability?",
+        options: [
+          "Outstanding claims reserves",
+          "Deferred acquisition costs",
+          "Accrued interest income",
+          "Expected future premium inflows"
+        ],
+        correctAnswer: 0, // 1st choice
+        explanation: "Outstanding claims reserves are presented as insurance liabilities."
+      },
+      {
+        question: "Under IFRS 17, how are insurance contract assets and liabilities presented in the Statement of Financial Position?",
+        options: [
+          "Presented separately for each group of contracts",
+          "Offset against each other",
+          "Presented net at the entity level",
+          "Combined and shown as a single line item"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "Insurance contracts are presented separately for each group, not netted."
+      },
+      {
+        question: "What is the treatment of a group of onerous contracts in the Statement of Financial Position?",
+        options: [
+          "Recognized as a liability",
+          "Included under reinsurance",
+          "Recognized as an asset",
+          "Deferred to future periods"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "Onerous contracts are recognized as liabilities in the Statement of Financial Position."
+      },
+      {
+        question: "Which IFRS 17 paragraph outlines the presentation requirements for the Statement of Financial Position?",
+        options: [
+          "IFRS 17.78",
+          "IFRS 17.32",
+          "IFRS 17.42",
+          "IFRS 17.109"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "Paragraph 78 of IFRS 17 outlines Statement of Financial Position presentation requirements."
+      },
+      {
+        question: "Which of the following is not shown separately in IFRS 17 Statement of Financial Position presentation?",
+        options: [
+          "Deferred acquisition costs",
+          "Insurance contract liabilities",
+          "Insurance contract assets",
+          "Reinsurance contract assets"
+        ],
+        correctAnswer: 1, // 2nd choice
+        explanation: "Deferred acquisition costs are not shown separately; they're included in contract measurements."
+      },
+      {
+        question: "What is a fundamental departure from IFRS 4 regarding balance sheet presentation under IFRS 17?",
+        options: [
+          "Requiring explicit separation of insurance contract assets and liabilities instead of net presentation",
+          "Allowing more net presentation of assets and liabilities",
+          "Eliminating the requirement to show reinsurance contracts",
+          "Permitting offsetting of insurance and reinsurance contracts"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "IFRS 17 requires separate presentation of assets and liabilities, unlike IFRS 4's net presentation."
+      },
+      {
+        question: "How are acquisition costs treated in the Statement of Financial Position under IFRS 17 compared to IFRS 4?",
+        options: [
+          "They are included in the total value of contracts rather than presented separately",
+          "They are still presented as separate deferred acquisition cost assets",
+          "They are immediately expensed in all cases",
+          "They are shown as a separate liability"
+        ],
+        correctAnswer: 0, // 1st choice
+        explanation: "Under IFRS 17, acquisition costs are included in contract values, not shown separately as under IFRS 4."
+      },
+      {
+        question: "What must be clearly distinguished in the Statement of Financial Position under IFRS 17?",
+        options: [
+          "Insurance contracts issued and reinsurance contracts held",
+          "Domestic and international contracts",
+          "Life and non-life insurance products",
+          "New and renewal business"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "Insurance contracts issued and reinsurance contracts held must be clearly distinguished."
+      },
+      {
+        question: "According to the module, what is prohibited under IFRS 17 that was common under IFRS 4?",
+        options: [
+          "Offsetting receivables and payables in the balance sheet",
+          "Recognizing insurance contracts as liabilities",
+          "Showing reinsurance contracts as assets",
+          "Presenting acquisition costs separately"
+        ],
+        correctAnswer: 1, // 2nd choice
+        explanation: "Offsetting receivables and payables, common under IFRS 4, is prohibited under IFRS 17."
+      },
+      {
+        question: "What is a key objective of the IFRS 17 presentation requirements in the Statement of Financial Position?",
+        options: [
+          "To enhance transparency and comparability across insurers",
+          "To simplify the balance sheet by reducing line items",
+          "To align with local regulatory reporting formats",
+          "To minimize the impact on reported equity"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "A key objective is enhancing transparency and comparability across insurers."
+      }
+    ];
+
+    // Quiz functionality
+    let currentQuestion = 0;
+    let userAnswers = new Array(module13Questions.length).fill(null);
+    let quizSubmitted = false;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const pageLoader = document.getElementById('pageLoader');
+        
+        // Update copyright year automatically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        setTimeout(() => {
+            pageLoader.classList.add('hidden');
+            setTimeout(() => {
+                pageLoader.remove();
+                initializeQuiz();
+            }, 500);
+        }, 1500);
+
+        // Add event listeners to buttons
+        document.getElementById('nextQuestion').addEventListener('click', nextQuestion);
+        document.getElementById('prevQuestion').addEventListener('click', prevQuestion);
+        document.getElementById('submitQuiz').addEventListener('click', submitQuiz);
+    });
+
+    function initializeQuiz() {
+        displayQuestion(currentQuestion);
+        updateNavigation();
+        updateProgress();
+    }
+
+    function displayQuestion(questionIndex) {
+        const questionsContainer = document.getElementById('questionsContainer');
+        const question = module13Questions[questionIndex];
+        
+        let optionsHtml = '';
+        question.options.forEach((option, index) => {
+            const isSelected = userAnswers[questionIndex] === index;
+            optionsHtml += `
+                <div class="option-item ${isSelected ? 'selected' : ''}" onclick="selectOption(${index})">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question${questionIndex}" 
+                               id="option${index}" ${isSelected ? 'checked' : ''}>
+                        <label class="form-check-label" for="option${index}">
+                            ${option}
+                        </label>
+                    </div>
+                </div>
+            `;
+        });
+
+        questionsContainer.innerHTML = `
+            <div class="question-card">
+                <div class="d-flex align-items-start">
+                    <div class="question-number">${questionIndex + 1}</div>
+                    <div class="flex-grow-1">
+                        <h5>${question.question}</h5>
+                        <div class="options-container mt-3">
+                            ${optionsHtml}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        updateNavigation();
+    }
+
+    function updateNavigation() {
+        const hasAnswer = userAnswers[currentQuestion] !== null;
+        const isLastQuestion = currentQuestion === module13Questions.length - 1;
+        const isFirstQuestion = currentQuestion === 0;
+
+        // Show/hide previous button
+        document.getElementById('prevQuestion').style.display = isFirstQuestion ? 'none' : 'inline-block';
+        
+        // Show/hide next and submit buttons
+        if (isLastQuestion) {
+            document.getElementById('nextQuestion').style.display = 'none';
+            document.getElementById('submitQuiz').style.display = hasAnswer ? 'inline-block' : 'none';
+        } else {
+            document.getElementById('nextQuestion').style.display = hasAnswer ? 'inline-block' : 'none';
+            document.getElementById('submitQuiz').style.display = 'none';
+        }
+    }
+
+    function selectOption(optionIndex) {
+        userAnswers[currentQuestion] = optionIndex;
+        displayQuestion(currentQuestion);
+        updateNavigation();
+        updateProgress();
+    }
+
+    function nextQuestion() {
+        if (currentQuestion < module13Questions.length - 1) {
+            currentQuestion++;
+            displayQuestion(currentQuestion);
+            updateNavigation();
+            updateProgress();
+        }
+    }
+
+    function prevQuestion() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            displayQuestion(currentQuestion);
+            updateNavigation();
+            updateProgress();
+        }
+    }
+
+    function updateProgress() {
+        const progress = ((currentQuestion + 1) / module13Questions.length) * 100;
+        document.getElementById('quizProgress').style.width = `${progress}%`;
+        document.getElementById('progressText').textContent = `Question ${currentQuestion + 1} of ${module13Questions.length}`;
+    }
+
+    function submitQuiz() {
+        quizSubmitted = true;
+        calculateScore();
+        showResults();
+    }
+
+    function calculateScore() {
+        let score = 0;
+        module13Questions.forEach((question, index) => {
+            if (userAnswers[index] === question.correctAnswer) {
+                score++;
+            }
+        });
+        return score;
+    }
+
+    function showResults() {
+        const score = calculateScore();
+        const percentage = (score / module13Questions.length) * 100;
+        
+        document.getElementById('finalScore').textContent = `${score}/${module13Questions.length}`;
+        document.getElementById('scoreProgress').style.width = `${percentage}%`;
+        document.getElementById('scorePercentage').textContent = `${percentage.toFixed(1)}%`;
+        
+        let performanceText = '';
+        if (percentage >= 90) performanceText = 'Excellent!';
+        else if (percentage >= 80) performanceText = 'Very Good';
+        else if (percentage >= 70) performanceText = 'Good';
+        else if (percentage >= 60) performanceText = 'Satisfactory';
+        else performanceText = 'Needs Improvement';
+        
+        document.getElementById('performanceText').textContent = performanceText;
+        
+        // Show questions review
+        let reviewHtml = '<h4 class="mt-4">Question Review</h4>';
+        module13Questions.forEach((question, index) => {
+            const userAnswer = userAnswers[index];
+            const isCorrect = userAnswer === question.correctAnswer;
+            const userAnswerText = userAnswer !== null ? question.options[userAnswer] : 'Not answered';
+            const correctAnswerText = question.options[question.correctAnswer];
+            
+            reviewHtml += `
+                <div class="question-card ${isCorrect ? 'border-success' : 'border-danger'}">
+                    <div class="d-flex align-items-start">
+                        <div class="question-number ${isCorrect ? 'bg-success' : 'bg-danger'}">${index + 1}</div>
+                        <div class="flex-grow-1">
+                            <h5>${question.question}</h5>
+                            <div class="mt-3">
+                                <p><strong>Your answer:</strong> 
+                                <span class="${isCorrect ? 'text-success' : 'text-danger'}">${userAnswerText}</span></p>
+                                ${!isCorrect ? `<p><strong>Correct answer:</strong> 
+                                <span class="text-success">${correctAnswerText}</span></p>` : ''}
+                                <p><strong>Explanation:</strong> ${question.explanation}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        document.getElementById('questionsReview').innerHTML = reviewHtml;
+        document.getElementById('resultsContainer').style.display = 'block';
+        
+        // Save progress to localStorage
+        saveProgress(score, module13Questions.length);
+    }
+
+    function saveProgress(score, totalQuestions) {
+        const progressData = {
+            module: 13,
+            score: score,
+            totalQuestions: totalQuestions,
+            percentage: (score / totalQuestions) * 100,
+            completed: true,
+            timestamp: new Date().toISOString()
+        };
+        
+        let allProgress = JSON.parse(localStorage.getItem('kenbright_assessment_progress') || '[]');
+        allProgress = allProgress.filter(item => item.module !== 13);
+        allProgress.push(progressData);
+        localStorage.setItem('kenbright_assessment_progress', JSON.stringify(allProgress));
+        
+        updateModuleCompletion(13);
+    }
+
+    function updateModuleCompletion(moduleNumber) {
+        let moduleProgress = JSON.parse(localStorage.getItem('kenbright_module_progress') || '{}');
+        moduleProgress[`module_${moduleNumber}`] = {
+            completed: true,
+            completionDate: new Date().toISOString(),
+            score: calculateScore()
+        };
+        localStorage.setItem('kenbright_module_progress', JSON.stringify(moduleProgress));
+    }
+
+    // Make functions global for onclick events
+    window.selectOption = selectOption;
+    window.nextQuestion = nextQuestion;
+    window.prevQuestion = prevQuestion;
+    window.submitQuiz = submitQuiz;
+  </script>
+</body>
+</html>

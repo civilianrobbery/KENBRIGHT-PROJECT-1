@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <title>Kenbright - IFRS 17 Digital Training Platform</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/modules.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+  <style>
+    /* Apply Gill Sans font to entire page with specified sizes */
+    body {
+      font-family: 'Gill Sans', sans-serif;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Gill Sans', sans-serif;
+      font-weight: 600;
+    }
+    
+    .nav li a {
+      font-family: 'Gill Sans', sans-serif;
+    }
+    
+    .btn, .main-button a {
+      font-family: 'Gill Sans', sans-serif;
+    }
+
+    /* Content Styling */
+    p {
+      font-size: 20px;
+      color: #4a4a4a;
+    }
+    
+    /* Hero Section */
+    .hero-subtitle {
+      font-size: 22px;
+    }
+    
+    .hero-btn {
+      font-size: 20px;
+    }
+    
+    .hero-stat-number {
+      font-size: 28px;
+    }
+    
+    .hero-stat-label {
+      font-size: 18px;
+    }
+
+    /* Services Section - UPDATED FONT SIZES FOR TASK 1 */
+    .service-item h4 {
+      font-size: 26px; /* Increased from 24px */
+    }
+    
+    .service-item p {
+      font-size: 22px; /* Increased from 20px */
+    }
+    
+    .service-item .main-button a {
+      font-size: 20px; /* Increased for consistency */
+    }
+
+    /* About Section */
+    .section-heading h2 {
+      font-size: 32px;
+    }
+    
+    .section-heading p {
+      font-size: 20px;
+    }
+    
+    .accordion-button {
+      font-size: 22px;
+    }
+    
+    .accordion-body {
+      font-size: 20px;
+    }
+
+    /* Courses Section */
+    .courses .section-heading h2 {
+      font-size: 32px;
+    }
+    
+    .homepage-module-card .down-content h4 {
+      font-size: 22px;
+    }
+    
+    .homepage-module-card .down-content p {
+      font-size: 20px;
+    }
+
+    /* Learning Areas */
+    .learning-area-card .down-content h4 {
+      font-size: 24px;
+    }
+    
+    .learning-area-card .down-content p {
+      font-size: 20px;
+    }
+
+    /* Counter Section */
+    .counter h2 {
+      font-size: 42px;
+    }
+    
+    .counter p {
+      font-size: 20px;
+    }
+
+    /* Footer */
+    footer p {
+      font-size: 18px;
+    }
+
+    /* Simplified header styling */
+    .header-area {
+      padding: 0 20px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 0;
+    }
+
+    /* Ensure navigation items are properly spaced */
+    .main-nav .nav {
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .main-nav .nav li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-family: 'Gill Sans', sans-serif;
+      font-size: 18px;
+    }
+
+    .main-nav .nav li a:hover {
+      color: #3B82F6;
+    }
+
+    /* Search input styling */
+    .search-input {
+      flex: 1;
+      max-width: 400px;
+      margin: 0 20px;
+      position: relative;
+    }
+
+    .search-input input {
+      width: 100%;
+      padding: 8px 15px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-family: 'Gill Sans', sans-serif;
+      font-size: 18px;
+    }
+
+    .search-input i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #777;
+    }
+
+    /* Enhanced Hero Section */
+    .enhanced-hero-section {
+      position: relative;
+      min-height: 140vh;
+      background: url('assets/images/zen-image-04.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      margin-bottom: 0;
+      margin-top: -90px;
+      padding: 0 20px;
+    }
+
+    .hero-content-wrapper {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      margin-top: -236px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .enhanced-hero-text {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .enhanced-hero-text h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 25%, #3B82F6 50%, #60A5FA 75%, #93C5FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 30px;
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+      letter-spacing: -1px;
+      text-transform: uppercase;
+    }
+
+    .hero-subtitle {
+      font-size: 22px;
+      color: #1E40AF;
+      margin-bottom: 40px;
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 2px 8px rgba(30, 64, 175, 0.3);
+      font-family: 'Gill Sans', sans-serif;
+    }
+
+    .enhanced-hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .hero-btn {
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      min-width: 180px;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Gill Sans', sans-serif;
+    }
+
+    .hero-btn-primary {
+      background: linear-gradient(135deg, #3B82F6 0%, #6366F1 100%);
+      color: white;
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    }
+
+    .hero-btn-primary:hover {
+      background: linear-gradient(135deg, #2563EB 0%, #4F46E5 100%);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6);
+      color: white;
+    }
+
+    .hero-btn-outline {
+      background: transparent;
+      border: 2px solid rgba(96, 165, 250, 0.8);
+      color: #1E40AF;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+
+    .hero-btn-outline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .hero-btn-outline:hover::before {
+      left: 100%;
+    }
+
+    .hero-btn-outline:hover {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: #60A5FA;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(96, 165, 250, 0.3);
+      color: #1E40AF;
+    }
+
+    .hero-btn-icon {
+      margin-left: 10px;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-btn:hover .hero-btn-icon {
+      transform: translateX(5px);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+      color: white;
+    }
+
+    .hero-stat-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: #3B82F6;
+      display: block;
+      text-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+      font-family: 'Gill Sans', sans-serif;
+    }
+
+    .hero-stat-label {
+      font-size: 18px;
+      color: #1E3A8A;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      text-shadow: 0 1px 4px rgba(30, 58, 138, 0.2);
+      font-family: 'Gill Sans', sans-serif;
+    }
+
+    /* Logo Styles */
+    .logo-image {
+      height: 130px;
+      width: auto;
+      max-width: 500px;
+    }
+
+    /* Module Cards - UPDATED FONT SIZES FOR TASK 1 */
+    .homepage-module-card .down-content small {
+      font-size: 18px; /* Increased from default */
+    }
+    
+    .homepage-module-card .down-content .main-button a {
+      font-size: 18px; /* Increased for "Start Learning" */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        font-size: 18px;
+      }
+      
+      .main-nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .search-input {
+        max-width: 100%;
+        margin: 10px 0;
+      }
+      
+      .main-nav .nav {
+        gap: 15px;
+      }
+      
+      .enhanced-hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-btn {
+        width: 100%;
+        max-width: 280px;
+        font-size: 18px;
+      }
+
+      .hero-stats {
+        gap: 20px;
+      }
+
+      .hero-stat-number {
+        font-size: 24px;
+      }
+      
+      .hero-stat-label {
+        font-size: 16px;
+      }
+
+      .hero-subtitle {
+        font-size: 20px;
+      }
+      
+      .logo-image {
+        height: 35px;
+        max-width: 150px;
+      }
+      
+      /* Adjust font sizes for mobile */
+      .service-item h4 {
+        font-size: 24px;
+      }
+      
+      .service-item p {
+        font-size: 20px;
+      }
+      
+      .section-heading h2 {
+        font-size: 28px;
+      }
+      
+      .section-heading p {
+        font-size: 18px;
+      }
+      
+      .accordion-button {
+        font-size: 20px;
+      }
+      
+      .accordion-body {
+        font-size: 18px;
+      }
+      
+      .courses .section-heading h2 {
+        font-size: 28px;
+      }
+      
+      .homepage-module-card .down-content h4 {
+        font-size: 20px;
+      }
+      
+      .homepage-module-card .down-content p {
+        font-size: 18px;
+      }
+      
+      .homepage-module-card .down-content small {
+        font-size: 16px; /* Adjusted for mobile */
+      }
+      
+      .homepage-module-card .down-content .main-button a {
+        font-size: 16px; /* Adjusted for mobile */
+      }
+      
+      .learning-area-card .down-content h4 {
+        font-size: 22px;
+      }
+      
+      .learning-area-card .down-content p {
+        font-size: 18px;
+      }
+      
+      .counter h2 {
+        font-size: 36px;
+      }
+      
+      .counter p {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 18px;
+      }
+      
+      .logo-image {
+        height: 30px;
+        max-width: 130px;
+      }
+
+      .enhanced-hero-text h2 {
+        font-size: 2.2rem;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .hero-btn {
+        font-size: 18px;
+        padding: 14px 30px;
+      }
+      
+      .hero-subtitle {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-content">
+      <div class="kenbright-loader">Kenbright</div>
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Loading Training Platform...</div>
+      <div class="loader-progress">
+        <div class="loader-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <nav class="main-nav">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+      </a>
+
+      <!-- Search -->
+      <div class="search-input">
+        <form id="search" action="#">
+          <input type="text" placeholder="Search IFRS 17 concepts..." id='searchText' name="searchKeyword" />
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
+
+      <!-- Main Navigation -->
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="modules.html">Training Modules</a></li>
+        <li><a href="assessments.html">Test Assessments</a></li>
+        <li><a href="progress.html">My Progress</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- Enhanced Hero Section -->
+  <div class="enhanced-hero-section" id="top">
+    <div class="hero-content-wrapper">
+      <div class="enhanced-hero-text">
+        <h2>IFRS 17 TRAINING HUB</h2>
+
+        <p class="hero-subtitle">
+          Master the new insurance contracts standard with our comprehensive digital training platform.
+          Gain practical skills and industry-recognized expertise in IFRS 17 implementation.
+        </p>
+
+        <div class="enhanced-hero-buttons">
+          <a href="modules.html" class="hero-btn hero-btn-primary">
+            Start Training Journey
+            <i class="fas fa-arrow-right hero-btn-icon"></i>
+          </a>
+          <a href="#services" class="hero-btn hero-btn-outline">
+            Explore Features
+            <i class="fas fa-search hero-btn-icon"></i>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number">15</span>
+            <span class="hero-stat-label">Expert Modules</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">100%</span>
+            <span class="hero-stat-label">Practical Focus</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">24/7</span>
+            <span class="hero-stat-label">Access</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Enhanced Hero Section End ***** -->
+
+  <!-- Services Section -->
+  <div class="services section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-item">
+            <div class="main-content">
+              <div class="icon">
+                <img src="assets/images/service-01.png" alt="Comprehensive Modules">
+              </div>
+              <h4>15 Training Modules</h4>
+              <p>Structured learning path covering all aspects of IFRS 17 from basic concepts to advanced
+                implementation.</p>
+              <div class="main-button">
+                <a href="modules.html">View Modules</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-item">
+            <div class="main-content">
+              <div class="icon">
+                <img src="assets/images/service-02.png" alt="Interactive Assessments">
+              </div>
+              <h4>Module Assessments</h4>
+              <p>Reinforce your learning with quizzes and practical application exercises at the end of each module.</p>
+              <div class="main-button">
+                <a href="assessments.html">Take Assessment</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-item">
+            <div class="main-content">
+              <div class="icon">
+                <img src="assets/images/service-03.png" alt="Progress Tracking">
+              </div>
+              <h4>Progress Tracking</h4>
+              <p>Monitor your advancement, completion status, and performance metrics in real-time.</p>
+              <div class="main-button">
+                <a href="progress.html">Track Progress</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="section about-us">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-1">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  What is IFRS 17?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>IFRS 17 Insurance Contracts</strong> is the new accounting standard that replaces IFRS 4. It
+                  establishes principles for the recognition, measurement, presentation and disclosure of insurance
+                  contracts, providing a consistent framework for all insurance contracts.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Who should take this training?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  This training is essential for <strong>insurance accountants, financial analysts, auditors, actuaries,
+                    and finance professionals</strong> working in insurance companies or dealing with insurance contract
+                  accounting.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  What will I learn?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  You'll master <strong>insurance contract identification, measurement models (BBA, PAA, VFA), CSM
+                    calculation, presentation requirements, and disclosure obligations</strong> under IFRS 17.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Is this training self-paced?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Yes! This is a completely <strong>self-paced training program</strong>. You can learn at your own pace
+                  with 24/7 access to all materials and modules.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 align-self-center">
+          <div class="section-heading">
+            <h6>About This Training</h6>
+            <h2>Kenbright IFRS 17 Digital Training</h2>
+            <p>This self-paced training provides a comprehensive overview of IFRS 17, including its objectives, core
+              measurement models, and practical applications for insurance contract accounting.</p>
+            <div class="main-button">
+              <a href="modules.html">Start Learning Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Courses Section - UPDATED WITH MODULE STYLING -->
+  <section class="section courses" id="modules">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="section-heading">
+            <h6>IFRS 17 Curriculum</h6>
+            <h2>15 Comprehensive Training Modules</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row event_box">
+        <!-- Module 1 -->
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer">
+          <div class="homepage-module-card">
+            <div class="thumb">
+              <a href="module-1.html"><img src="assets/images/course-01.jpg" alt="Module 1"></a>
+              <span class="category">Module 1</span>
+            </div>
+            <div class="down-content">
+              <span class="author">Foundational Concepts</span>
+              <h4>Introduction and Scope of IFRS 17</h4>
+              <p>Understanding the Paradigm Shift in Insurance Accounting</p>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0"
+                  aria-valuemax="100"></div>
+              </div>
+              <small>0% Complete</small>
+              <div class="main-button">
+                <a href="module-1.html">Start Learning</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Module 2 -->
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer">
+          <div class="homepage-module-card">
+            <div class="thumb">
+              <a href="module-2.html"><img src="assets/images/course-02.jpg" alt="Module 2"></a>
+              <span class="category">Module 2</span>
+            </div>
+            <div class="down-content">
+              <span class="author">Contract Analysis</span>
+              <h4>Combination and Separation of Insurance Contracts</h4>
+              <p>Mastering contract boundary assessment</p>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0"
+                  aria-valuemax="100"></div>
+              </div>
+              <small>0% Complete</small>
+              <div class="main-button">
+                <a href="module-2.html">Start Learning</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Module 3 -->
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer">
+          <div class="homepage-module-card">
+            <div class="thumb">
+              <a href="module-3.html"><img src="assets/images/course-03.jpg" alt="Module 3"></a>
+              <span class="category">Module 3</span>
+            </div>
+            <div class="down-content">
+              <span class="author">Technical Implementation</span>
+              <h4>Level of Aggregation</h4>
+              <p>Understanding portfolio and cohort grouping</p>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0"
+                  aria-valuemax="100"></div>
+              </div>
+              <small>0% Complete</small>
+              <div class="main-button">
+                <a href="module-3.html">Start Learning</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="main-button">
+            <a href="modules.html">View All 15 Modules</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Stats -->
+  <div class="section fun-facts" id="progress">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper">
+            <div class="row">
+              <div class="col-lg-3 col-md-6">
+                <div class="counter">
+                  <h2 class="timer count-title count-number" data-to="0" data-speed="1000">0</h2>
+                  <p class="count-text ">Modules Completed</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="counter">
+                  <h2 class="timer count-title count-number" data-to="15" data-speed="1000">15</h2>
+                  <p class="count-text ">Total Modules</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="counter">
+                  <h2 class="timer count-title count-number" data-to="0" data-speed="1000">0</h2>
+                  <p class="count-text ">Assessments Taken</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="counter end">
+                  <h2 class="timer count-title count-number" data-to="0" data-speed="1000">0</h2>
+                  <p class="count-text ">Average Score</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Measurement Models - UPDATED WITH IMAGE THUMB AND BLUE CONTENT -->
+  <div class="section measurement-models" id="measurement">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="section-heading">
+            <h6>Core IFRS 17 Components</h6>
+            <h2>Key Learning Areas</h2>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 align-self-center mb-30">
+          <div class="learning-area-card">
+            <div class="thumb">
+              <img src="assets/images/measurementmodel.jpg" alt="Measurement Models">
+            </div>
+            <div class="down-content">
+
+              <h4>Measurement Models</h4>
+              <p>Comprehensive coverage of Building Block Approach (BBA), Premium Allocation Approach (PAA), and
+                Variable Fee Approach (VFA).</p>
+              <div class="main-button">
+                <a href="modules.html">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30">
+          <div class="learning-area-card">
+            <div class="thumb">
+              <img src="assets/images/csm.jpg" alt="Contract Service Margin">
+            </div>
+            <div class="down-content">
+
+              <h4>Contract Service Margin</h4>
+              <p>In-depth understanding of CSM calculation, amortization, and its impact on financial statements.</p>
+              <div class="main-button">
+                <a href="modules.html">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30">
+          <div class="learning-area-card">
+            <div class="thumb">
+              <img src="assets/images/riskadj.jpg" alt="Risk Adjustment">
+            </div>
+            <div class="down-content">
+
+              <h4>Risk Adjustment</h4>
+              <p>Master the concepts of risk adjustment for non-financial risk and its application in insurance
+                contracts.</p>
+              <div class="main-button">
+                <a href="modules.html">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <!-- Loader Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const pageLoader = document.getElementById('pageLoader');
+
+      // Update copyright year automatically
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      setTimeout(() => {
+        pageLoader.classList.add('hidden');
+
+        setTimeout(() => {
+          pageLoader.remove();
+        }, 500);
+      }, 1500);
+    });
+
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (link && link.href && !link.href.includes('javascript:') &&
+        !link.href.includes('#') && link.target !== '_blank') {
+        const pageLoader = document.getElementById('pageLoader');
+        if (pageLoader) {
+          pageLoader.classList.remove('hidden');
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

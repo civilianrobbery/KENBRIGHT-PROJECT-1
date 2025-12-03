@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <title>Module 13: Presentation in the Statement of Financial Position | Kenbright</title>
+    
+    <!-- CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <style>
+        /* Apply Gill Sans font to entire page with specified sizes */
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .nav li a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .btn, .main-button a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Page Loader Styles */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: white;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .kenbright-loader {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .loader-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .loader-progress-bar {
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            animation: progress 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        /* Content Styling */
+        .section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .main-module-content {
+            font-size: 20px;
+        }
+        
+        .content-section {
+            margin: 50px 0;
+        }
+        
+        .content-section h4 {
+            color: #1e3c72;
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #14B8A6;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 35px;
+            font-size: 20px;
+        }
+        
+        .content-card h5 {
+            color: #1e3c72;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .content-card h6 {
+            color: #1e3c72;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .content-card p {
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            font-size: 20px;
+            line-height: 1.7;
+        }
+        
+        .key-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        
+        /* Learning Objectives */
+        .learning-objectives h3 {
+            font-size: 28px;
+        }
+        
+        .objective-item {
+            font-size: 20px;
+        }
+
+        /* Enhanced Table Styling */
+        .comparison-table th {
+            font-size: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .comparison-table td {
+            font-size: 20px;
+            padding: 15px;
+            vertical-align: top;
+        }
+
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .comparison-table tbody tr:hover {
+            background-color: #e9ecef;
+            transition: background-color 0.3s ease;
+        }
+
+        .comparison-table .aspect-col {
+            font-weight: 600;
+            color: #1e3c72;
+            background: #f8f9fa;
+        }
+
+        .comparison-table .ifrs4-col {
+            border-left: 2px solid #e9ecef;
+            background: #fff5f5;
+        }
+
+        .comparison-table .ifrs17-col {
+            border-left: 2px solid #e9ecef;
+            background: #f0f9ff;
+        }
+
+        /* Balance Sheet Transition Table */
+        .balance-sheet-table th {
+            font-size: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+        }
+
+        .balance-sheet-table td {
+            font-size: 20px;
+            padding: 15px;
+            vertical-align: middle;
+        }
+
+        .balance-sheet-table .section-header {
+            background: #1e3c72;
+            color: white;
+            font-weight: 700;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .balance-sheet-table .line-item {
+            padding-left: 40px;
+            font-weight: 500;
+            color: #4a4a4a;
+        }
+
+        .balance-sheet-table .line-item-number {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .balance-sheet-table .total-row {
+            background: #e9ecef;
+            font-weight: 700;
+            font-size: 22px;
+            border-top: 2px solid #dee2e6;
+        }
+
+        /* Enhanced Content Cards */
+        .presentation-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+            margin-bottom: 35px;
+            font-size: 20px;
+        }
+
+        .presentation-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .income-statement-breakdown {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid #28a745;
+            font-size: 20px;
+        }
+
+        .income-statement-breakdown h5 {
+            font-size: 24px;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+
+        .breakdown-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #17a2b8;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            font-size: 20px;
+        }
+
+        .breakdown-item h6 {
+            font-size: 22px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        .breakdown-item ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Key Takeaways Styling */
+        .takeaways-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .takeaway-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #ffc107;
+            transition: transform 0.3s ease;
+        }
+
+        .takeaway-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .takeaway-card h5 {
+            font-size: 22px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .takeaway-card ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Transition Impact Section */
+        .transition-impact {
+            background: #e8f5e8;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 5px solid #28a745;
+            font-size: 20px;
+        }
+
+        .transition-impact h5 {
+            font-size: 24px;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+
+        .impact-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 3px solid #28a745;
+            font-size: 20px;
+        }
+
+        /* Enhanced Alert Styling */
+        .presentation-alert {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid #2196F3;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 20px;
+        }
+
+        .presentation-alert h6 {
+            font-size: 22px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        .presentation-alert.warning {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left-color: #ffc107;
+        }
+
+        .implementation-checklist {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #ff9800;
+            font-size: 20px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .checklist-number {
+            background: #ff9800;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .checklist-content strong {
+            font-size: 22px;
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .checklist-content p {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        /* Header styling */
+        .header-area {
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        .main-nav .nav {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .main-nav .nav li a:hover {
+            color: #3B82F6;
+        }
+
+        /* Search input styling */
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input input {
+            width: 100%;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .search-input i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 130px;
+            width: auto;
+            max-width: 500px;
+        }
+
+        /* Banner */
+        .main-banner {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #2563EB 100%);
+            padding: 120px 0px 80px 0px;
+        }
+
+        .main-banner .header-text h2 {
+            color: #fff !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 42px;
+        }
+        
+        .main-banner .header-text p {
+            color: #E2E8F0 !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 22px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-nav {
+            background: #f8f9fa;
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .breadcrumb-item a {
+            color: #1e3c72;
+            font-weight: 500;
+        }
+
+        /* Module Header Card */
+        .module-header-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .module-meta-info {
+            font-size: 20px;
+        }
+
+        .module-number {
+            font-size: 20px;
+        }
+
+        .progress-status {
+            font-size: 20px;
+        }
+
+        /* Measurement Cards */
+        .measurement-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .measurement-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .measurement-card h6 {
+            font-size: 22px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        .measurement-card ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Scope Cards */
+        .scope-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .scope-card {
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .scope-card h5 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .scope-card ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .scope-card.in-scope {
+            border-left: 4px solid #28a745;
+            background: linear-gradient(to right, #f0fff4, #ffffff);
+        }
+
+        /* Conclusion */
+        .conclusion-card {
+            padding: 40px;
+            font-size: 22px;
+            background: linear-gradient(135deg, #5f89b4 0%, #ffffff 100%);
+            border-left: 4px solid #14B8A6;
+        }
+
+        .key-takeaways h5 {
+            font-size: 24px;
+            color: #1e3c72;
+        }
+
+        .key-takeaways li {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .next-module {
+            font-size: 22px;
+            color: #1e3c72;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .nav-button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button.prev {
+            background: #f8f9fa;
+            color: #1e3c72;
+            border: 2px solid #667eea;
+        }
+
+        .nav-button.prev:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-button.next {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .nav-button.next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Module Actions */
+        .module-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .module-actions button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .module-actions .main-button.outline {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .module-actions .main-button.outline:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .module-actions .main-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .module-actions .main-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .module-actions .main-button.primary {
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+        }
+
+        .module-actions .main-button.primary:hover {
+            box-shadow: 0 5px 15px rgba(20, 184, 166, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 18px;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card,
+            .presentation-card {
+                padding: 25px;
+                font-size: 18px;
+            }
+            
+            .content-card h5,
+            .presentation-card h5 {
+                font-size: 22px;
+            }
+            
+            .content-card h6,
+            .presentation-card h6 {
+                font-size: 20px;
+            }
+            
+            .content-section h4 {
+                font-size: 24px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 32px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 18px;
+            }
+            
+            .comparison-table th,
+            .balance-sheet-table th {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .comparison-table td,
+            .balance-sheet-table td {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-input {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .main-nav .nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .logo-image {
+                height: 35px;
+                max-width: 150px;
+            }
+            
+            .module-actions {
+                flex-direction: column;
+            }
+            
+            .module-actions button {
+                width: 100%;
+            }
+            
+            .measurement-cards,
+            .scope-cards,
+            .takeaways-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .balance-sheet-table .line-item {
+                padding-left: 20px;
+            }
+            
+            .breakdown-item,
+            .transition-impact,
+            .implementation-checklist {
+                padding: 20px;
+                font-size: 18px;
+            }
+            
+            .breakdown-item h6,
+            .transition-impact h5,
+            .takeaway-card h5 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card,
+            .presentation-card {
+                padding: 20px;
+                font-size: 18px;
+            }
+            
+            .content-card h5,
+            .presentation-card h5 {
+                font-size: 20px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 28px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 16px;
+            }
+            
+            .logo-image {
+                height: 30px;
+                max-width: 130px;
+            }
+            
+            .nav-button {
+                font-size: 16px;
+                padding: 10px 20px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .module-navigation .row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .module-navigation .col-lg-6 {
+                width: 100%;
+            }
+            
+            .module-navigation .text-end {
+                text-align: left !important;
+            }
+            
+            .balance-sheet-table .section-header {
+                font-size: 20px;
+            }
+            
+            .checklist-content strong {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+          <div class="kenbright-loader">Kenbright</div>
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading Module 13...</div>
+          <div class="loader-progress">
+              <div class="loader-progress-bar"></div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+                    </a>
+                    
+                    <!-- Search -->
+                    <div class="search-input">
+                        <form id="search" action="#">
+                            <input type="text" placeholder="Search IFRS 17 concepts..." id='searchText' name="searchKeyword" />
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </div>
+                    
+                    <!-- Main Navigation -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="modules.html" class="active">Training Modules</a></li>
+                        <li><a href="assessments.html">Test Assessments</a></li>
+                        <li><a href="progress.html">My Progress</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2>Module 13: Presentation in the Statement of Financial Position</h2>
+            <p>Mastering Financial Statement Presentation under IFRS 17</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Training Modules</a></li>
+          <li class="breadcrumb-item active">Module 13</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Module Content Area -->
+  <section class="section module-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <!-- Module Header Card -->
+          <div class="module-header-card">
+            <div class="module-meta-info">
+              <span class="module-number">Module 13</span>
+              <span class="progress-status">0% Complete</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <!-- Learning Objectives -->
+          <div class="learning-objectives">
+            <h3><i class="fa fa-bullseye"></i> Learning Objectives</h3>
+            <div class="objectives-grid">
+              <div class="objective-item">
+                <i class="fa fa-balance-scale"></i>
+                <span>Understand fundamental changes in balance sheet presentation under IFRS 17</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-file-invoice-dollar"></i>
+                <span>Apply separation requirements for insurance and reinsurance contracts</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-exchange-alt"></i>
+                <span>Differentiate between IFRS 4 and IFRS 17 presentation approaches</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-chart-line"></i>
+                <span>Implement income statement presentation for insurance service results</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-clipboard-check"></i>
+                <span>Manage transition impacts on financial statement presentation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Topics -->
+          <div class="key-topics">
+            <h4><i class="fa fa-key"></i> Key Topics Covered</h4>
+            <div class="topics-list">
+              <span class="topic-badge">Balance Sheet Presentation</span>
+              <span class="topic-badge">Income Statement Components</span>
+              <span class="topic-badge">IFRS 4 vs IFRS 17 Comparison</span>
+              <span class="topic-badge">Risk Adjustment Treatment</span>
+              <span class="topic-badge">Transition Requirements</span>
+              <span class="topic-badge">Implementation Implications</span>
+            </div>
+          </div>
+
+          <!-- Main Module Content -->
+          <div class="main-module-content">
+            
+            <!-- 13.1 Introduction -->
+            <div class="content-section">
+              <h4>13.1 Introduction</h4>
+              
+              <div class="presentation-card">
+                <p>This module provides an in-depth overview of the fundamental changes in the presentation of the statement of financial position under IFRS 17 compared to IFRS 4, as covered under paragraphs 78-82 of the standard. The transition from IFRS 4 to IFRS 17 represents a significant shift in how insurance companies present their financial position, moving from diverse practices to a standardized, transparent approach that enhances comparability across insurers and jurisdictions.</p>
+                
+                <div class="key-point">
+                  <strong>Standardization Objective:</strong> IFRS 17 mandates that insurance companies present insurance and reinsurance contracts separately in their financial statements with clear distinction between assets and liabilities. This separation requirement ensures that stakeholders can clearly understand the financial exposure and position of the insurer.
+                </div>
+              </div>
+            </div>
+
+            <!-- 13.2 Balance Sheet Presentation Requirements -->
+            <div class="content-section">
+              <h4>13.2 Balance Sheet Presentation Requirements</h4>
+              
+              <div class="presentation-card">
+                <p>Under IFRS 17, insurers must clearly present in their statement of financial position:</p>
+                
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Insurance Contracts Issued - Assets</h6>
+                    <p>Contracts where expected inflows exceed outflows</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Insurance Contracts Issued - Liabilities</h6>
+                    <p>Contracts where expected outflows exceed inflows</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Reinsurance Contracts Held - Assets</h6>
+                    <p>Reinsurance recoverables and related assets</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Reinsurance Contracts Held - Liabilities</h6>
+                    <p>Reinsurance obligations and related liabilities</p>
+                  </div>
+                </div>
+
+                <div class="presentation-alert">
+                  <h6><i class="fa fa-exclamation-circle"></i> Fundamental Departure:</h6>
+                  <p>This explicit separation represents a fundamental departure from IFRS 4, where net presentation was common and often obscured the true financial position of insurers.</p>
+                </div>
+
+                <h5>Key Balance Sheet Principles:</h5>
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Liability Recognition</h5>
+                    <p>If a group of insurance contracts is expected to pay out more than it will receive (i.e., expected outflows exceed inflows), it must be shown as a liability. This applies equally to:</p>
+                    <ul>
+                      <li>Onerous contracts (those expected to generate losses)</li>
+                      <li>Outstanding claims (amounts the insurer still owes to policyholders)</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Acquisition Costs Treatment</h5>
+                    <p>Acquisition costs, such as commissions paid to agents and brokers, are included in the total value of contracts on the balance sheet rather than being presented separately as deferred acquisition costs (DAC). This integration provides a more comprehensive picture of the insurer's financial position by reflecting these costs within the contract measurement.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 13.3 Income Statement Presentation -->
+            <div class="content-section">
+              <h4>13.3 Income Statement Presentation</h4>
+              
+              <div class="presentation-card">
+                <p>In the statement of profit or loss (income statement), IFRS 17 requires clear presentation of two main components:</p>
+
+                <div class="income-statement-breakdown">
+                  <h5>1. Insurance Service Result</h5>
+                  <p>This represents income and expenses from providing insurance services, excluding investment-related amounts.</p>
+                  
+                  <div class="breakdown-item">
+                    <h6>Components Included:</h6>
+                    <ul>
+                      <li><strong>Premiums earned</strong> from providing insurance coverage</li>
+                      <li><strong>Claims and benefits paid</strong> during the period</li>
+                      <li><strong>Acquisition costs</strong> allocated to the period</li>
+                      <li><strong>Changes in risk adjustment</strong> for non-financial risk</li>
+                      <li><strong>Amortization of the contractual service margin (CSM)</strong></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="income-statement-breakdown">
+                  <h5>2. Insurance Finance Income or Expenses</h5>
+                  <p>This component reflects the effect of interest rates and time on expected future cash flows.</p>
+                  
+                  <div class="breakdown-item">
+                    <h6>Components Included:</h6>
+                    <ul>
+                      <li><strong>Time value of money</strong> on future cash flows</li>
+                      <li><strong>Changes in discount rates</strong></li>
+                      <li><strong>Financial risks</strong> associated with insurance contracts</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="presentation-alert warning">
+                  <h6><i class="fa fa-info-circle"></i> Risk Adjustment Treatment:</h6>
+                  <p>An insurer is not required to disaggregate the change in the risk adjustment for non-financial risk between the insurance service result and insurance finance income or expenses. If the insurer elects not to make such a disaggregation, the entire change in the risk adjustment for non-financial risk must be included as part of the insurance service result.</p>
+                </div>
+
+                <h5>Ongoing Review Requirement</h5>
+                <p>IFRS 17 requires insurers to review their estimates and assumptions at each reporting date to ensure they continue to reflect the true financial situation, incorporating current market conditions and updated expectations.</p>
+              </div>
+            </div>
+
+            <!-- 13.4 IFRS 4 vs IFRS 17: Comprehensive Comparison -->
+            <div class="content-section">
+              <h4>13.4 IFRS 4 vs IFRS 17: Comprehensive Comparison</h4>
+              
+              <div class="presentation-card">
+                <p>The table below provides a detailed comparison of presentation requirements between IFRS 4 and IFRS 17 across critical financial reporting aspects:</p>
+
+                <div class="table-responsive">
+                  <table class="table comparison-table">
+                    <thead>
+                      <tr>
+                        <th width="25%">Aspect</th>
+                        <th width="37.5%">IFRS 4</th>
+                        <th width="37.5%">IFRS 17</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="aspect-col">Presentation on Insurance Contracts</td>
+                        <td class="ifrs4-col">Insurers often presented net positions (e.g., premiums receivable net of claims payable), leading to transparency issues in financial exposure assessment. No specific rules mandated separate presentation.</td>
+                        <td class="ifrs17-col">Requires clear separation between insurance contract assets and insurance contract liabilities. Ensures clarity on whether an entity is in a net asset or net liability position for each contract group.</td>
+                      </tr>
+                      <tr>
+                        <td class="aspect-col">Level of Aggregation</td>
+                        <td class="ifrs4-col">Presentation typically occurred at portfolio or product line level with limited grouping guidance, resulting in inconsistent practices across the industry.</td>
+                        <td class="ifrs17-col">Contracts must be grouped by issue year and expected profitability into: (i) onerous contracts, (ii) contracts with no significant possibility of becoming onerous, and (iii) remaining contracts. Presentation occurs at the contract group level.</td>
+                      </tr>
+                      <tr>
+                        <td class="aspect-col">Contractual Service Margin (CSM)</td>
+                        <td class="ifrs4-col">CSM was not recognized. Profits were often front-loaded or deferred through unearned premium reserves or deferred acquisition costs (DAC).</td>
+                        <td class="ifrs17-col">CSM is a core liability component representing unearned profit. It is amortized over the coverage period, ensuring profit recognition aligns with service provision.</td>
+                      </tr>
+                      <tr>
+                        <td class="aspect-col">Acquisition Costs (DAC)</td>
+                        <td class="ifrs4-col">Acquisition costs could be capitalized and presented as a separate Deferred Acquisition Cost asset, disconnected from insurance liabilities.</td>
+                        <td class="ifrs17-col">Acquisition costs are included in fulfillment cash flows, which affect the CSM. DAC is no longer a separate balance sheet item, aligning cost recognition with insurance liability measurement.</td>
+                      </tr>
+                      <tr>
+                        <td class="aspect-col">Onerous Contracts</td>
+                        <td class="ifrs4-col">No explicit requirement existed to identify or account separately for onerous contracts, allowing insurers to smooth losses over time.</td>
+                        <td class="ifrs17-col">Onerous contract groups must be identified at initial recognition. Any loss is recognized immediately in profit or loss, and the group is shown as a liability in the statement of financial position.</td>
+                      </tr>
+                      <tr>
+                        <td class="aspect-col">Risk Adjustment</td>
+                        <td class="ifrs4-col">Not required. No standardized method existed to reflect uncertainty or risk in liability valuation, leading to inconsistent risk reporting.</td>
+                        <td class="ifrs17-col">A risk adjustment for non-financial risk must be included in insurance liability measurement. This adds a buffer for uncertainty in fulfillment cash flows, enhancing risk transparency.</td>
+                      </tr>
+                      <tr>
+                        <td class="aspect-col">Reinsurance Contracts</td>
+                        <td class="ifrs4-col">Often netted against underlying insurance contracts or presented inconsistently across companies, reducing comparability.</td>
+                        <td class="ifrs17-col">Reinsurance contracts are presented separately as assets or liabilities and measured independently from underlying insurance contracts, improving transparency.</td>
+                      </tr>
+                      <tr>
+                        <td class="aspect-col">Transparency & Comparability</td>
+                        <td class="ifrs4-col">Low comparability across insurers due to different local GAAPs and inconsistent application. Diverse presentations reduced financial statement usefulness.</td>
+                        <td class="ifrs17-col">High comparability through uniform structure enforcement. Enhanced disclosures improve comparability across insurers and jurisdictions.</td>
+                      </tr>
+                      <tr>
+                        <td class="aspect-col">Measurement Basis</td>
+                        <td class="ifrs4-col">Frequently relied on historical assumptions, such as unadjusted premium cash flows and static reserves. Assumptions were not regularly updated.</td>
+                        <td class="ifrs17-col">Based on current estimates of future cash flows, updated at each reporting date. Includes changes in assumptions and discounting, improving relevance and reliability.</td>
+                      </tr>
+                      <tr>
+                        <td class="aspect-col">Offsetting Allowed?</td>
+                        <td class="ifrs4-col">Offsetting was common (e.g., premiums receivable net of claims payable), reducing visibility of gross exposures and true financial position.</td>
+                        <td class="ifrs17-col">Offsetting is prohibited. This rule enhances balance sheet clarity by requiring gross presentation of assets and liabilities.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 13.5 IFRS 4 vs IFRS 17 Balance Sheet Transition -->
+            <div class="content-section">
+              <h4>13.5 IFRS 4 vs IFRS 17 Balance Sheet Transition</h4>
+              
+              <div class="presentation-card">
+                <p>The table below illustrates the structural transition between the IFRS 4 Balance Sheet presentation and the IFRS 17 Balance Sheet presentation:</p>
+
+                <div class="table-responsive">
+                  <table class="table balance-sheet-table">
+                    <thead>
+                      <tr>
+                        <th width="50%">IFRS 4 Balance Sheet</th>
+                        <th width="50%">IFRS 17 Balance Sheet</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="section-header">
+                        <td colspan="2">ASSETS</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">1</span>
+                          Reinsurance Contract Assets
+                        </td>
+                        <td class="line-item">
+                          <span class="line-item-number">2</span>
+                          Insurance contract assets
+                          <small class="text-muted d-block">(previously items 2,3)</small>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">2</span>
+                          Deferred acquisition costs
+                        </td>
+                        <td class="line-item">
+                          <span class="line-item-number">1</span>
+                          Reinsurance contract assets
+                          <small class="text-muted d-block">(previously items 1,4)</small>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">3</span>
+                          Insurance receivable
+                        </td>
+                        <td class="line-item">
+                          <span class="line-item-number">5</span>
+                          Other assets
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">4</span>
+                          Reinsurance receivables
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">5</span>
+                          Other assets
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr class="total-row">
+                        <td>Total Assets <strong>xx</strong></td>
+                        <td>Total Assets <strong>xx</strong></td>
+                      </tr>
+                      
+                      <tr class="section-header">
+                        <td colspan="2">EQUITY</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">1</span>
+                          Share capital
+                        </td>
+                        <td class="line-item">
+                          <span class="line-item-number">1</span>
+                          Share capital
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">2</span>
+                          Statutory reserves
+                        </td>
+                        <td class="line-item">
+                          <span class="line-item-number">2</span>
+                          Statutory reserves
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">3</span>
+                          General reserves
+                        </td>
+                        <td class="line-item">
+                          <span class="line-item-number">3</span>
+                          General reserves
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">4</span>
+                          Retained earnings
+                        </td>
+                        <td class="line-item">
+                          <span class="line-item-number">4</span>
+                          Retained earnings
+                        </td>
+                      </tr>
+                      <tr class="total-row">
+                        <td>Total Equity <strong>xx</strong></td>
+                        <td>Total Equity <strong>xx</strong></td>
+                      </tr>
+                      
+                      <tr class="section-header">
+                        <td colspan="2">LIABILITIES</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">1</span>
+                          Insurance contract liabilities
+                        </td>
+                        <td class="line-item">
+                          <span class="line-item-number">1</span>
+                          Insurance contract liabilities
+                          <small class="text-muted d-block">(previously items 1,4)</small>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">2</span>
+                          Deferred Commission Income
+                        </td>
+                        <td class="line-item">
+                          <span class="line-item-number">2</span>
+                          Reinsurance contract liabilities
+                          <small class="text-muted d-block">(previously items 2,3,5)</small>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">3</span>
+                          Reinsurance deposits retained
+                        </td>
+                        <td class="line-item">
+                          <span class="line-item-number">6</span>
+                          Other Liabilities
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">4</span>
+                          Payable arising out of insurance arrangements
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">5</span>
+                          Payable arising out of reinsurance arrangements
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">
+                          <span class="line-item-number">6</span>
+                          Other Liabilities
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr class="total-row">
+                        <td>Total Liabilities <strong>xx</strong></td>
+                        <td>Total Liabilities <strong>xx</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h5>Key Structural Changes in Balance Sheet Presentation:</h5>
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Assets Restructuring</h6>
+                    <ul>
+                      <li>Elimination of separate "Deferred acquisition costs" line item</li>
+                      <li>Consolidation of insurance-related receivables into "Insurance contract assets"</li>
+                      <li>Clear separation between "Insurance contract assets" and "Reinsurance contract assets"</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="measurement-card">
+                    <h6>Liabilities Reorganization</h6>
+                    <ul>
+                      <li>Removal of "Deferred Commission Income" as a separate liability</li>
+                      <li>Consolidation of insurance contract liabilities into a single comprehensive line item</li>
+                      <li>Separate presentation of reinsurance contract liabilities</li>
+                      <li>Elimination of detailed payable classifications related to insurance and reinsurance arrangements</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="measurement-card">
+                    <h6>Enhanced Classification</h6>
+                    <ul>
+                      <li>Clear distinction between insurance and reinsurance contracts</li>
+                      <li>Integrated presentation of all contract-related assets and liabilities</li>
+                      <li>Improved aggregation following the contract grouping requirements</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 13.6 Key Takeaways and Implementation Implications -->
+            <div class="content-section">
+              <h4>13.6 Key Takeaways and Implementation Implications</h4>
+              
+              <div class="presentation-card">
+                <div class="takeaways-grid">
+                  <div class="takeaway-card">
+                    <h5>Enhanced Transparency</h5>
+                    <ul>
+                      <li>IFRS 17 requires clear separation of insurance assets and liabilities</li>
+                      <li>Eliminates net presentation common under IFRS 4</li>
+                      <li>Enables better assessment of insurer's true financial exposure</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="takeaway-card">
+                    <h5>Acquisition Costs Integration</h5>
+                    <ul>
+                      <li>Deferred Acquisition Costs (DAC) absorbed into fulfillment cash flows</li>
+                      <li>No longer presented as separate assets</li>
+                      <li>Aligns cost recognition with insurance liability recognition</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="takeaway-card">
+                    <h5>Onerous Contract Recognition</h5>
+                    <ul>
+                      <li>Onerous contracts explicitly identified and measured</li>
+                      <li>Losses recognized immediately rather than deferred</li>
+                      <li>Enhanced disclosure requirements</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="takeaway-card">
+                    <h5>Offsetting Prohibition</h5>
+                    <ul>
+                      <li>Prohibition on offsetting receivables and liabilities</li>
+                      <li>Enhances balance sheet clarity</li>
+                      <li>Provides better insight into scale of insurance operations</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="takeaway-card">
+                    <h5>Risk and Profitability Alignment</h5>
+                    <ul>
+                      <li>Risk adjustments and CSM significantly alter liability presentation</li>
+                      <li>Profit recognition aligns with service provision</li>
+                      <li>Moves away from premium collection timing</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="transition-impact">
+                  <h5>Transition Impact</h5>
+                  <p>The transition from IFRS 4 to IFRS 17 requires significant restructuring of balance sheet presentation, with particular attention to:</p>
+                  
+                  <div class="implementation-checklist">
+                    <div class="checklist-item">
+                      <div class="checklist-number">1</div>
+                      <div class="checklist-content">
+                        <strong>Reclassification of insurance and reinsurance balances</strong>
+                        <p>Restructuring existing balances to align with new presentation requirements</p>
+                      </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                      <div class="checklist-number">2</div>
+                      <div class="checklist-content">
+                        <strong>Integration of acquisition costs into contract measurements</strong>
+                        <p>Eliminating separate DAC presentation and integrating costs into liability measurement</p>
+                      </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                      <div class="checklist-number">3</div>
+                      <div class="checklist-content">
+                        <strong>Implementation of new grouping and aggregation requirements</strong>
+                        <p>Establishing contract groups by issue year and profitability status</p>
+                      </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                      <div class="checklist-number">4</div>
+                      <div class="checklist-content">
+                        <strong>Establishment of CSM and risk adjustment calculations</strong>
+                        <p>Developing methodologies for CSM amortization and risk adjustment measurement</p>
+                      </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                      <div class="checklist-number">5</div>
+                      <div class="checklist-content">
+                        <strong>Development of robust disclosure frameworks</strong>
+                        <p>Creating comprehensive disclosures to support the new presentation format</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="key-point">
+                  <strong>Comprehensive Transformation:</strong> This comprehensive approach to financial statement presentation under IFRS 17 fundamentally enhances the transparency, comparability, and decision-usefulness of insurance company financial reporting.
+                </div>
+              </div>
+            </div>
+
+            <!-- 13.7 Conclusion -->
+            <div class="content-section conclusion">
+              <h4>13.7 Conclusion: Mastering Financial Statement Presentation</h4>
+              <div class="conclusion-card">
+                <p>Module 13 establishes the comprehensive framework for financial statement presentation under IFRS 17, highlighting the fundamental shift from IFRS 4's diverse practices to a standardized, transparent approach. The enhanced presentation requirements ensure stakeholders can clearly understand an insurer's financial position, risk exposure, and performance drivers.</p>
+                
+                <div class="key-takeaways">
+                  <h5>Key Implementation Focus Areas:</h5>
+                  <ul>
+                    <li>Separate presentation of insurance and reinsurance contract assets and liabilities</li>
+                    <li>Clear distinction between insurance service results and insurance finance income/expenses</li>
+                    <li>Integration of acquisition costs into contract measurements</li>
+                    <li>Prohibition of offsetting to enhance balance sheet clarity</li>
+                    <li>Implementation of robust disclosure frameworks supporting the new presentation</li>
+                  </ul>
+                </div>
+                
+                <div class="next-module">
+                  <strong>Next Module:</strong> Module 14 - Insurance Service Result: Detailed analysis of insurance service performance measurement
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <!-- Module Navigation - UPDATED FOR TASK -->
+          <div class="module-navigation">
+            <div class="row">
+              <div class="col-lg-6">
+                <a href="module-12.html" class="nav-button prev">
+                  <i class="fa fa-arrow-left"></i> Previous Module
+                </a>
+              </div>
+              <div class="col-lg-6 text-end">
+                <!-- CHANGED: Next Module button replaced with Take Module Assessment -->
+                <a href="assessment-13.html" class="nav-button next">
+                  Take Module Assessment <i class="fa fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module Actions - UPDATED FOR TASK -->
+          <div class="module-actions">
+            <button class="main-button outline" id="saveProgress">Save Progress</button>
+            <!-- CHANGED: Take Module Assessment button replaced with Next Module -->
+            <button class="main-button" id="nextModuleBtn" onclick="window.location.href='module-14.html'">
+              Next Module
+            </button>
+            <button class="main-button primary" id="markComplete">Mark Complete</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/module-progress.js"></script>
+
+  <!-- Loader Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const pageLoader = document.getElementById('pageLoader');
+      
+      // Update copyright year automatically
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      
+      setTimeout(() => {
+          pageLoader.classList.add('hidden');
+          
+          setTimeout(() => {
+              pageLoader.remove();
+          }, 500);
+      }, 1500);
+  });
+
+  document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (link && link.href && !link.href.includes('javascript:') && 
+          !link.href.includes('#') && link.target !== '_blank') {
+          const pageLoader = document.getElementById('pageLoader');
+          if (pageLoader) {
+              pageLoader.classList.remove('hidden');
+          }
+      }
+  });
+  </script>
+</body>
+</html>

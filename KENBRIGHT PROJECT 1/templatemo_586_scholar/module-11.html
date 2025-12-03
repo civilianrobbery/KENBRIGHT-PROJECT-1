@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <title>Module 11: Investment Contracts with Discretionary Participation Features | Kenbright</title>
+    
+    <!-- CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <style>
+        /* Apply Gill Sans font to entire page with specified sizes */
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .nav li a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .btn, .main-button a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Page Loader Styles */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: white;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .kenbright-loader {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .loader-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .loader-progress-bar {
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            animation: progress 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        /* Content Styling */
+        .section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .main-module-content {
+            font-size: 20px;
+        }
+        
+        .content-section {
+            margin: 50px 0;
+        }
+        
+        .content-section h4 {
+            color: #1e3c72;
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #14B8A6;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 35px;
+            font-size: 20px;
+        }
+        
+        .content-card h5 {
+            color: #1e3c72;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .content-card h6 {
+            color: #1e3c72;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .content-card p {
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            font-size: 20px;
+            line-height: 1.7;
+        }
+        
+        .key-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        
+        /* Learning Objectives */
+        .learning-objectives h3 {
+            font-size: 28px;
+        }
+        
+        .objective-item {
+            font-size: 20px;
+        }
+
+        /* Regulatory Table Styling */
+        .regulatory-table th {
+            font-size: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+        }
+
+        .regulatory-table td {
+            font-size: 20px;
+            padding: 15px;
+            vertical-align: top;
+        }
+
+        .regulatory-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .regulatory-table tbody tr:hover {
+            background-color: #e9ecef;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Comparison Table Styling */
+        .comparison-table-enhanced th {
+            font-size: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .comparison-table-enhanced td {
+            font-size: 20px;
+            padding: 15px;
+            vertical-align: middle;
+        }
+
+        .comparison-table-enhanced tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .feature-indicator {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .feature-yes {
+            background: #28a745;
+            color: white;
+        }
+
+        .feature-no {
+            background: #dc3545;
+            color: white;
+        }
+
+        /* Contract Examples Styling */
+        .contract-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .contract-example {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #17a2b8;
+            transition: transform 0.3s ease;
+        }
+
+        .contract-example:hover {
+            transform: translateY(-5px);
+        }
+
+        .contract-example h5 {
+            color: #17a2b8;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 22px;
+        }
+
+        .contract-example ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Accounting Components */
+        .accounting-components {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .accounting-component {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #ffc107;
+            text-align: center;
+        }
+
+        .accounting-component i {
+            font-size: 2rem;
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        .accounting-component h6 {
+            font-size: 22px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        .accounting-component ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .accounting-component ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Success Factors */
+        .success-factors {
+            background: #e8f5e8;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #28a745;
+            font-size: 20px;
+        }
+
+        .success-factors h5 {
+            font-size: 24px;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+
+        .factor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .factor-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .factor-item h6 {
+            font-size: 22px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        .factor-item ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Header styling */
+        .header-area {
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        .main-nav .nav {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .main-nav .nav li a:hover {
+            color: #3B82F6;
+        }
+
+        /* Search input styling */
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input input {
+            width: 100%;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .search-input i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 130px;
+            width: auto;
+            max-width: 500px;
+        }
+
+        /* Banner */
+        .main-banner {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #2563EB 100%);
+            padding: 120px 0px 80px 0px;
+        }
+
+        .main-banner .header-text h2 {
+            color: #fff !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 42px;
+        }
+        
+        .main-banner .header-text p {
+            color: #E2E8F0 !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 22px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-nav {
+            background: #f8f9fa;
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .breadcrumb-item a {
+            color: #1e3c72;
+            font-weight: 500;
+        }
+
+        /* Module Header Card */
+        .module-header-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .module-meta-info {
+            font-size: 20px;
+        }
+
+        .module-number {
+            font-size: 20px;
+        }
+
+        .progress-status {
+            font-size: 20px;
+        }
+
+        /* Measurement Cards */
+        .measurement-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .measurement-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .measurement-card h6 {
+            font-size: 22px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        .measurement-card ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Scope Cards */
+        .scope-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .scope-card {
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .scope-card h5 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .scope-card ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .scope-card.in-scope {
+            border-left: 4px solid #28a745;
+            background: linear-gradient(to right, #f0fff4, #ffffff);
+        }
+
+        /* Conclusion */
+        .conclusion-card {
+            padding: 40px;
+            font-size: 22px;
+            background: linear-gradient(135deg, #5f89b4 0%, #ffffff 100%);
+            border-left: 4px solid #14B8A6;
+        }
+
+        .key-takeaways h5 {
+            font-size: 24px;
+            color: #1e3c72;
+        }
+
+        .key-takeaways li {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .next-module {
+            font-size: 22px;
+            color: #1e3c72;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .nav-button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button.prev {
+            background: #f8f9fa;
+            color: #1e3c72;
+            border: 2px solid #667eea;
+        }
+
+        .nav-button.prev:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-button.next {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .nav-button.next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Module Actions */
+        .module-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .module-actions button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .module-actions .main-button.outline {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .module-actions .main-button.outline:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .module-actions .main-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .module-actions .main-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .module-actions .main-button.primary {
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+        }
+
+        .module-actions .main-button.primary:hover {
+            box-shadow: 0 5px 15px rgba(20, 184, 166, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 18px;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 25px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 22px;
+            }
+            
+            .content-card h6 {
+                font-size: 20px;
+            }
+            
+            .content-section h4 {
+                font-size: 24px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 32px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 18px;
+            }
+            
+            .regulatory-table th,
+            .comparison-table-enhanced th {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .regulatory-table td,
+            .comparison-table-enhanced td {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-input {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .main-nav .nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .logo-image {
+                height: 35px;
+                max-width: 150px;
+            }
+            
+            .module-actions {
+                flex-direction: column;
+            }
+            
+            .module-actions button {
+                width: 100%;
+            }
+            
+            .measurement-cards,
+            .scope-cards,
+            .contract-examples,
+            .accounting-components,
+            .factor-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .success-factors {
+                padding: 20px;
+                font-size: 18px;
+            }
+            
+            .success-factors h5 {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 20px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 20px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 28px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 16px;
+            }
+            
+            .logo-image {
+                height: 30px;
+                max-width: 130px;
+            }
+            
+            .nav-button {
+                font-size: 16px;
+                padding: 10px 20px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .module-navigation .row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .module-navigation .col-lg-6 {
+                width: 100%;
+            }
+            
+            .module-navigation .text-end {
+                text-align: left !important;
+            }
+            
+            .contract-example h5,
+            .accounting-component h6,
+            .factor-item h6 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+          <div class="kenbright-loader">Kenbright</div>
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading Module 11...</div>
+          <div class="loader-progress">
+              <div class="loader-progress-bar"></div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+                    </a>
+                    
+                    <!-- Search -->
+                    <div class="search-input">
+                        <form id="search" action="#">
+                            <input type="text" placeholder="Search IFRS 17 concepts..." id='searchText' name="searchKeyword" />
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </div>
+                    
+                    <!-- Main Navigation -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="modules.html" class="active">Training Modules</a></li>
+                        <li><a href="assessments.html">Test Assessments</a></li>
+                        <li><a href="progress.html">My Progress</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2>Module 11: Investment Contracts with Discretionary Participation Features</h2>
+            <p>Mastering Accounting for Investment Contracts with Performance-Linked Benefits</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Training Modules</a></li>
+          <li class="breadcrumb-item active">Module 11</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Module Content Area -->
+  <section class="section module-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <!-- Module Header Card -->
+          <div class="module-header-card">
+            <div class="module-meta-info">
+              <span class="module-number">Module 11</span>
+              <span class="progress-status">0% Complete</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <!-- Learning Objectives -->
+          <div class="learning-objectives">
+            <h3><i class="fa fa-bullseye"></i> Learning Objectives</h3>
+            <div class="objectives-grid">
+              <div class="objective-item">
+                <i class="fa fa-file-contract"></i>
+                <span>Understand investment contracts with discretionary participation features under IFRS 17</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-balance-scale"></i>
+                <span>Differentiate between DPF contracts and direct participation contracts</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-calculator"></i>
+                <span>Apply appropriate measurement and recognition criteria for DPF contracts</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-chart-line"></i>
+                <span>Implement Variable Fee Approach for eligible DPF contracts</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-clipboard-list"></i>
+                <span>Meet disclosure and presentation requirements for DPF contracts</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Topics -->
+          <div class="key-topics">
+            <h4><i class="fa fa-key"></i> Key Topics Covered</h4>
+            <div class="topics-list">
+              <span class="topic-badge">DPF Definition & Scope</span>
+              <span class="topic-badge">Regulatory Framework</span>
+              <span class="topic-badge">Contract Examples</span>
+              <span class="topic-badge">DPC vs DPF Comparison</span>
+              <span class="topic-badge">Accounting Treatment</span>
+              <span class="topic-badge">Implementation Requirements</span>
+            </div>
+          </div>
+
+          <!-- Main Module Content -->
+          <div class="main-module-content">
+            
+            <!-- 11.1 Introduction -->
+            <div class="content-section">
+              <h4>11.1 Introduction</h4>
+              
+              <div class="content-card">
+                <p>This module provides an overview on the treatment of investment contracts with discretionary participation features (DPF) under IFRS 17.</p>
+                
+                <p>Investment contracts with discretionary participation features are financial instruments where investors receive additional benefits, in addition to guaranteed amounts, based on the issuer's discretion and the performance of a specified pool of assets or contracts. These benefits are not fixed and are determined by the issuer, impacting the overall investment return.</p>
+
+                <div class="alert alert-info">
+                  <h6><i class="fa fa-lightbulb"></i> Key Characteristics:</h6>
+                  <ul>
+                    <li>These contracts can contain both insurance-related and non-insurance elements</li>
+                    <li>Valuation requires considerable judgment due to discretionary nature of cash flows</li>
+                    <li>Variable Fee Approach (VFA) may apply where eligible</li>
+                    <li>Underlying items must be explicitly defined and unchangeable after contract inception</li>
+                  </ul>
+                </div>
+
+                <h5>Consistency in Accounting Approach</h5>
+                <p>Participating investment contracts and participating insurance contracts are often backed by the same underlying pool of assets. Applying a consistent accounting approach to both provides more meaningful and comparable information to financial statement users while also reducing complexity.</p>
+
+                <div class="key-point">
+                  <strong>Shared Features:</strong> Both types of contracts frequently share key features such as long durations, recurring premium payments, and high acquisition costs, despite different classifications.
+                </div>
+              </div>
+            </div>
+
+            <!-- 11.2 Definition and Scope -->
+            <div class="content-section">
+              <h4>11.2 Definition and Scope</h4>
+              
+              <div class="content-card">
+                <h5>What is an Investment Contract with Discretionary Participation Features (DPF)?</h5>
+                <p>An Investment Contract with DPF is a financial contract that:</p>
+
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Definition Criteria</h5>
+                    <ul>
+                      <li><strong>Does not transfer significant insurance risk</strong></li>
+                      <li><strong>Gives policyholder contractual right to receive additional benefits that are:</strong>
+                        <ul>
+                          <li>Significant in value</li>
+                          <li>Discretionary (issuer has freedom in determining them)</li>
+                          <li>Linked to performance of a pool of underlying items</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="alert alert-warning">
+                  <strong>Scope Requirement:</strong> IFRS 17 requires that such contracts be accounted for, but with some modifications, only if the issuer also issues insurance contracts.
+                </div>
+              </div>
+            </div>
+
+            <!-- 11.3 Regulatory Framework -->
+            <div class="content-section">
+              <h4>11.3 Regulatory Framework</h4>
+              
+              <div class="content-card">
+                <h5>IFRS 17 References for Investment Contracts with DPFs</h5>
+                <div class="table-responsive">
+                  <table class="table regulatory-table">
+                    <thead>
+                      <tr>
+                        <th>Reference</th>
+                        <th>Section</th>
+                        <th>Content Summary</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Para 3(c)</strong></td>
+                        <td>Scope</td>
+                        <td>IFRS 17 applies to investment contracts with DPFs if issued by insurers (i.e., entities also issuing insurance contracts)</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Appendix A</strong></td>
+                        <td>Definitions</td>
+                        <td>Defines investment contracts with DPFs and sets three key criteria: discretion, significance, and performance linkage</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Para 71</strong></td>
+                        <td>Recognition & Measurement</td>
+                        <td>Modifications for DPFs: Recognize when entity becomes party to contract; Contract boundary based on substantive investment services; CSM allocated to reflect investment service</td>
+                      </tr>
+                      <tr>
+                        <td><strong>BC83-BC86</strong></td>
+                        <td>Basis for Conclusions</td>
+                        <td>Justifies including investment contracts with DPFs under IFRS 17: Economic substance similar to insurance contracts; Ensures consistent accounting treatment</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Para 88-89</strong></td>
+                        <td>Contractual Service Margin</td>
+                        <td>Explains systematic allocation of CSM for DPF contracts based on transfer of investment service</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Para B73-B75</strong></td>
+                        <td>Implementation Guidance</td>
+                        <td>Provides guidance on investment services and how to allocate CSM accordingly</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 11.4 Contract Examples -->
+            <div class="content-section">
+              <h4>11.4 Examples of Investment Contracts with Discretionary Participation Features</h4>
+              
+              <div class="content-card">
+                <div class="contract-examples">
+                  <div class="contract-example">
+                    <h5>1. With-profits Savings Policies</h5>
+                    <ul>
+                      <li>Offers bonuses tied to fund performance</li>
+                      <li>No insurance coverage</li>
+                      <li>Bonuses based on fund performance, no life cover</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="contract-example">
+                    <h5>2. Deferred Annuities (Investment Only)</h5>
+                    <ul>
+                      <li>Value grows over time</li>
+                      <li>Discretionary bonuses apply, but no guaranteed returns or insurance elements</li>
+                      <li>Accumulates value, bonuses discretionary, no guarantees</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="contract-example">
+                    <h5>3. Participating Deposit Contracts</h5>
+                    <ul>
+                      <li>Provide a basic return plus a discretionary bonus derived from company profits</li>
+                      <li>Base return + discretionary top-up from profits</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="contract-example">
+                    <h5>4. Group Savings Plans</h5>
+                    <ul>
+                      <li>Contributions pooled and invested</li>
+                      <li>Participants receive discretionary bonuses based on investment outcomes</li>
+                      <li>Employees share in pooled investment performance; bonuses are discretionary</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 11.5 Comparison: DPC vs DPF -->
+            <div class="content-section">
+              <h4>11.5 Comparison: Direct Participation Contracts vs Investment Contracts with DPFs</h4>
+              
+              <div class="content-card">
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Direct Participation Contracts (DPCs)</h6>
+                    <ul>
+                      <li><strong>Definition:</strong> Insurance contract where policyholder shares in performance of clearly identified underlying items</li>
+                      <li><strong>Standard:</strong> Fully within scope of IFRS 17, using Variable Fee Approach (VFA)</li>
+                      <li><strong>Purpose:</strong> Combines insurance coverage with investment return sharing</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="measurement-card">
+                    <h6>Investment Contracts with DPFs</h6>
+                    <ul>
+                      <li><strong>Definition:</strong> Financial contract (not insurance) giving right to discretionary returns based on asset performance</li>
+                      <li><strong>Standard:</strong> Within scope of IFRS 17 (with modifications), only if issuer also issues insurance contracts</li>
+                      <li><strong>Purpose:</strong> Provides investment-like benefits with discretionary bonuses, but no insurance risk</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h5>Key Characteristics Comparison</h5>
+                <div class="table-responsive">
+                  <table class="table comparison-table-enhanced">
+                    <thead>
+                      <tr>
+                        <th>Feature</th>
+                        <th>Direct Participation Contracts (DPCs)</th>
+                        <th>Investment Contracts with DPFs</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Insurance Risk Present?</strong></td>
+                        <td><span class="feature-indicator feature-yes">✓</span> Yes</td>
+                        <td><span class="feature-indicator feature-no">✗</span> No</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Participation in Underlying Items?</strong></td>
+                        <td><span class="feature-indicator feature-yes">✓</span> Yes (clearly identified)</td>
+                        <td><span class="feature-indicator feature-yes">✓</span> Yes</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Discretionary Participation?</strong></td>
+                        <td><span class="feature-indicator feature-yes">✓</span> Yes</td>
+                        <td><span class="feature-indicator feature-yes">✓</span> Yes</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Measurement Approach</strong></td>
+                        <td>Variable Fee Approach (VFA) under IFRS 17</td>
+                        <td>General Model with modifications under IFRS 17</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Eligibility Criteria</strong></td>
+                        <td>Must meet 3 conditions: share in underlying items, substantial share of fair value returns, payments vary with fair value changes</td>
+                        <td>Must provide discretionary returns + issued by insurer that also issues insurance contracts</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Discounting</strong></td>
+                        <td>Uses current rates for cash flows not based on underlying items</td>
+                        <td>Similar, but less focus on variability in fees</td>
+                      </tr>
+                      <tr>
+                        <td><strong>CSM Adjustment for Financial Risk?</strong></td>
+                        <td><span class="feature-indicator feature-yes">✓</span> Yes, using current interest rates</td>
+                        <td><span class="feature-indicator feature-no">✗</span> No, uses locked-in rate unless modified</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 11.6 Accounting Treatment Components -->
+            <div class="content-section">
+              <h4>11.6 Accounting Treatment Components</h4>
+              
+              <div class="content-card">
+                <div class="accounting-components">
+                  <div class="accounting-component">
+                    <i class="fa fa-file-signature"></i>
+                    <h6>Recognition</h6>
+                    <p>The process of acknowledging DPF contracts in financial statements</p>
+                    <ul>
+                      <li>Recognize when entity becomes party to contract</li>
+                      <li>Contract boundary based on substantive investment services</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="accounting-component">
+                    <i class="fa fa-calculator"></i>
+                    <h6>Measurement</h6>
+                    <p>Determining net financial value of DPF contracts</p>
+                    <ul>
+                      <li>Uses General Measurement Model with modifications</li>
+                      <li>CSM allocated to reflect investment service</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="accounting-component">
+                    <i class="fa fa-chart-bar"></i>
+                    <h6>Presentation</h6>
+                    <p>How DPF contracts are displayed in financial records</p>
+                    <ul>
+                      <li>Separate presentation from insurance contracts</li>
+                      <li>Clear disclosure of discretionary participation features</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h5>Key Concepts</h5>
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Variable Fee Approach</h6>
+                    <p>A method where fees vary with asset returns. Applicable for eligible contracts where entity's fee varies with underlying asset returns. Treats insurer's compensation as variable amount tied to returns from underlying assets.</p>
+                  </div>
+                  
+                  <div class="measurement-card">
+                    <h6>Underlying Items</h6>
+                    <p>Assets or indices that influence contract payouts. Items that determine some of the amounts payable to a policyholder. Can include reference portfolio, net assets, or external indices. Must be fixed and clearly identified—retrospective changes violate requirements.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 11.7 Key Implementation Requirements -->
+            <div class="content-section">
+              <h4>11.7 Key Implementation Requirements</h4>
+              
+              <div class="content-card">
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Contract Boundaries</h6>
+                    <ul>
+                      <li>Based on substantive investment services provided</li>
+                      <li>Must reflect nature of investment service rather than insurance coverage</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="measurement-card">
+                    <h6>CSM Allocation</h6>
+                    <ul>
+                      <li>Systematic allocation based on transfer of investment service</li>
+                      <li>Reflects pattern of investment services provided</li>
+                      <li>Amortized over the coverage period</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="measurement-card">
+                    <h6>Disclosure Requirements</h6>
+                    <ul>
+                      <li>Nature and extent of discretionary participation features</li>
+                      <li>Basis for determining discretionary benefits</li>
+                      <li>Impact on financial position and performance</li>
+                      <li>Significant judgments and estimates used</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 11.8 Critical Success Factors -->
+            <div class="content-section">
+              <h4>11.8 Critical Success Factors</h4>
+              
+              <div class="content-card">
+                <div class="success-factors">
+                  <h5><i class="fa fa-trophy"></i> Essential Requirements for Successful Implementation</h5>
+                  
+                  <div class="factor-grid">
+                    <div class="factor-item">
+                      <h6>Data Requirements</h6>
+                      <ul>
+                        <li>Clear identification of underlying items</li>
+                        <li>Historical data on discretionary benefit payments</li>
+                        <li>Performance tracking of reference portfolios</li>
+                      </ul>
+                    </div>
+                    
+                    <div class="factor-item">
+                      <h6>Judgment Areas</h6>
+                      <ul>
+                        <li>Assessment of significance of discretionary benefits</li>
+                        <li>Determination of substantive investment services</li>
+                        <li>Estimation of future discretionary payments</li>
+                      </ul>
+                    </div>
+                    
+                    <div class="factor-item">
+                      <h6>System Capabilities</h6>
+                      <ul>
+                        <li>Ability to track underlying item performance</li>
+                        <li>CSM calculation and allocation mechanisms</li>
+                        <li>Disclosure compilation and reporting</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 11.9 Conclusion -->
+            <div class="content-section conclusion">
+              <h4>11.9 Conclusion: Mastering Investment Contracts with DPF</h4>
+              <div class="conclusion-card">
+                <p>Module 11 provides comprehensive guidance on accounting for investment contracts with discretionary participation features under IFRS 17. These contracts represent a unique category that bridges investment and insurance accounting, requiring careful assessment of discretionary elements and proper application of modified measurement approaches.</p>
+                
+                <div class="key-takeaways">
+                  <h5>Key Takeaways:</h5>
+                  <ul>
+                    <li>DPF contracts provide discretionary benefits linked to underlying item performance without significant insurance risk</li>
+                    <li>Scope applies only when issuer also issues insurance contracts</li>
+                    <li>Clear differentiation required between DPCs (insurance) and DPFs (investment)</li>
+                    <li>General Measurement Model with modifications applies to DPF contracts</li>
+                    <li>Proper implementation requires robust data, sound judgment, and capable systems</li>
+                    <li>Comprehensive disclosures ensure transparency in discretionary benefit arrangements</li>
+                  </ul>
+                </div>
+                
+                <div class="next-module">
+                  <strong>Next Module:</strong> Module 12 - Modification and Derecognition of Insurance Contracts
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <!-- Module Navigation - UPDATED FOR TASK -->
+          <div class="module-navigation">
+            <div class="row">
+              <div class="col-lg-6">
+                <a href="module-10.html" class="nav-button prev">
+                  <i class="fa fa-arrow-left"></i> Previous Module
+                </a>
+              </div>
+              <div class="col-lg-6 text-end">
+                <!-- CHANGED: Next Module button replaced with Take Module Assessment -->
+                <a href="assessment-11.html" class="nav-button next">
+                  Take Module Assessment <i class="fa fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module Actions - UPDATED FOR TASK -->
+          <div class="module-actions">
+            <button class="main-button outline" id="saveProgress">Save Progress</button>
+            <!-- CHANGED: Take Module Assessment button replaced with Next Module -->
+            <button class="main-button" id="nextModuleBtn" onclick="window.location.href='module-12.html'">
+              Next Module
+            </button>
+            <button class="main-button primary" id="markComplete">Mark Complete</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/module-progress.js"></script>
+
+  <!-- Loader Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const pageLoader = document.getElementById('pageLoader');
+      
+      // Update copyright year automatically
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      
+      setTimeout(() => {
+          pageLoader.classList.add('hidden');
+          
+          setTimeout(() => {
+              pageLoader.remove();
+          }, 500);
+      }, 1500);
+  });
+
+  document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (link && link.href && !link.href.includes('javascript:') && 
+          !link.href.includes('#') && link.target !== '_blank') {
+          const pageLoader = document.getElementById('pageLoader');
+          if (pageLoader) {
+              pageLoader.classList.remove('hidden');
+          }
+      }
+  });
+  </script>
+</body>
+</html>

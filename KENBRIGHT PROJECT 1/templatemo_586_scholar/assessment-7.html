@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Module 7 Assessment | Kenbright IFRS 17 Training</title>
+    
+    <!-- CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <style>
+        /* Apply Gill Sans font to entire page */
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .nav li a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .btn, .main-button a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Simplified header styling */
+        .header-area {
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        /* Ensure navigation items are properly spaced */
+        .main-nav .nav {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+
+        .main-nav .nav li a:hover {
+            color: #3B82F6;
+        }
+
+        /* Search input styling */
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input input {
+            width: 100%;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+
+        .search-input i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 130px;
+            width: auto;
+            max-width: 500px;
+        }
+
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .assessment-container {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 30px 0;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .question-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .question-number {
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .option-item {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .option-item:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+        
+        .option-item.selected {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+        
+        .option-item.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .option-item.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .quiz-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .results-container {
+            display: none;
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 2px solid #e9ecef;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .score-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .progress-summary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-input {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .main-nav .nav {
+                gap: 15px;
+            }
+            
+            .logo-image {
+                height: 35px;
+                max-width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 30px;
+                max-width: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+          <div class="kenbright-loader">Kenbright</div>
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading Assessment...</div>
+      </div>
+  </div>
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+                    </a>
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="modules.html">Training Modules</a></li>
+                        <li><a href="assessments.html" class="active">Test Assessments</a></li>
+                        <li><a href="progress.html">My Progress</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2>Module 7 Assessment</h2>
+            <p>Variable Fee Approach (VFA)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Assessment Container -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <div class="quiz-header">
+            <h3><i class="fa fa-question-circle"></i> Module 7 Quiz</h3>
+            <p>Test your understanding of Variable Fee Approach</p>
+            <div class="progress" style="height: 8px; background: rgba(255,255,255,0.3);">
+              <div class="progress-bar" id="quizProgress" style="width: 0%"></div>
+            </div>
+            <small id="progressText">Question 1 of 15</small>
+          </div>
+
+          <div class="assessment-container">
+            <div id="questionsContainer">
+              <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="navigation-buttons">
+              <button class="main-button outline" id="prevQuestion" style="display: none;">
+                <i class="fa fa-arrow-left"></i> Previous
+              </button>
+              <button class="main-button" id="submitQuiz" style="display: none;">
+                Submit Assessment
+              </button>
+              <button class="main-button" id="nextQuestion" style="display: none;">
+                Next <i class="fa fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="results-container" id="resultsContainer">
+            <h3 class="text-center"><i class="fa fa-chart-bar"></i> Assessment Results</h3>
+            <div class="score-display" id="finalScore">0/15</div>
+            
+            <div class="progress-summary">
+              <div class="progress" style="height: 20px;">
+                <div class="progress-bar" id="scoreProgress" role="progressbar" style="width: 0%"></div>
+              </div>
+              <div class="progress-text text-center mt-2">
+                <span id="scorePercentage">0%</span> - <span id="performanceText">Beginner Level</span>
+              </div>
+            </div>
+
+            <div id="questionsReview">
+              <!-- Questions review will be loaded here -->
+            </div>
+
+            <div class="text-center mt-4">
+              <button class="main-button outline" onclick="window.location.href='module-7.html'">
+                <i class="fa fa-book"></i> Review Module
+              </button>
+              <button class="main-button" id="nextModuleBtn" onclick="window.location.href='module-8.html'">
+                <i class="fa fa-arrow-right"></i> Proceed to Module 8
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  
+  <script>
+    // Module 7 Questions Data with UPDATED CORRECT answers
+    const module7Questions = [
+      {
+        question: "Which of the following is NOT a requirement when determining the Contractual Service Margin (CSM) under IFRS 17?",
+        options: [
+          "Adjusting for the time value of money using current discount rates",
+          "Including all acquisition cash flows, regardless of recoverability",
+          "Recognizing the CSM over the coverage period based on services provided",
+          "Ensuring no day-one profit is recognized"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "The CSM must exclude acquisition cash flows that are not recoverable, not include all regardless of recoverability."
+      },
+      {
+        question: "Which of the following is NOT a requirement when determining discount rates under IFRS 17?",
+        options: [
+          "Reflect the time value of money",
+          "Be consistent with observable current market prices",
+          "Be based on the entity's internal cost of capital",
+          "Reflect characteristics of the cash flows of the insurance contracts"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "Discount rates should not be based on the entity's internal cost of capital but on observable market data."
+      },
+      {
+        question: "Which risk is EXCLUDED from the IFRS 17 risk adjustment?",
+        options: [
+          "Lapse risk",
+          "Expense risk",
+          "Financial risk (e.g., interest-rate risk)",
+          "Morbidity risk"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "Financial risks like interest-rate risk are excluded from the risk adjustment and handled through discounting."
+      },
+      {
+        question: "Which discount rate is used to accrete interest on the CSM?",
+        options: [
+          "Risk-free rate at reporting date",
+          "Weighted average rate for incurred claims",
+          "Current government bond rate",
+          "Discount rate at initial recognition"
+        ],
+        correctAnswer: 1, // 2nd choice
+        explanation: "The discount rate locked in at initial recognition is used to accrete interest on the CSM."
+      },
+      {
+        question: "When determining discount rates under IFRS 17, which best reflects how market variables should be considered?",
+        options: [
+          "Market variables should be incorporated if they influence the expected cash flows of the insurance contract",
+          "Market variables should be considered only if they are contractually guaranteed",
+          "Only risk-free rates should be used, excluding any market variables",
+          "Market variables are not relevant for insurance contracts measured using the PAA"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "Market variables should be incorporated if they influence the expected cash flows of insurance contracts."
+      },
+      {
+        question: "Which best distinguishes the top-down from the bottom-up approach in deriving discount rates?",
+        options: [
+          "Top-down uses market yield curves; bottom-up starts with historical claims data",
+          "Bottom-up derives rates from illiquid liabilities; top-down adjusts for asset characteristics",
+          "Bottom-up always yields lower rates than top-down",
+          "Top-down starts with reference portfolio yield and deducts non-insurance risks; bottom-up builds from risk-free + illiquidity premium"
+        ],
+        correctAnswer: 0, // 1st choice
+        explanation: "Top-down starts with reference portfolio yield and deducts risks; bottom-up builds from risk-free rates plus premiums."
+      },
+      {
+        question: "When a group of insurance contracts becomes onerous after initial recognition under IFRS 17, what happens to the Contractual Service Margin (CSM)?",
+        options: [
+          "It is increased to reflect higher expected losses",
+          "It remains unchanged",
+          "It is set to zero, and a loss component is established",
+          "It is transferred to the LIC"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "When contracts become onerous, the CSM is set to zero and a loss component is established."
+      },
+      {
+        question: "Can a loss component (LC) established for an onerous group of contracts under IFRS 17 be reversed in subsequent periods?",
+        options: [
+          "No, never",
+          "Yes, but only via risk-adjustment changes",
+          "Only if contracts are derecognized",
+          "Yes, if future cash-flow changes show the group is no longer onerous"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "A loss component can be reversed if future cash flow changes show the group is no longer onerous."
+      },
+      {
+        question: "In the context of IFRS 17, what does the Liability for Remaining Coverage (LRC) represent when the Contractual Service Margin (CSM) is nil?",
+        options: [
+          "Sum of fulfilment cash flows + loss component",
+          "Only present value of future cash flows",
+          "LIC only",
+          "Risk Adjustment only"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "When CSM is nil, LRC represents the sum of fulfilment cash flows plus any loss component."
+      },
+      {
+        question: "Which characteristic leads to a higher risk adjustment?",
+        options: [
+          "High frequency, low-severity risks",
+          "Short-duration with predictable claims",
+          "Narrow probability distributions",
+          "Little known about emerging experience"
+        ],
+        correctAnswer: 1, // 2nd choice
+        explanation: "Greater uncertainty and less known about emerging experience leads to higher risk adjustments."
+      },
+      {
+        question: "An insurance company issues a group of insurance contracts on 1 January 20X1 with: PV inflows = $1,200; PV outflows = $1,000; Risk Adjustment = $50; Rate = 5% p.a.; Coverage = 4 years, evenly. What is the initial CSM at 1 January 20X1?",
+        options: [
+          "$200",
+          "$150",
+          "$250",
+          "$100"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "CSM = PV inflows - (PV outflows + Risk Adjustment) = $1,200 - ($1,000 + $50) = $150"
+      },
+      {
+        question: "Using the same contract details above, what is the CSM balance at 31 December 20X1, before release, assuming a 5% interest rate?",
+        options: [
+          "$150",
+          "$157.5",
+          "$160",
+          "$155"
+        ],
+        correctAnswer: 0, // 1st choice
+        explanation: "CSM before release = Initial CSM $150 + Interest ($150 × 5%) = $157.50"
+      },
+      {
+        question: "If the CSM is released evenly over the 4-year coverage period, what is the CSM balance after release at 31 December 20X1?",
+        options: [
+          "$118.125",
+          "$120",
+          "$130",
+          "$100"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "Annual release = $150 ÷ 4 = $37.50; CSM after release = $157.50 - $37.50 = $120"
+      },
+      {
+        question: "Which of the following methods is NOT typically used to quantify the risk adjustment under IFRS 17?",
+        options: [
+          "Cost of capital method",
+          "Conditional Tail Expectation (CTE)",
+          "Confidence level method",
+          "Historical premium rate analysis"
+        ],
+        correctAnswer: 1, // 2nd choice
+        explanation: "Historical premium rate analysis is not a prescribed method for quantifying risk adjustment under IFRS 17."
+      },
+      {
+        question: "An insurer estimates that the present value of future cash outflows follows a normal distribution with mean = 10,000,000 and standard deviation = 1,500,000. Using a confidence level approach with z=0.674 for 75% confidence, what is the risk adjustment for non-financial risk?",
+        options: [
+          "1,011,000",
+          "674,000",
+          "750,000",
+          "1,674,000"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "Risk adjustment = z × standard deviation = 0.674 × 1,500,000 = 1,011,000"
+      }
+    ];
+
+    // Quiz functionality
+    let currentQuestion = 0;
+    let userAnswers = new Array(module7Questions.length).fill(null);
+    let quizSubmitted = false;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const pageLoader = document.getElementById('pageLoader');
+        
+        // Update copyright year automatically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        setTimeout(() => {
+            pageLoader.classList.add('hidden');
+            setTimeout(() => {
+                pageLoader.remove();
+                initializeQuiz();
+            }, 500);
+        }, 1500);
+
+        // Add event listeners to buttons
+        document.getElementById('nextQuestion').addEventListener('click', nextQuestion);
+        document.getElementById('prevQuestion').addEventListener('click', prevQuestion);
+        document.getElementById('submitQuiz').addEventListener('click', submitQuiz);
+    });
+
+    function initializeQuiz() {
+        displayQuestion(currentQuestion);
+        updateNavigation();
+        updateProgress();
+    }
+
+    function displayQuestion(questionIndex) {
+        const questionsContainer = document.getElementById('questionsContainer');
+        const question = module7Questions[questionIndex];
+        
+        let optionsHtml = '';
+        question.options.forEach((option, index) => {
+            const isSelected = userAnswers[questionIndex] === index;
+            optionsHtml += `
+                <div class="option-item ${isSelected ? 'selected' : ''}" onclick="selectOption(${index})">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question${questionIndex}" 
+                               id="option${index}" ${isSelected ? 'checked' : ''}>
+                        <label class="form-check-label" for="option${index}">
+                            ${option}
+                        </label>
+                    </div>
+                </div>
+            `;
+        });
+
+        questionsContainer.innerHTML = `
+            <div class="question-card">
+                <div class="d-flex align-items-start">
+                    <div class="question-number">${questionIndex + 1}</div>
+                    <div class="flex-grow-1">
+                        <h5>${question.question}</h5>
+                        <div class="options-container mt-3">
+                            ${optionsHtml}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        updateNavigation();
+    }
+
+    function updateNavigation() {
+        const hasAnswer = userAnswers[currentQuestion] !== null;
+        const isLastQuestion = currentQuestion === module7Questions.length - 1;
+        const isFirstQuestion = currentQuestion === 0;
+
+        // Show/hide previous button
+        document.getElementById('prevQuestion').style.display = isFirstQuestion ? 'none' : 'inline-block';
+        
+        // Show/hide next and submit buttons
+        if (isLastQuestion) {
+            document.getElementById('nextQuestion').style.display = 'none';
+            document.getElementById('submitQuiz').style.display = hasAnswer ? 'inline-block' : 'none';
+        } else {
+            document.getElementById('nextQuestion').style.display = hasAnswer ? 'inline-block' : 'none';
+            document.getElementById('submitQuiz').style.display = 'none';
+        }
+    }
+
+    function selectOption(optionIndex) {
+        userAnswers[currentQuestion] = optionIndex;
+        displayQuestion(currentQuestion);
+        updateNavigation();
+        updateProgress();
+    }
+
+    function nextQuestion() {
+        if (currentQuestion < module7Questions.length - 1) {
+            currentQuestion++;
+            displayQuestion(currentQuestion);
+            updateNavigation();
+            updateProgress();
+        }
+    }
+
+    function prevQuestion() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            displayQuestion(currentQuestion);
+            updateNavigation();
+            updateProgress();
+        }
+    }
+
+    function updateProgress() {
+        const progress = ((currentQuestion + 1) / module7Questions.length) * 100;
+        document.getElementById('quizProgress').style.width = `${progress}%`;
+        document.getElementById('progressText').textContent = `Question ${currentQuestion + 1} of ${module7Questions.length}`;
+    }
+
+    function submitQuiz() {
+        quizSubmitted = true;
+        calculateScore();
+        showResults();
+    }
+
+    function calculateScore() {
+        let score = 0;
+        module7Questions.forEach((question, index) => {
+            if (userAnswers[index] === question.correctAnswer) {
+                score++;
+            }
+        });
+        return score;
+    }
+
+    function showResults() {
+        const score = calculateScore();
+        const percentage = (score / module7Questions.length) * 100;
+        
+        document.getElementById('finalScore').textContent = `${score}/${module7Questions.length}`;
+        document.getElementById('scoreProgress').style.width = `${percentage}%`;
+        document.getElementById('scorePercentage').textContent = `${percentage.toFixed(1)}%`;
+        
+        let performanceText = '';
+        if (percentage >= 90) performanceText = 'Excellent!';
+        else if (percentage >= 80) performanceText = 'Very Good';
+        else if (percentage >= 70) performanceText = 'Good';
+        else if (percentage >= 60) performanceText = 'Satisfactory';
+        else performanceText = 'Needs Improvement';
+        
+        document.getElementById('performanceText').textContent = performanceText;
+        
+        // Show questions review
+        let reviewHtml = '<h4 class="mt-4">Question Review</h4>';
+        module7Questions.forEach((question, index) => {
+            const userAnswer = userAnswers[index];
+            const isCorrect = userAnswer === question.correctAnswer;
+            const userAnswerText = userAnswer !== null ? question.options[userAnswer] : 'Not answered';
+            const correctAnswerText = question.options[question.correctAnswer];
+            
+            reviewHtml += `
+                <div class="question-card ${isCorrect ? 'border-success' : 'border-danger'}">
+                    <div class="d-flex align-items-start">
+                        <div class="question-number ${isCorrect ? 'bg-success' : 'bg-danger'}">${index + 1}</div>
+                        <div class="flex-grow-1">
+                            <h5>${question.question}</h5>
+                            <div class="mt-3">
+                                <p><strong>Your answer:</strong> 
+                                <span class="${isCorrect ? 'text-success' : 'text-danger'}">${userAnswerText}</span></p>
+                                ${!isCorrect ? `<p><strong>Correct answer:</strong> 
+                                <span class="text-success">${correctAnswerText}</span></p>` : ''}
+                                <p><strong>Explanation:</strong> ${question.explanation}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        document.getElementById('questionsReview').innerHTML = reviewHtml;
+        document.getElementById('resultsContainer').style.display = 'block';
+        
+        // Save progress to localStorage
+        saveProgress(score, module7Questions.length);
+    }
+
+    function saveProgress(score, totalQuestions) {
+        const progressData = {
+            module: 7,
+            score: score,
+            totalQuestions: totalQuestions,
+            percentage: (score / totalQuestions) * 100,
+            completed: true,
+            timestamp: new Date().toISOString()
+        };
+        
+        let allProgress = JSON.parse(localStorage.getItem('kenbright_assessment_progress') || '[]');
+        allProgress = allProgress.filter(item => item.module !== 7);
+        allProgress.push(progressData);
+        localStorage.setItem('kenbright_assessment_progress', JSON.stringify(allProgress));
+        
+        updateModuleCompletion(7);
+    }
+
+    function updateModuleCompletion(moduleNumber) {
+        let moduleProgress = JSON.parse(localStorage.getItem('kenbright_module_progress') || '{}');
+        moduleProgress[`module_${moduleNumber}`] = {
+            completed: true,
+            completionDate: new Date().toISOString(),
+            score: calculateScore()
+        };
+        localStorage.setItem('kenbright_module_progress', JSON.stringify(moduleProgress));
+    }
+
+    // Make functions global for onclick events
+    window.selectOption = selectOption;
+    window.nextQuestion = nextQuestion;
+    window.prevQuestion = prevQuestion;
+    window.submitQuiz = submitQuiz;
+  </script>
+</body>
+</html>

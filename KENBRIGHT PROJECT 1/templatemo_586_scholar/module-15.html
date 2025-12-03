@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <title>Module 15: Insurance Finance Income or Expenses | Kenbright</title>
+    
+    <!-- CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <style>
+        /* Apply Gill Sans font to entire page with specified sizes */
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .nav li a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .btn, .main-button a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Page Loader Styles */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: white;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .kenbright-loader {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .loader-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .loader-progress-bar {
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            animation: progress 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        /* Content Styling */
+        .section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .main-module-content {
+            font-size: 20px;
+        }
+        
+        .content-section {
+            margin: 50px 0;
+        }
+        
+        .content-section h4 {
+            color: #1e3c72;
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #14B8A6;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 35px;
+            font-size: 20px;
+        }
+        
+        .content-card h5 {
+            color: #1e3c72;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .content-card h6 {
+            color: #1e3c72;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .content-card p {
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            font-size: 20px;
+            line-height: 1.7;
+        }
+        
+        .key-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        
+        /* Learning Objectives */
+        .learning-objectives h3 {
+            font-size: 28px;
+        }
+        
+        .objective-item {
+            font-size: 20px;
+        }
+
+        /* Header styling */
+        .header-area {
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        .main-nav .nav {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .main-nav .nav li a:hover {
+            color: #3B82F6;
+        }
+
+        /* Search input styling */
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input input {
+            width: 100%;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .search-input i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 130px;
+            width: auto;
+            max-width: 500px;
+        }
+
+        /* Banner */
+        .main-banner {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #2563EB 100%);
+            padding: 120px 0px 80px 0px;
+        }
+
+        .main-banner .header-text h2 {
+            color: #fff !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 42px;
+        }
+        
+        .main-banner .header-text p {
+            color: #E2E8F0 !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 22px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-nav {
+            background: #f8f9fa;
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .breadcrumb-item a {
+            color: #1e3c72;
+            font-weight: 500;
+        }
+
+        /* Module Header Card */
+        .module-header-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .module-meta-info {
+            font-size: 20px;
+        }
+
+        .module-number {
+            font-size: 20px;
+        }
+
+        .progress-status {
+            font-size: 20px;
+        }
+
+        /* Enhanced Comprehensive Income Tables - Unique Styling */
+        .finance-income-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            margin: 30px 0;
+            border: 1px solid #e9ecef;
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        .finance-income-table th {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            padding: 22px 18px;
+            font-size: 20px;
+            border: none;
+            letter-spacing: 0.5px;
+        }
+
+        .finance-income-table td {
+            padding: 18px 18px;
+            vertical-align: middle;
+            border-bottom: 1px solid #f1f3f4;
+            font-size: 18px;
+        }
+
+        .finance-income-table .line-item {
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 19px;
+        }
+
+        .finance-income-table .amount-col {
+            text-align: right;
+            font-weight: 600;
+            color: #495057;
+            background: linear-gradient(to right, #f8f9fa, #ffffff);
+            font-size: 19px;
+        }
+
+        .finance-income-table .description-col {
+            color: #6c757d;
+            font-size: 17px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .finance-income-table .sub-total {
+            background: linear-gradient(to right, #e8f5e8, #f8fff8);
+            font-weight: 700;
+            border-top: 3px solid #28a745;
+            font-size: 20px;
+        }
+
+        .finance-income-table .sub-total .line-item {
+            color: #155724;
+        }
+
+        .finance-income-table .sub-total .amount-col {
+            color: #155724;
+        }
+
+        .finance-income-table .section-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 21px;
+        }
+
+        .finance-income-table .total-row {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 21px;
+        }
+
+        .finance-income-table .indent-1 {
+            padding-left: 30px;
+            font-size: 18px;
+        }
+
+        .finance-income-table .indent-2 {
+            padding-left: 50px;
+            font-style: italic;
+            font-size: 17px;
+            color: #666;
+        }
+
+        .finance-income-table tbody tr:hover {
+            background-color: #f5f9ff;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Finance Components Grid - Enhanced */
+        .finance-component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .finance-component-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            font-size: 19px;
+        }
+
+        .finance-component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .finance-component-card.time-value {
+            border-left-color: #28a745;
+            background: linear-gradient(to bottom, #ffffff, #f8fff9);
+        }
+
+        .finance-component-card.assumptions {
+            border-left-color: #ffc107;
+            background: linear-gradient(to bottom, #ffffff, #fffcf0);
+        }
+
+        .finance-component-card.exclusions {
+            border-left-color: #dc3545;
+            background: linear-gradient(to bottom, #ffffff, #fff8f8);
+        }
+
+        .finance-component-card h5 {
+            color: #2c3e50;
+            margin-bottom: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+        }
+
+        .finance-component-card h5 i {
+            font-size: 1.3rem;
+            color: inherit;
+        }
+
+        .finance-component-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 19px;
+        }
+
+        .finance-component-card ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .finance-component-card ul li {
+            font-size: 19px;
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        /* Presentation Options - Enhanced */
+        .presentation-options {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 6px solid #17a2b8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .presentation-options h5 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 22px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+
+        .option-card {
+            background: white;
+            padding: 28px;
+            border-radius: 10px;
+            margin: 18px 0;
+            border-left: 5px solid #17a2b8;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            font-size: 19px;
+        }
+
+        .option-card:hover {
+            transform: translateX(5px);
+        }
+
+        .option-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .option-badge {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .option-badge.participating {
+            background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+        }
+
+        .option-badge.non-participating {
+            background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%);
+        }
+
+        .option-header h6 {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 21px;
+            margin: 0;
+        }
+
+        /* Implementation Guidance - Enhanced */
+        .implementation-guidance {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 35px 0;
+            border-left: 6px solid #ff9800;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .implementation-guidance h5 {
+            color: #e65100;
+            font-weight: 600;
+            margin-bottom: 25px;
+            font-size: 22px;
+        }
+
+        .guidance-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 22px;
+            padding: 22px;
+            background: white;
+            border-radius: 10px;
+            border-left: 5px solid #ff9800;
+            transition: all 0.3s ease;
+            font-size: 19px;
+        }
+
+        .guidance-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .guidance-icon {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 20px;
+            box-shadow: 0 3px 8px rgba(255, 152, 0, 0.3);
+        }
+
+        .guidance-content strong {
+            color: #e65100;
+            font-size: 20px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .guidance-content p {
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+            font-size: 19px;
+        }
+
+        /* Enhanced Alert Styling */
+        .finance-alert {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 6px solid #2196F3;
+            padding: 28px;
+            border-radius: 10px;
+            margin: 25px 0;
+            font-size: 19px;
+        }
+
+        .finance-alert h6 {
+            color: #1565c0;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 21px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .finance-alert p {
+            color: #37474f;
+            line-height: 1.7;
+            margin: 0;
+            font-size: 19px;
+        }
+
+        .finance-alert ul {
+            margin: 15px 0 0 0;
+            padding-left: 20px;
+        }
+
+        .finance-alert ul li {
+            font-size: 19px;
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #37474f;
+        }
+
+        .finance-alert.warning {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left-color: #ffc107;
+        }
+
+        .finance-alert.warning h6 {
+            color: #856404;
+        }
+
+        .finance-alert.success {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left-color: #28a745;
+        }
+
+        .finance-alert.success h6 {
+            color: #155724;
+        }
+
+        /* Scope Cards - Enhanced */
+        .scope-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .scope-card {
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            font-size: 19px;
+            transition: all 0.3s ease;
+        }
+
+        .scope-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .scope-card h5 {
+            font-size: 22px;
+            margin-bottom: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .scope-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .scope-card ul li {
+            font-size: 19px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        .scope-card.out-scope {
+            border-left: 5px solid #dc3545;
+            background: linear-gradient(to right, #fff8f8, #ffffff);
+        }
+
+        .scope-card.out-scope h5 {
+            color: #721c24;
+        }
+
+        .scope-card.in-scope {
+            border-left: 5px solid #28a745;
+            background: linear-gradient(to right, #f0fff4, #ffffff);
+        }
+
+        .scope-card.in-scope h5 {
+            color: #155724;
+        }
+
+        /* Measurement Cards - Enhanced */
+        .measurement-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .measurement-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            font-size: 19px;
+        }
+
+        .measurement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .measurement-card h6 {
+            font-size: 21px;
+            color: #1e3c72;
+            margin-bottom: 18px;
+            font-weight: 600;
+            border-bottom: 2px solid #f1f3f4;
+            padding-bottom: 10px;
+        }
+
+        .measurement-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .measurement-card ul li {
+            font-size: 19px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        /* Conclusion Card - Enhanced */
+        .conclusion-card {
+            padding: 40px;
+            font-size: 22px;
+            background: linear-gradient(135deg, #5f89b4 0%, #ffffff 100%);
+            border-left: 6px solid #14B8A6;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin: 35px 0;
+        }
+
+        .next-module {
+            font-size: 22px;
+            color: #1e3c72;
+            font-weight: 600;
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            border: 2px dashed #14B8A6;
+        }
+
+        .next-module strong {
+            color: #14B8A6;
+            font-size: 24px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Navigation */
+        .nav-button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        .nav-button.prev {
+            background: #f8f9fa;
+            color: #1e3c72;
+            border: 2px solid #667eea;
+        }
+
+        .nav-button.prev:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-button.next {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .nav-button.next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Module Actions */
+        .module-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .module-actions button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        .module-actions .main-button.outline {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .module-actions .main-button.outline:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .module-actions .main-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .module-actions .main-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .module-actions .main-button.primary {
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+        }
+
+        .module-actions .main-button.primary:hover {
+            box-shadow: 0 5px 15px rgba(20, 184, 166, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 18px;
+            margin: 0;
+            text-align: center;
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 25px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 22px;
+            }
+            
+            .content-card h6 {
+                font-size: 20px;
+            }
+            
+            .content-section h4 {
+                font-size: 24px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 32px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 18px;
+            }
+            
+            .finance-income-table th {
+                font-size: 18px;
+                padding: 15px 12px;
+            }
+            
+            .finance-income-table td {
+                font-size: 16px;
+                padding: 12px;
+            }
+            
+            .finance-income-table .line-item {
+                font-size: 17px;
+            }
+            
+            .finance-income-table .amount-col {
+                font-size: 17px;
+            }
+            
+            .finance-income-table .description-col {
+                font-size: 15px;
+            }
+            
+            .finance-income-table .indent-1 {
+                font-size: 16px;
+                padding-left: 20px;
+            }
+            
+            .finance-income-table .indent-2 {
+                font-size: 15px;
+                padding-left: 35px;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-input {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .main-nav .nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .logo-image {
+                height: 35px;
+                max-width: 150px;
+            }
+            
+            .module-actions {
+                flex-direction: column;
+            }
+            
+            .module-actions button {
+                width: 100%;
+            }
+            
+            .finance-component-grid,
+            .measurement-cards,
+            .scope-cards {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .presentation-options,
+            .implementation-guidance {
+                padding: 20px;
+            }
+            
+            .finance-alert {
+                padding: 20px;
+                font-size: 17px;
+            }
+            
+            .guidance-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .guidance-icon {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            
+            .option-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 20px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 20px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 28px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 16px;
+            }
+            
+            .logo-image {
+                height: 30px;
+                max-width: 130px;
+            }
+            
+            .nav-button {
+                font-size: 16px;
+                padding: 10px 20px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .module-navigation .row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .module-navigation .col-lg-6 {
+                width: 100%;
+            }
+            
+            .module-navigation .text-end {
+                text-align: left !important;
+            }
+            
+            .finance-income-table {
+                font-size: 14px;
+            }
+            
+            .finance-income-table th,
+            .finance-income-table td {
+                padding: 8px 6px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+          <div class="kenbright-loader">Kenbright</div>
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading Module 15...</div>
+          <div class="loader-progress">
+              <div class="loader-progress-bar"></div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+                    </a>
+                    
+                    <!-- Search -->
+                    <div class="search-input">
+                        <form id="search" action="#">
+                            <input type="text" placeholder="Search IFRS 17 concepts..." id='searchText' name="searchKeyword" />
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </div>
+                    
+                    <!-- Main Navigation -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="modules.html" class="active">Training Modules</a></li>
+                        <li><a href="assessments.html">Test Assessments</a></li>
+                        <li><a href="progress.html">My Progress</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2>Module 15: Insurance Finance Income or Expenses</h2>
+            <p>Mastering Financial Effects and Presentation under IFRS 17</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Training Modules</a></li>
+          <li class="breadcrumb-item active">Module 15</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Module Content Area -->
+  <section class="section module-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <!-- Module Header Card -->
+          <div class="module-header-card">
+            <div class="module-meta-info">
+              <span class="module-number">Module 15</span>
+              <span class="progress-status">0% Complete</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <!-- Learning Objectives -->
+          <div class="learning-objectives">
+            <h3><i class="fa fa-bullseye"></i> Learning Objectives</h3>
+            <div class="objectives-grid">
+              <div class="objective-item">
+                <i class="fa fa-chart-line"></i>
+                <span>Understand insurance finance income or expenses components under IFRS 17</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-calculator"></i>
+                <span>Apply presentation options for different contract types</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-exchange-alt"></i>
+                <span>Differentiate between P&L and OCI recognition approaches</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-globe"></i>
+                <span>Manage foreign currency translation effects</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-clipboard-check"></i>
+                <span>Implement comprehensive disclosure requirements</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Topics -->
+          <div class="key-topics">
+            <h4><i class="fa fa-key"></i> Key Topics Covered</h4>
+            <div class="topics-list">
+              <span class="topic-badge">Finance Components</span>
+              <span class="topic-badge">Presentation Options</span>
+              <span class="topic-badge">P&L vs OCI Recognition</span>
+              <span class="topic-badge">Foreign Currency Effects</span>
+              <span class="topic-badge">Discount Rate Determination</span>
+              <span class="topic-badge">Implementation Guidance</span>
+            </div>
+          </div>
+
+          <!-- Main Module Content -->
+          <div class="main-module-content">
+            
+            <!-- 15.1 Module Objective -->
+            <div class="content-section">
+              <h4>15.1 Module Objective</h4>
+              
+              <div class="content-card">
+                <p>This module provides a comprehensive overview of insurance finance income or expenses as defined under IFRS 17 paragraphs 87 to 92. The module covers the definition, components, presentation options, and specific exclusions related to insurance finance income or expenses, which represent the financial effects of time value of money and changes in financial assumptions on insurance contract liabilities.</p>
+                
+                <div class="finance-alert success">
+                  <h6><i class="fa fa-info-circle"></i> Financial Performance Indicator:</h6>
+                  <p>Insurance finance income or expenses represent the financial effects of time value of money and changes in financial assumptions on insurance contract liabilities, providing crucial insights into the financial performance of insurance operations.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 15.2 Definition and Components -->
+            <div class="content-section">
+              <h4>15.2 Definition and Components</h4>
+              
+              <div class="content-card">
+                <p>Insurance finance income or expenses refer to changes in the carrying amount of insurance contract liabilities (or assets) that arise from two primary sources:</p>
+
+                <div class="finance-component-grid">
+                  <div class="finance-component-card time-value">
+                    <h5><i class="fa fa-clock"></i> Time Value of Money (Discounting)</h5>
+                    <p>This represents the accretion of interest on insurance contract liabilities, as future cash flows are discounted to their present value. As time progresses, this discount unwinds, creating finance income or expenses that impact the financial results.</p>
+                    <div class="key-point">
+                      <strong>Financial Principle:</strong> The time value of money effect reflects the fundamental financial principle that money available today is worth more than the same amount in the future due to its potential earning capacity.
+                    </div>
+                  </div>
+                  
+                  <div class="finance-component-card assumptions">
+                    <h5><i class="fa fa-chart-bar"></i> Changes in Financial Assumptions</h5>
+                    <p>This includes the impact of movements in key financial variables that affect the measurement of insurance contract liabilities:</p>
+                    <ul>
+                      <li><strong>Interest Rates:</strong> Fluctuations in market interest rates directly affect the present value of future cash flows</li>
+                      <li><strong>Inflation:</strong> Changes in inflation assumptions for inflation-linked benefits or expenses</li>
+                      <li><strong>Other Financial Variables:</strong> Changes in other market-consistent financial assumptions</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 15.3 Exclusions -->
+            <div class="content-section">
+              <h4>15.3 What's Excluded from Insurance Finance Income or Expenses?</h4>
+              
+              <div class="content-card">
+                <p>Not all changes in financial assumptions are classified as insurance finance income or expenses. Specific exclusions apply in the following scenarios:</p>
+
+                <div class="finance-component-card exclusions">
+                  <h5><i class="fa fa-ban"></i> Specific Exclusions</h5>
+                  <div class="scope-cards">
+                    <div class="scope-card out-scope">
+                      <h5><i class="fa fa-times-circle"></i> Contracts with Direct Participating Features</h5>
+                      <p>For contracts where policyholders share directly in the returns of underlying items held by the insurer, certain changes in financial assumptions are excluded from insurance finance income or expenses.</p>
+                    </div>
+                    
+                    <div class="scope-card out-scope">
+                      <h5><i class="fa fa-times-circle"></i> Changes That Would Ordinarily Adjust the CSM</h5>
+                      <p>When changes in financial assumptions would normally adjust the Contractual Service Margin (CSM) but specific IFRS 17 rules prevent this adjustment, these changes are instead recognized as insurance service expenses to ensure appropriate matching of revenue and expenses.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="key-point">
+                  <strong>Economic Substance Alignment:</strong> These exclusions ensure that the accounting treatment aligns with the economic substance of the contracts and prevents potential accounting mismatches.
+                </div>
+              </div>
+            </div>
+
+            <!-- 15.4 Presentation Options -->
+            <div class="content-section">
+              <h4>15.4 How to Present Insurance Finance Income or Expense</h4>
+              
+              <div class="content-card">
+                <p>Companies have two main presentation options for showing insurance finance income or expenses in their financial statements, with the appropriate choice depending on the type of insurance contract:</p>
+
+                <div class="presentation-options">
+                  <h5>A. Non-Participating Contracts (no direct link to underlying assets):</h5>
+                  
+                  <div class="option-card">
+                    <div class="option-header">
+                      <span class="option-badge non-participating">Option 1</span>
+                      <h6>Full Recognition in Profit or Loss</h6>
+                    </div>
+                    <p>Include all insurance finance income or expenses for the period entirely in Profit or Loss (P&L). This approach provides complete transparency but may introduce volatility to the income statement.</p>
+                  </div>
+                  
+                  <div class="option-card">
+                    <div class="option-header">
+                      <span class="option-badge non-participating">Option 2</span>
+                      <h6>Split Between P&L and OCI</h6>
+                    </div>
+                    <p>This approach separates the finance effects between Profit or Loss and Other Comprehensive Income:</p>
+                    <ul>
+                      <li><strong>In Profit or Loss:</strong> Show a steady, expected amount based on a fixed ("locked-in") discount rate from when the contract began</li>
+                      <li><strong>In Other Comprehensive Income:</strong> Recognize the difference between actual changes and the expected amount</li>
+                    </ul>
+                  </div>
+
+                  <h5>B. Participating Contracts (with underlying assets the insurer holds):</h5>
+                  
+                  <div class="option-card">
+                    <div class="option-header">
+                      <span class="option-badge participating">Option 1</span>
+                      <h6>Full Recognition in Profit or Loss</h6>
+                    </div>
+                    <p>Include all insurance finance income or expenses for the period entirely in Profit or Loss (P&L). All finance income/expenses are recognized in the income statement.</p>
+                  </div>
+                  
+                  <div class="option-card">
+                    <div class="option-header">
+                      <span class="option-badge participating">Option 2</span>
+                      <h6>Matching Underlying Items</h6>
+                    </div>
+                    <p>This approach aligns the recognition of insurance finance income/expenses with the investment returns on underlying assets:</p>
+                    <ul>
+                      <li><strong>In Profit or Loss:</strong> Show an amount that matches the investment returns on the underlying items</li>
+                      <li><strong>In Other Comprehensive Income:</strong> Recognize the remaining financial result</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 15.5 Foreign Currency Translation -->
+            <div class="content-section">
+              <h4>15.5 Foreign Currency Translation</h4>
+              
+              <div class="content-card">
+                <p>Insurance contracts are treated as monetary items under IAS 21 (The Effects of Changes in Foreign Exchange Rates). This treatment has specific implications:</p>
+
+                <div class="finance-alert">
+                  <h6><i class="fa fa-globe"></i> Currency Treatment:</h6>
+                  <ul>
+                    <li>Any exchange differences arising from currency changes are recognized in Profit or Loss</li>
+                    <li>The exception applies when exchange differences relate to amounts already recognized in Other Comprehensive Income</li>
+                    <li>This ensures consistent treatment of foreign currency effects across financial statements</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 15.6 Comprehensive Income Statement Presentations -->
+            <div class="content-section">
+              <h4>15.6 Comprehensive Income Statement Presentations</h4>
+              
+              <div class="content-card">
+                <h5>Option 1: Full P&L Recognition for Non-Participating Contracts</h5>
+                <p>The table below illustrates the comprehensive income statement presentation when all insurance finance income or expenses are recognized in Profit or Loss:</p>
+
+                <div class="table-responsive">
+                  <table class="table finance-income-table">
+                    <thead>
+                      <tr>
+                        <th width="40%">Statement of Comprehensive Income</th>
+                        <th width="20%">Amount</th>
+                        <th width="40%">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="line-item">Insurance revenue</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Revenue from insurance contract services</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Insurance service expenses (excluding finance expenses)</td>
+                        <td class="amount-col">(XX)</td>
+                        <td class="description-col">Operational expenses related to insurance services</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Net income/expense from reinsurance contracts held</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Net effect of reinsurance arrangements</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Insurance service result</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Net result from insurance services</td>
+                      </tr>
+                      <tr class="section-header">
+                        <td colspan="3">Insurance Finance Income or Expenses</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-1">Insurance finance income or expenses (recognized entirely in P&L)</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Total finance effects on insurance contracts</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Interest accretion on insurance liabilities</td>
+                        <td class="amount-col">(XX)</td>
+                        <td class="description-col">Unwinding of discount on insurance liabilities</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Effect of changes in financial assumptions (e.g., discount rates)</td>
+                        <td class="amount-col">(XX)</td>
+                        <td class="description-col">Impact of changes in discount rates and other financial variables</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Exchange differences on insurance contract liabilities</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Foreign currency translation effects</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Effect of changes in financial risk</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Changes in financial risk adjustments</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Total insurance finance income or expenses</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Comprehensive finance result</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Net income from investments (other than insurance finance)</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Investment income excluding insurance contract effects</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Other income / expenses</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Miscellaneous income and expenses</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">General and administrative expenses</td>
+                        <td class="amount-col">(XX)</td>
+                        <td class="description-col">Operational overhead costs</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Profit before tax</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Earnings before income tax</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Income tax expense</td>
+                        <td class="amount-col">(XX)</td>
+                        <td class="description-col">Current and deferred tax expense</td>
+                      </tr>
+                      <tr class="total-row">
+                        <td>Profit for the year</td>
+                        <td>XXXX</td>
+                        <td>Net income after tax</td>
+                      </tr>
+                      <tr class="section-header">
+                        <td colspan="3">Other Comprehensive Income (OCI)</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-1">(No specific IFRS 17 insurance finance items appear here under Option 1 for non-participating contracts)</td>
+                        <td class="amount-col"></td>
+                        <td class="description-col"></td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Other OCI items (e.g., re-measurement gains/losses on financial instruments at FVOCI, if applicable)</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Non-insurance related comprehensive income</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Total Other Comprehensive Income for the year (net of tax)</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Comprehensive income not recycled to P&L</td>
+                      </tr>
+                      <tr class="total-row">
+                        <td>Total Comprehensive Income for the year</td>
+                        <td>XXXX</td>
+                        <td>Sum of profit and other comprehensive income</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h5>Option 2: Split Recognition for Non-Participating Contracts</h5>
+                <p>The table below demonstrates the comprehensive income statement presentation when insurance finance income or expenses are split between Profit or Loss and Other Comprehensive Income:</p>
+
+                <div class="table-responsive">
+                  <table class="table finance-income-table">
+                    <thead>
+                      <tr>
+                        <th width="40%">Statement of Comprehensive Income</th>
+                        <th width="20%">Amount</th>
+                        <th width="40%">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="line-item">Insurance revenue</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Revenue from insurance contract services</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Insurance service expenses (excluding finance expenses)</td>
+                        <td class="amount-col">(XX)</td>
+                        <td class="description-col">Operational expenses related to insurance services</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Net income/expense from reinsurance contracts held</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Net effect of reinsurance arrangements</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Insurance service result</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Net result from insurance services</td>
+                      </tr>
+                      <tr class="section-header">
+                        <td colspan="3">Insurance Finance Income or Expenses - Profit or Loss</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-1">Insurance finance income or expenses recognized in profit or loss (allocated amount)</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Systematic allocation of expected finance effects</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Systematic allocation of expected finance income/expenses (e.g., using locked-in rates)</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Expected finance result based on initial assumptions</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Exchange differences on insurance contract liabilities (P&L portion)</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Foreign currency effects recognized in P&L</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Total insurance finance income or expenses recognized in profit or loss</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Finance effects impacting current period profit</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Net income from investments (other than insurance finance)</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Investment income excluding insurance contract effects</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Other income / expenses</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Miscellaneous income and expenses</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">General and administrative expenses</td>
+                        <td class="amount-col">(XX)</td>
+                        <td class="description-col">Operational overhead costs</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Profit before tax</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Earnings before income tax</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Income tax expense</td>
+                        <td class="amount-col">(XX)</td>
+                        <td class="description-col">Current and deferred tax expense</td>
+                      </tr>
+                      <tr class="total-row">
+                        <td>Profit for the year</td>
+                        <td>XXXX</td>
+                        <td>Net income after tax</td>
+                      </tr>
+                      <tr class="section-header">
+                        <td colspan="3">Other Comprehensive Income (OCI)</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-1">Items that may be reclassified subsequently to profit or loss:</td>
+                        <td class="amount-col"></td>
+                        <td class="description-col"></td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Exchange differences on retranslation of foreign operations</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Currency translation of foreign subsidiaries</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Re-measurement gains/(losses) on debt instruments at FVOCI</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Fair value changes on debt investments</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Insurance finance income or expenses recognised in OCI (difference) for non-participating contracts</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Volatility from changes in financial assumptions</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Exchange differences on insurance contract liabilities (OCI portion – non-participating)</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Foreign currency effects deferred to OCI</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-1">Items that will not be reclassified subsequently to profit or loss:</td>
+                        <td class="amount-col"></td>
+                        <td class="description-col"></td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Insurance finance income or expenses recognised in OCI (difference) for direct participating contracts</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Finance effects on participating contracts</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Re-measurement gains/(losses) on equity instruments at FVOCI</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Fair value changes on equity investments</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Exchange differences on insurance contract liabilities (OCI portion – direct participating contracts)</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Currency effects on participating contracts</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item indent-2">• Other OCI items not reclassified to P&L</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Permanent comprehensive income items</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Total Other Comprehensive Income for the year (net of tax)</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Comprehensive income not in current profit</td>
+                      </tr>
+                      <tr class="total-row">
+                        <td>Total Comprehensive Income for the year</td>
+                        <td>XXXX</td>
+                        <td>Complete financial performance measure</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 15.7 Key Implementation Considerations -->
+            <div class="content-section">
+              <h4>15.7 Key Implementation Considerations</h4>
+              
+              <div class="content-card">
+                <div class="implementation-guidance">
+                  <h5>Discount Rate Determination</h5>
+                  <p>The selection of appropriate discount rates is critical for measuring insurance finance income or expenses:</p>
+                  
+                  <div class="guidance-item">
+                    <div class="guidance-icon">1</div>
+                    <div class="guidance-content">
+                      <strong>Current vs. Locked-in Rates</strong>
+                      <p>Decision between using current market rates or rates locked at contract inception</p>
+                    </div>
+                  </div>
+                  
+                  <div class="guidance-item">
+                    <div class="guidance-icon">2</div>
+                    <div class="guidance-content">
+                      <strong>Yield Curve Construction</strong>
+                      <p>Development of appropriate yield curves for discounting future cash flows</p>
+                    </div>
+                  </div>
+                  
+                  <div class="guidance-item">
+                    <div class="guidance-icon">3</div>
+                    <div class="guidance-content">
+                      <strong>Currency Matching</strong>
+                      <p>Alignment of discount rates with the currency of insurance contract cash flows</p>
+                    </div>
+                  </div>
+                </div>
+
+                <h5>Volatility Management</h5>
+                <p>The choice between presentation options significantly affects income statement volatility:</p>
+                
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>P&L Volatility</h6>
+                    <ul>
+                      <li>Option 1 exposes profit to market rate fluctuations</li>
+                      <li>Provides complete transparency of financial effects</li>
+                      <li>May result in significant income statement volatility</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="measurement-card">
+                    <h6>OCI Volatility</h6>
+                    <ul>
+                      <li>Option 2 transfers timing differences to comprehensive income</li>
+                      <li>Reduces income statement volatility</li>
+                      <li>Provides smoother profit recognition pattern</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="measurement-card">
+                    <h6>Risk Management</h6>
+                    <ul>
+                      <li>Alignment of accounting policy with risk management strategies</li>
+                      <li>Consideration of stakeholder expectations</li>
+                      <li>Consistency with overall financial reporting objectives</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h5>Disclosure Requirements</h5>
+                <p>Comprehensive disclosures are required to support the chosen presentation approach:</p>
+                
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-file-alt"></i> Required Disclosures:</h5>
+                    <ul>
+                      <li><strong>Accounting Policy:</strong> Clear description of the chosen presentation method</li>
+                      <li><strong>Sensitivity Analysis:</strong> Impact of changes in key financial assumptions</li>
+                      <li><strong>Reconciliation:</strong> Movement analysis of insurance contract liabilities</li>
+                      <li><strong>Risk Management:</strong> Explanation of how finance risk is managed</li>
+                      <li><strong>OCI Analysis:</strong> Detailed breakdown of items recognized in other comprehensive income</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="key-point">
+                  <strong>Transparent Reporting:</strong> This comprehensive approach to insurance finance income or expenses ensures transparent reporting of the financial effects on insurance contracts, enabling stakeholders to better understand the impact of time value of money and financial assumption changes on an insurer's financial performance.
+                </div>
+              </div>
+            </div>
+
+            <!-- 15.8 Conclusion -->
+            <div class="content-section conclusion">
+              <h4>15.8 Conclusion</h4>
+              <div class="conclusion-card">
+                <div class="next-module">
+                  <strong>Training Complete:</strong> You have reached the end of the IFRS 17 training curriculum. Congratulations on your achievement!
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <!-- Module Navigation - UPDATED AS REQUESTED -->
+          <div class="module-navigation">
+            <div class="row">
+              <div class="col-lg-6">
+                <a href="module-14.html" class="nav-button prev">
+                  <i class="fa fa-arrow-left"></i> Previous Module
+                </a>
+              </div>
+              <div class="col-lg-6 text-end">
+                <!-- CHANGED: Take Final Assessment button replaced with Take Module Assessment -->
+                <a href="assessment-15.html" class="nav-button next">
+                  Take Module Assessment <i class="fa fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module Actions - UPDATED AS REQUESTED -->
+          <div class="module-actions">
+            <button class="main-button outline" id="saveProgress">Save Progress</button>
+            <!-- CHANGED: Take Module Assessment button replaced with STATUS button linked to progress.html -->
+            <button class="main-button" id="statusBtn" onclick="window.location.href='progress.html'">
+              STATUS
+            </button>
+            <button class="main-button primary" id="markComplete">Mark Complete</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/module-progress.js"></script>
+
+  <!-- Loader Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const pageLoader = document.getElementById('pageLoader');
+      
+      // Update copyright year automatically
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      
+      setTimeout(() => {
+          pageLoader.classList.add('hidden');
+          
+          setTimeout(() => {
+              pageLoader.remove();
+          }, 500);
+      }, 1500);
+  });
+
+  document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (link && link.href && !link.href.includes('javascript:') && 
+          !link.href.includes('#') && link.target !== '_blank') {
+          const pageLoader = document.getElementById('pageLoader');
+          if (pageLoader) {
+              pageLoader.classList.remove('hidden');
+          }
+      }
+  });
+  </script>
+</body>
+</html>

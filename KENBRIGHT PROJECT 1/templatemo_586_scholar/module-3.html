@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <title>Module 3: Level of Aggregation | Kenbright</title>
+    
+    <!-- CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <style>
+        /* Apply Gill Sans font to entire page with specified sizes */
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .nav li a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .btn, .main-button a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Page Loader Styles */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: white;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .kenbright-loader {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .loader-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .loader-progress-bar {
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            animation: progress 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        /* Content Styling */
+        .section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .main-module-content {
+            font-size: 20px;
+        }
+        
+        .content-section {
+            margin: 50px 0;
+        }
+        
+        .content-section h4 {
+            color: #1e3c72;
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #14B8A6;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 35px;
+            font-size: 20px;
+        }
+        
+        .content-card h5 {
+            color: #1e3c72;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .content-card h6 {
+            color: #1e3c72;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .content-card p {
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            font-size: 20px;
+            line-height: 1.7;
+        }
+        
+        .key-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        
+        /* Learning Objectives */
+        .learning-objectives h3 {
+            font-size: 28px;
+        }
+        
+        .objective-item {
+            font-size: 20px;
+        }
+        
+        /* Grouping Process Diagram Styling */
+        .grouping-diagram-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin: 40px 0;
+            font-family: 'Gill Sans', sans-serif;
+            text-align: center;
+        }
+
+        .grouping-diagram-title {
+            color: #1e3c72;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #14B8A6;
+        }
+
+        /* UPDATED CODE for Module 3 */
+        .grouping-image-container {
+            margin: 30px 0;
+            padding: 35px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .grouping-image {
+            max-width: 95%;
+            width: 1100px;
+            height: auto;
+            max-height: 650px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            object-fit: contain;
+        }
+
+        .grouping-caption {
+            font-size: 18px;
+            color: #666;
+            margin-top: 25px;
+            font-style: italic;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        /* Grouping Visualization */
+        .grouping-visualization {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 25px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .grouping-level {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .grouping-level h5 {
+            color: #495057;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 22px;
+        }
+
+        .cohort-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .cohort-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 2px solid #e9ecef;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .cohort-item:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .profitability-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .badge-onerous { background: #f8d7da; color: #721c24; }
+        .badge-no-risk { background: #d1fae5; color: #065f46; }
+        .badge-remaining { background: #fff3cd; color: #856404; }
+
+        /* Header styling */
+        .header-area {
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        .main-nav .nav {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .main-nav .nav li a:hover {
+            color: #3B82F6;
+        }
+
+        /* Search input styling */
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input input {
+            width: 100%;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .search-input i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 130px;
+            width: auto;
+            max-width: 500px;
+        }
+
+        /* Banner */
+        .main-banner {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #2563EB 100%);
+            padding: 120px 0px 80px 0px;
+        }
+
+        .main-banner .header-text h2 {
+            color: #fff !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 42px;
+        }
+        
+        .main-banner .header-text p {
+            color: #E2E8F0 !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 22px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-nav {
+            background: #f8f9fa;
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .breadcrumb-item a {
+            color: #1e3c72;
+            font-weight: 500;
+        }
+
+        /* Module Header Card */
+        .module-header-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .module-meta-info {
+            font-size: 20px;
+        }
+
+        .module-number {
+            font-size: 20px;
+        }
+
+        .progress-status {
+            font-size: 20px;
+        }
+
+        /* Tables - Enhanced Styling */
+        .profitability-table th,
+        .assessment-table th {
+            font-size: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .profitability-table td,
+        .assessment-table td {
+            font-size: 20px;
+            padding: 15px;
+            vertical-align: top;
+        }
+
+        .profitability-table tbody tr:nth-child(even),
+        .assessment-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .profitability-table tbody tr:hover,
+        .assessment-table tbody tr:hover {
+            background-color: #e9ecef;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Measurement Cards */
+        .measurement-card h6 {
+            font-size: 22px;
+        }
+
+        .measurement-card ul li {
+            font-size: 20px;
+        }
+
+        /* Scope Cards */
+        .scope-card h5 {
+            font-size: 22px;
+        }
+
+        .scope-card ul li {
+            font-size: 20px;
+        }
+
+        .scope-card.in-scope {
+            border-left: 4px solid #28a745;
+            background: linear-gradient(to right, #f0fff4, #ffffff);
+        }
+
+        .scope-card.out-scope {
+            border-left: 4px solid #dc3545;
+            background: linear-gradient(to right, #fff5f5, #ffffff);
+        }
+
+        /* Aggregation Steps */
+        .aggregation-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(to right, #f8f9fa, #ffffff);
+            border-radius: 10px;
+            border-left: 4px solid #14B8A6;
+        }
+
+        .step-number {
+            font-size: 22px;
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content h6 {
+            font-size: 22px;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            font-size: 20px;
+            color: #4a4a4a;
+            margin: 0;
+        }
+
+        /* Conclusion */
+        .conclusion-card {
+            padding: 40px;
+            font-size: 22px;
+            background: linear-gradient(135deg, #5f89b4 0%, #ffffff 100%);
+            border-left: 4px solid #14B8A6;
+        }
+
+        .key-takeaways h5 {
+            font-size: 24px;
+            color: #1e3c72;
+        }
+
+        .key-takeaways li {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .next-module {
+            font-size: 22px;
+            color: #1e3c72;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .nav-button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button.prev {
+            background: #f8f9fa;
+            color: #1e3c72;
+            border: 2px solid #667eea;
+        }
+
+        .nav-button.prev:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-button.next {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .nav-button.next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Module Actions */
+        .module-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .module-actions button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .module-actions .main-button.outline {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .module-actions .main-button.outline:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .module-actions .main-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .module-actions .main-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .module-actions .main-button.primary {
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+        }
+
+        .module-actions .main-button.primary:hover {
+            box-shadow: 0 5px 15px rgba(20, 184, 166, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 18px;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 25px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 22px;
+            }
+            
+            .content-card h6 {
+                font-size: 20px;
+            }
+            
+            .content-section h4 {
+                font-size: 24px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 32px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 18px;
+            }
+            
+            .grouping-diagram-container {
+                padding: 25px;
+            }
+            
+            .grouping-diagram-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            
+            .grouping-image-container {
+                padding: 15px;
+            }
+            
+            .grouping-caption {
+                font-size: 16px;
+            }
+            
+            .profitability-table th,
+            .assessment-table th {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .profitability-table td,
+            .assessment-table td {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-input {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .main-nav .nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .logo-image {
+                height: 35px;
+                max-width: 150px;
+            }
+            
+            .module-actions {
+                flex-direction: column;
+            }
+            
+            .module-actions button {
+                width: 100%;
+            }
+            
+            .cohort-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 20px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 20px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 28px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 16px;
+            }
+            
+            .logo-image {
+                height: 30px;
+                max-width: 130px;
+            }
+            
+            .nav-button {
+                font-size: 16px;
+                padding: 10px 20px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .module-navigation .row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .module-navigation .col-lg-6 {
+                width: 100%;
+            }
+            
+            .module-navigation .text-end {
+                text-align: left !important;
+            }
+            
+            .aggregation-step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+            }
+        }
+
+        /* ADD THIS to BOTH Module 1 and Module 3 CSS */
+@media (max-width: 768px) {
+    .timeline-image,
+    .grouping-image {
+        max-width: 100%;
+        width: 100%;
+        max-height: none;
+    }
+    
+    .timeline-image-container,
+    .grouping-image-container {
+        padding: 20px;
+        margin: 20px 0;
+        min-height: auto;
+    }
+    
+    .timeline-caption,
+    .grouping-caption {
+        margin-top: 15px;
+        font-size: 16px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+          <div class="kenbright-loader">Kenbright</div>
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading Module 3...</div>
+          <div class="loader-progress">
+              <div class="loader-progress-bar"></div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+                    </a>
+                    
+                    <!-- Search -->
+                    <div class="search-input">
+                        <form id="search" action="#">
+                            <input type="text" placeholder="Search IFRS 17 concepts..." id='searchText' name="searchKeyword" />
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </div>
+                    
+                    <!-- Main Navigation -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="modules.html" class="active">Training Modules</a></li>
+                        <li><a href="assessments.html">Test Assessments</a></li>
+                        <li><a href="progress.html">My Progress</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2>Module 3: Level of Aggregation</h2>
+            <p>Understanding Portfolio and Cohort Grouping under IFRS 17</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Training Modules</a></li>
+          <li class="breadcrumb-item active">Module 3</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Module Content Area -->
+  <section class="section module-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <!-- Module Header Card -->
+          <div class="module-header-card">
+            <div class="module-meta-info">
+              <span class="module-number">Module 3</span>
+              <span class="progress-status">0% Complete</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <!-- Learning Objectives -->
+          <div class="learning-objectives">
+            <h3><i class="fa fa-bullseye"></i> Learning Objectives</h3>
+            <div class="objectives-grid">
+              <div class="objective-item">
+                <i class="fa fa-layer-group"></i>
+                <span>Understand the hierarchical aggregation process from portfolios to cohorts under IFRS 17</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-filter"></i>
+                <span>Apply the criteria for establishing portfolios based on risk characteristics and management approach</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-chart-pie"></i>
+                <span>Differentiate between the three mandatory profitability groups within each portfolio</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-calendar-alt"></i>
+                <span>Implement annual cohort grouping requirements and understand their implications</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-balance-scale"></i>
+                <span>Assess onerous contracts and apply appropriate accounting treatments under different measurement models</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Topics -->
+          <div class="key-topics">
+            <h4><i class="fa fa-key"></i> Key Topics Covered</h4>
+            <div class="topics-list">
+              <span class="topic-badge">Portfolio Establishment Criteria</span>
+              <span class="topic-badge">Profitability Grouping Requirements</span>
+              <span class="topic-badge">Annual Cohort Formation</span>
+              <span class="topic-badge">Onerous Contract Assessment</span>
+              <span class="topic-badge">PAA vs Non-PAA Treatment</span>
+              <span class="topic-badge">Grouping Consistency Rules</span>
+            </div>
+          </div>
+
+          <!-- Main Module Content -->
+          <div class="main-module-content">
+            
+            <!-- 3.1 Introduction -->
+            <div class="content-section">
+              <h4>3.1 Introduction</h4>
+              
+              <div class="content-card">
+                <p>This module provides detailed guidance on how insurance contracts are grouped for measurement and reporting purposes under IFRS 17, covering paragraphs 14 to 24 of the standard.</p>
+                
+                <div class="key-point">
+                  <strong>Scope:</strong> Covers IFRS 17 paragraphs 14-24 on contract aggregation and grouping requirements.
+                </div>
+              </div>
+            </div>
+
+            <!-- 3.2 What is Aggregation -->
+            <div class="content-section">
+              <h4>3.2 What is Aggregation in IFRS 17?</h4>
+              
+              <div class="content-card">
+                <p>Under IFRS 17, aggregation refers to the grouping of insurance contracts that share similar risks and are managed together. This structure supports appropriate timing of profit recognition and early identification of losses in financial reporting.</p>
+                
+                <p>The grouping of these contracts follows a hierarchical process:</p>
+                
+                <div class="aggregation-steps">
+                  <div class="aggregation-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                      <h6>Establishing Portfolios</h6>
+                      <p>Group contracts based on similar risk characteristics and management approach</p>
+                    </div>
+                  </div>
+                  <div class="aggregation-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                      <h6>Subdividing Portfolios</h6>
+                      <p>Split into profitability groups: onerous, no significant risk, and remaining contracts</p>
+                    </div>
+                  </div>
+                  <div class="aggregation-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                      <h6>Creating Annual Cohorts</h6>
+                      <p>Further divide into groups of contracts issued within the same calendar year</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ADDED: Grouping Process Diagram - TASK 4 REQUIREMENT -->
+            <div class="content-section">
+              <h4>3.2.1 Grouping Process Visualization</h4>
+              
+              <div class="grouping-diagram-container">
+                  <h3 class="grouping-diagram-title">Contract Grouping Process</h3>
+                  
+                  <div class="grouping-image-container">
+                      <img src="assets/images/groupingContractsProcess.png" alt="IFRS 17 Contract Grouping Process" class="grouping-image">
+                      <p class="grouping-caption">Visual representation of the hierarchical grouping process from portfolios to annual cohorts</p>
+                  </div>
+              </div>
+            </div>
+
+            <!-- 3.3 Step 1: Establishing Portfolios -->
+            <div class="content-section">
+              <h4>3.3 Step 1: Establishing Portfolios</h4>
+              
+              <div class="content-card">
+                <h5>Portfolio Allocation Criteria</h5>
+                <p>Contracts must first be allocated into portfolios based on:</p>
+                
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Similar Risk Characteristics</h6>
+                    <p><strong>Examples include:</strong></p>
+                    <ul>
+                      <li>Product type (life, health, property)</li>
+                      <li>Coverage terms and conditions</li>
+                      <li>Underlying risk profile</li>
+                      <li>Geographical region</li>
+                    </ul>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Common Management Approach</h6>
+                    <p><strong>Key considerations:</strong></p>
+                    <ul>
+                      <li>Contracts managed together as a single pool</li>
+                      <li>Consistent underwriting standards</li>
+                      <li>Unified risk management strategy</li>
+                      <li>Similar operational processes</li>
+                    </ul>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Consistent Measurement Models</h6>
+                    <p><strong>Model alignment:</strong></p>
+                    <ul>
+                      <li>Same accounting model applied</li>
+                      <li>GMM, PAA, or VFA consistency</li>
+                      <li>Uniform measurement approach</li>
+                      <li>Consistent assumption setting</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="alert alert-info">
+                  <strong>Portfolio Definition:</strong> A portfolio consists of contracts that share common features (e.g., health insurance, life products) and are overseen under the same management or operational strategy.
+                </div>
+              </div>
+            </div>
+
+            <!-- 3.4 Step 2: Subdividing Portfolios -->
+            <div class="content-section">
+              <h4>3.4 Step 2: Subdividing Portfolios into Groups</h4>
+              
+              <div class="content-card">
+                <h5>Mandatory Profitability Groups</h5>
+                <p>Once portfolios are defined, each must be further split into at least three distinct groups:</p>
+                
+                <div class="table-responsive">
+                  <table class="table table-bordered profitability-table">
+                    <thead class="table-primary">
+                      <tr>
+                        <th>No.</th>
+                        <th>Group</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>1</strong></td>
+                        <td><span class="badge-onerous profitability-badge">Onerous Contracts at Initial Recognition</span></td>
+                        <td>Contracts expected to generate a loss from inception. These must be identified and measured separately to ensure immediate loss recognition.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>2</strong></td>
+                        <td><span class="badge-no-risk profitability-badge">Contracts with No Significant Risk of Becoming Onerous</span></td>
+                        <td>Contracts expected to remain profitable or at least break even throughout their lifetime. These have minimal risk of future losses.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>3</strong></td>
+                        <td><span class="badge-remaining profitability-badge">Remaining Contracts</span></td>
+                        <td>Contracts not loss-making initially but may become onerous over time. These require ongoing monitoring and assessment.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3.5 Step 3: Annual Cohorts -->
+            <div class="content-section">
+              <h4>3.5 Step 3: Creation of Annual Cohorts</h4>
+              
+              <div class="content-card">
+                <h5>Cohort Formation Rules</h5>
+                <p>After profitability grouping, contracts must be divided into annual cohorts:</p>
+                
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Cohort Requirements</h5>
+                    <ul>
+                      <li>All contracts issued within the same calendar year form a single cohort</li>
+                      <li>Contracts issued more than one year apart cannot be grouped together</li>
+                      <li>Cohort composition is fixed at initial recognition and cannot be changed later</li>
+                      <li>Each cohort maintains separate measurement and profit recognition</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="scope-card out-scope">
+                    <h5><i class="fa fa-times-circle"></i> Prohibited Grouping</h5>
+                    <ul>
+                      <li>Mixing contracts from different calendar years</li>
+                      <li>Changing cohort composition after initial recognition</li>
+                      <li>Combining contracts with significantly different issue dates</li>
+                      <li>Ignoring the annual cohort requirement</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3.6 Grouping Visualization -->
+            <div class="content-section">
+              <h4>3.6 The Grouping Process Visualization</h4>
+              
+              <div class="grouping-visualization">
+                <div class="grouping-level">
+                  <h5>📊 Portfolio Level</h5>
+                  <p>Contracts grouped by similar risk characteristics and management approach</p>
+                  
+                  <div class="grouping-level">
+                    <h5>🔴 Onerous Contracts</h5>
+                    <div class="cohort-grid">
+                      <div class="cohort-item">
+                        <span class="badge-onerous profitability-badge">Cohort 1</span>
+                        <small>2023 Contracts</small>
+                      </div>
+                      <div class="cohort-item">
+                        <span class="badge-onerous profitability-badge">Cohort 2</span>
+                        <small>2024 Contracts</small>
+                      </div>
+                      <div class="cohort-item">
+                        <span class="badge-onerous profitability-badge">Cohort n</span>
+                        <small>Future Years</small>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="grouping-level">
+                    <h5>🟢 No Significant Risk Contracts</h5>
+                    <div class="cohort-grid">
+                      <div class="cohort-item">
+                        <span class="badge-no-risk profitability-badge">Cohort 1</span>
+                        <small>2023 Contracts</small>
+                      </div>
+                      <div class="cohort-item">
+                        <span class="badge-no-risk profitability-badge">Cohort 2</span>
+                        <small>2024 Contracts</small>
+                      </div>
+                      <div class="cohort-item">
+                        <span class="badge-no-risk profitability-badge">Cohort n</span>
+                        <small>Future Years</small>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="grouping-level">
+                    <h5>🟡 Remaining Contracts</h5>
+                    <div class="cohort-grid">
+                      <div class="cohort-item">
+                        <span class="badge-remaining profitability-badge">Cohort 1</span>
+                        <small>2023 Contracts</small>
+                      </div>
+                      <div class="cohort-item">
+                        <span class="badge-remaining profitability-badge">Cohort 2</span>
+                        <small>2024 Contracts</small>
+                      </div>
+                      <div class="cohort-item">
+                        <span class="badge-remaining profitability-badge">Cohort n</span>
+                        <small>Future Years</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3.7 PAA Considerations -->
+            <div class="content-section">
+              <h4>3.7 Use of Premium Allocation Approach (PAA)</h4>
+              
+              <div class="content-card">
+                <h5>PAA Specific Requirements</h5>
+                <p>When applying the PAA, specific considerations apply to contract grouping:</p>
+                
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Initial Recognition Assumption</h6>
+                    <ul>
+                      <li>Generally assumed contracts are not onerous at initial recognition</li>
+                      <li>Evidence required to override this assumption</li>
+                      <li>Burden of proof for onerous classification</li>
+                    </ul>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Ongoing Assessment</h6>
+                    <ul>
+                      <li>Regular reassessment of assumptions required</li>
+                      <li>Evaluation of changing circumstances</li>
+                      <li>Monitoring for potential onerous developments</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="alert alert-warning">
+                  <strong>Important:</strong> Insurers must regularly reassess these assumptions and evaluate whether changing circumstances or risks could make contracts onerous over time.
+                </div>
+              </div>
+            </div>
+
+            <!-- 3.8 Non-PAA Contracts -->
+            <div class="content-section">
+              <h4>3.8 Contracts Outside the Premium Allocation Approach</h4>
+              
+              <div class="content-card">
+                <h5>Enhanced Assessment Requirements</h5>
+                <p>For contracts not using the PAA, more rigorous assessment is required:</p>
+                
+                <div class="table-responsive">
+                  <table class="table table-bordered assessment-table">
+                    <thead class="table-primary">
+                      <tr>
+                        <th>Assessment Area</th>
+                        <th>Requirements</th>
+                        <th>Implementation Guidance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Onerous Risk Assessment</strong></td>
+                        <td>Even contracts not onerous initially must be assessed for risk of becoming onerous</td>
+                        <td>Based on possible changes in assumptions that could lead to a loss</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Information Sources</strong></td>
+                        <td>Comprehensive data analysis required</td>
+                        <td>Information derived from the entity's internal reporting systems</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Probability Assessment</strong></td>
+                        <td>Evaluate significant probability of becoming onerous</td>
+                        <td>Based on likelihood of assumption changes and internal reporting data</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3.9 Consistency Rules -->
+            <div class="content-section">
+              <h4>3.9 Consistency and Grouping Duration</h4>
+              
+              <div class="content-card">
+                <h5>Grouping Permanence Rules</h5>
+                <p>IFRS 17 imposes strict consistency requirements for contract grouping:</p>
+                
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Mandatory Requirements</h5>
+                    <ul>
+                      <li>Contracts issued more than 12 months apart must not be included in the same group</li>
+                      <li>Once contracts are grouped at initial recognition, the composition is fixed</li>
+                      <li>Group assignments remain consistent throughout the contract lifetime</li>
+                      <li>No changes permitted to group composition after initial recognition</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="scope-card out-scope">
+                    <h5><i class="fa fa-times-circle"></i> Prohibited Actions</h5>
+                    <ul>
+                      <li>Reassessing or changing group composition later</li>
+                      <li>Mixing contracts from different annual cohorts</li>
+                      <li>Transferring contracts between profitability groups</li>
+                      <li>Ignoring the 12-month separation rule</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="key-point">
+                  <strong>Critical Rule:</strong> Group composition is permanently fixed at initial recognition and cannot be reassessed or changed throughout the contract lifetime.
+                </div>
+              </div>
+            </div>
+
+            <!-- 3.10 Conclusion -->
+            <div class="content-section conclusion">
+              <h4>3.10 Conclusion: Mastering Aggregation Principles</h4>
+              <div class="conclusion-card">
+                <p>Module 3 establishes the critical framework for contract aggregation under IFRS 17, ensuring proper profit recognition timing and early loss identification. The hierarchical grouping process from portfolios to annual cohorts provides a structured approach to contract measurement and reporting.</p>
+                
+                <div class="key-takeaways">
+                  <h5>Key Takeaways:</h5>
+                  <ul>
+                    <li>Follow the three-step hierarchy: Portfolios → Profitability Groups → Annual Cohorts</li>
+                    <li>Always separate onerous contracts for immediate loss recognition</li>
+                    <li>Maintain strict annual cohort separation - no mixing across years</li>
+                    <li>Group composition is permanent once established at initial recognition</li>
+                    <li>Apply different assessment criteria for PAA vs non-PAA contracts</li>
+                  </ul>
+                </div>
+                
+                <div class="next-module">
+                  <strong>Next Module:</strong> Module 4 - General Measurement Model (GMM): Deep dive into the primary measurement approach
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <!-- Module Navigation - UPDATED FOR TASK 4 -->
+          <div class="module-navigation">
+            <div class="row">
+              <div class="col-lg-6">
+                <a href="module-2.html" class="nav-button prev">
+                  <i class="fa fa-arrow-left"></i> Previous Module
+                </a>
+              </div>
+              <div class="col-lg-6 text-end">
+                <!-- CHANGED: Next Module button replaced with Take Module Assessment -->
+                <a href="assessment-3.html" class="nav-button next">
+                  Take Module Assessment <i class="fa fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module Actions - UPDATED FOR TASK 4 -->
+          <div class="module-actions">
+            <button class="main-button outline" id="saveProgress">Save Progress</button>
+            <!-- CHANGED: Take Module Assessment button replaced with Next Module -->
+            <button class="main-button" id="nextModuleBtn" onclick="window.location.href='module-4.html'">
+              Next Module
+            </button>
+            <button class="main-button primary" id="markComplete">Mark Complete</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/module-progress.js"></script>
+
+  <!-- Loader Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const pageLoader = document.getElementById('pageLoader');
+      
+      // Update copyright year automatically
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      
+      setTimeout(() => {
+          pageLoader.classList.add('hidden');
+          
+          setTimeout(() => {
+              pageLoader.remove();
+          }, 500);
+      }, 1500);
+  });
+
+  document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (link && link.href && !link.href.includes('javascript:') && 
+          !link.href.includes('#') && link.target !== '_blank') {
+          const pageLoader = document.getElementById('pageLoader');
+          if (pageLoader) {
+              pageLoader.classList.remove('hidden');
+          }
+      }
+  });
+  </script>
+</body>
+</html>

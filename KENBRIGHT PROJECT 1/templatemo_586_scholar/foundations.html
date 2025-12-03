@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Foundations & Standards | Kenbright IFRS 17 Training</title>
+    
+    <!-- CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <style>
+        /* Apply Gill Sans font to entire page with specified sizes */
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .nav li a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .btn, .main-button a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Page Loader Styles */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: white;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .kenbright-loader {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .loader-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .loader-progress-bar {
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            animation: progress 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        /* Content Styling */
+        .section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 40px;
+            font-size: 20px;
+        }
+        
+        .content-card h3 {
+            color: #1e3c72;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #14B8A6;
+            font-size: 28px;
+        }
+        
+        .content-card h4 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .content-card p {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #4a4a4a;
+        }
+        
+        /* Table Styling */
+        .standards-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 18px;
+            min-width: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .standards-table thead tr {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #ffffff;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .standards-table th,
+        .standards-table td {
+            padding: 18px 20px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .standards-table tbody tr {
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+        
+        .standards-table tbody tr:nth-of-type(even) {
+            background-color: #f8fafc;
+        }
+        
+        .standards-table tbody tr:hover {
+            background-color: #f0f7ff;
+            transform: translateX(5px);
+        }
+        
+        .standards-table tbody tr:last-of-type {
+            border-bottom: 2px solid #1e3c72;
+        }
+        
+        .standards-table td strong {
+            color: #1e3c72;
+        }
+        
+        /* Terms Table Special Styling */
+        .terms-table {
+            background: #f8fafc;
+        }
+        
+        .terms-table th {
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+        }
+        
+        .terms-table td:first-child {
+            font-weight: 600;
+            color: #1e3c72;
+            width: 25%;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            color: #1e3c72;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            color: #64748B;
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation Buttons */
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 18px;
+            border: 2px solid transparent;
+        }
+        
+        .nav-button:hover {
+            background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(20, 184, 166, 0.3);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 25px;
+                font-size: 18px;
+            }
+            
+            .content-card h3 {
+                font-size: 24px;
+            }
+            
+            .content-card h4 {
+                font-size: 22px;
+            }
+            
+            .standards-table {
+                font-size: 16px;
+            }
+            
+            .standards-table th,
+            .standards-table td {
+                padding: 12px 15px;
+            }
+            
+            .section-header h2 {
+                font-size: 28px;
+            }
+            
+            .section-header p {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content-card {
+                padding: 20px;
+                font-size: 16px;
+            }
+            
+            .standards-table {
+                font-size: 14px;
+            }
+            
+            .standards-table th,
+            .standards-table td {
+                padding: 10px;
+            }
+            
+            .nav-button {
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Header styling */
+        .header-area {
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        .main-nav .nav {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        .main-nav .nav li a:hover {
+            color: #3B82F6;
+        }
+
+        /* Search input styling */
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input input {
+            width: 100%;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        .search-input i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 130px;
+            width: auto;
+            max-width: 500px;
+        }
+
+        /* Banner */
+        .main-banner {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #2563EB 100%);
+            padding: 120px 0px 80px 0px;
+        }
+
+        .main-banner .header-text h2 {
+            color: #fff !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 42px;
+        }
+        
+        .main-banner .header-text p {
+            color: #E2E8F0 !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+          <div class="kenbright-loader">Kenbright</div>
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading Foundations & Standards...</div>
+          <div class="loader-progress">
+              <div class="loader-progress-bar"></div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+                    </a>
+                    
+                    <!-- Search -->
+                    <div class="search-input">
+                        <form id="search" action="#">
+                            <input type="text" placeholder="Search IFRS 17 concepts..." id='searchText' name="searchKeyword" />
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </div>
+                    
+                    <!-- Main Navigation -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="modules.html">Training Modules</a></li>
+                        <li><a href="assessments.html">Test Assessments</a></li>
+                        <li><a href="progress.html">My Progress</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2>Foundations & Standards</h2>
+            <p>Essential Terminology and Accounting Standards for IFRS 17</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <section class="section foundations-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <!-- Introduction -->
+          <div class="content-card">
+            <div class="section-header">
+              <h2>IFRS 17 Foundations & Standards</h2>
+              <p>This module provides the essential terminology and accounting standards framework required to understand and apply IFRS 17 effectively. Master these foundations before proceeding to the technical modules.</p>
+            </div>
+          </div>
+
+          <!-- TERMS AND ABBREVIATIONS -->
+          <div class="content-card">
+            <h3>1. TERMS AND ABBREVIATIONS</h3>
+            <p>Understanding the specific terminology of IFRS 17 is crucial for proper implementation and interpretation of the standard.</p>
+            
+            <table class="standards-table terms-table">
+              <thead>
+                <tr>
+                  <th style="width: 25%">TERM</th>
+                  <th style="width: 75%">DEFINITION</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Contractual Service Margin (CSM)</strong></td>
+                  <td>A component of the carrying amount of the asset or liability for a group of insurance contracts representing the unearned profit the entity will recognise as it provides insurance contract services under the insurance contracts in the group.</td>
+                </tr>
+                <tr>
+                  <td><strong>Coverage Period</strong></td>
+                  <td>The period during which the entity provides insurance contract services. This period includes the insurance contract services that relate to all premiums within the boundary of the insurance contract.</td>
+                </tr>
+                <tr>
+                  <td><strong>Experience Adjustment</strong></td>
+                  <td>A difference between: (A) for premium receipts (and any related cash flows such as insurance acquisition cash flows and insurance premium taxes) – the estimate at the beginning of the period of the amounts expected in the period and the actual cash flows in the period; or (B) for insurance service expenses (excluding insurance acquisition expenses) – the estimate at the beginning of the period of the amounts expected to be incurred in the period and the actual amounts incurred in the period.</td>
+                </tr>
+                <tr>
+                  <td><strong>Financial Risk</strong></td>
+                  <td>The risk of a possible future change in one or more of a specified interest rate, financial instrument price, commodity price, currency exchange rate, index of prices or rates, credit rating or credit index or other variable, provided in the case of a non-financial variable that the variable is not specific to a party to the contract.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fulfilment Cash Flows</strong></td>
+                  <td>An explicit, unbiased and probability-weighted estimate (i.e., expected value) of the present value of the future cash outflows minus the present value of the future cash inflows that will arise as the entity fulfils insurance contracts, including a risk adjustment for non-financial risk.</td>
+                </tr>
+                <tr>
+                  <td><strong>Group of Insurance Contracts</strong></td>
+                  <td>A set of insurance contracts resulting from the division of a portfolio of insurance contracts into, at a minimum, contracts issued within a period of no longer than one year and that, at initial recognition: (a) are onerous, if any; (b) have no significant possibility of becoming onerous subsequently, if any; or (c) do not fall into either (a) or (b), if any.</td>
+                </tr>
+                <tr>
+                  <td><strong>Insurance Acquisition Cash Flows</strong></td>
+                  <td>Cash flows arising from the costs of selling, underwriting and starting a group of insurance contracts (issued or expected to be issued) that are directly attributable to the portfolio of insurance contracts to which the group belongs. Such cash flows include cash flows that are not directly attributable to individual contracts or groups of insurance contracts within the portfolio.</td>
+                </tr>
+                <tr>
+                  <td><strong>Insurance Contract</strong></td>
+                  <td>A contract under which one party (the issuer) accepts significant insurance risk from another party (the policyholder) by agreeing to compensate the policyholder if a specified uncertain future event (the insured event) adversely affects the policyholder.</td>
+                </tr>
+                <tr>
+                  <td><strong>Insurance Contract Services</strong></td>
+                  <td>The following services that an entity provides to a policyholder of an insurance contract: (a) coverage for an insured event (insurance coverage); (b) for insurance contracts without direct participation features, the generation of an investment return for the policyholder, if applicable (investment-return service); and (c) for insurance contracts with direct participation features, the management of underlying items on behalf of the policyholder (investment-related service).</td>
+                </tr>
+                <tr>
+                  <td><strong>Insurance Contract with Direct Participation Features</strong></td>
+                  <td>An insurance contract for which, at inception: (a) the contractual terms specify that the policyholder participates in a share of a clearly identified pool of underlying items; (b) the entity expects to pay to the policyholder an amount equal to a substantial share of the fair value returns on the underlying items; and (c) the entity expects a substantial proportion of any change in the amounts to be paid to the policyholder to vary with the change in fair value of the underlying items.</td>
+                </tr>
+                <tr>
+                  <td><strong>Insurance Contract without Direct Participation Features</strong></td>
+                  <td>An insurance contract that is not an insurance contract with direct participation features.</td>
+                </tr>
+                <tr>
+                  <td><strong>Insurance Risk</strong></td>
+                  <td>Risk, other than financial risk, transferred from the holder of a contract to the issuer.</td>
+                </tr>
+                <tr>
+                  <td><strong>Insured Event</strong></td>
+                  <td>An uncertain future event covered by an insurance contract that creates insurance risk.</td>
+                </tr>
+                <tr>
+                  <td><strong>Investment Component</strong></td>
+                  <td>The amounts that an insurance contract requires the entity to repay to a policyholder in all circumstances, regardless of whether an insured event occurs.</td>
+                </tr>
+                <tr>
+                  <td><strong>Investment Contract with Discretionary Participation Features</strong></td>
+                  <td>A financial instrument that provides a particular investor with the contractual right to receive, as a supplement to an amount not subject to the discretion of the issuer, additional amounts: (a) that are expected to be a significant portion of the total contractual benefits; (b) the timing or amount of which are contractually at the discretion of the issuer; and (c) that are contractually based on: (i) the returns on a specified pool of contracts or a specified type of contract; (ii) realised and/or unrealised investment returns on a specified pool of assets held by the issuer; or (iii) the profit or loss of the entity or fund that issues the contract.</td>
+                </tr>
+                <tr>
+                  <td><strong>Liability for Incurred Claims (LIC)</strong></td>
+                  <td>An entity's obligation to: (i) investigate and pay valid claims for insured events that have already occurred, including events that have occurred but for which claims have not been reported, and other incurred insurance expenses; and (ii) pay amounts that are not included in (a) and that relate to: (a) insurance contract services that have already been provided; or (b) any investment components or other amounts that are not related to the provision of insurance contract services and that are not in the liability for remaining coverage.</td>
+                </tr>
+                <tr>
+                  <td><strong>Liability for Remaining Coverage (LRC)</strong></td>
+                  <td>An entity's obligation to: (i) investigate and pay valid claims under existing insurance contracts for insured events that have not yet occurred (i.e., the obligation that relates to the unexpired portion of the insurance coverage); and (ii) pay amounts under existing insurance contracts that are not included in (a) and that relate to: (a) insurance contract services not yet provided (i.e., the obligations that relate to future provision of insurance contract services); or (b) any investment components or other amounts that are not related to the provision of insurance contract services and that have not been transferred to the liability for incurred claims.</td>
+                </tr>
+                <tr>
+                  <td><strong>Policyholder</strong></td>
+                  <td>A party that has a right to compensation under an insurance contract if an insured event occurs.</td>
+                </tr>
+                <tr>
+                  <td><strong>Portfolio of Insurance Contracts</strong></td>
+                  <td>Insurance contracts subject to similar risks and managed together.</td>
+                </tr>
+                <tr>
+                  <td><strong>Reinsurance Contract</strong></td>
+                  <td>An insurance contract issued by one entity (the reinsurer) to compensate another entity for claims arising from one or more insurance contracts issued by that other entity (underlying contracts).</td>
+                </tr>
+                <tr>
+                  <td><strong>Risk Adjustment for Non-Financial Risk</strong></td>
+                  <td>The compensation an entity requires for bearing the uncertainty about the amount and timing of the cash flows that arises from non-financial risk as the entity fulfils insurance contracts.</td>
+                </tr>
+                <tr>
+                  <td><strong>Underlying Items</strong></td>
+                  <td>Items that determine some of the amounts payable to a policyholder. Underlying items can comprise any items; for example, a reference portfolio of assets, the net assets of the entity, or a specified subset of the net assets of the entity.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- IFRS STANDARDS -->
+          <div class="content-card">
+            <h3>2. IFRS STANDARDS</h3>
+            <p>Overview of International Financial Reporting Standards relevant to insurance accounting and financial reporting.</p>
+            
+            <table class="standards-table">
+              <thead>
+                <tr>
+                  <th style="width: 15%">STANDARD</th>
+                  <th style="width: 25%">NAME</th>
+                  <th style="width: 60%">DESCRIPTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>IFRS 1</strong></td>
+                  <td>First-time Adoption of International Financial Reporting Standards</td>
+                  <td>Provides guidance for entities adopting IFRS for the first time.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 2</strong></td>
+                  <td>Share-based Payment</td>
+                  <td>Deals with the accounting for share-based payment transactions.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 3</strong></td>
+                  <td>Business Combinations</td>
+                  <td>Prescribes the accounting treatment for business combinations.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 4</strong></td>
+                  <td>Insurance Contracts</td>
+                  <td>Interim standard for insurance contracts prior to IFRS 17.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 5</strong></td>
+                  <td>Non-current Assets Held for Sale and Discontinued Operations</td>
+                  <td>Covers accounting for assets held for sale and discontinued operations.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 6</strong></td>
+                  <td>Exploration for and Evaluation of Mineral Resources</td>
+                  <td>Accounting for exploration and evaluation of mineral resources.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 7</strong></td>
+                  <td>Financial Instruments: Disclosures</td>
+                  <td>Requires disclosures relating to financial instruments.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 8</strong></td>
+                  <td>Operating Segments</td>
+                  <td>Requires disclosure of financial performance by operating segments.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 9</strong></td>
+                  <td>Financial Instruments</td>
+                  <td>Deals with classification, measurement, and impairment of financial instruments.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 10</strong></td>
+                  <td>Consolidated Financial Statements</td>
+                  <td>Provides requirements for consolidated financial statements.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 11</strong></td>
+                  <td>Joint Arrangements</td>
+                  <td>Describes accounting for joint ventures and joint operations.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 12</strong></td>
+                  <td>Disclosure of Interests in Other Entities</td>
+                  <td>Outlines disclosure requirements for interests in subsidiaries, joint arrangements, associates, and unconsolidated structured entities.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 13</strong></td>
+                  <td>Fair Value Measurement</td>
+                  <td>Defines fair value and sets out a framework for measuring fair value.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 14</strong></td>
+                  <td>Regulatory Deferral Accounts</td>
+                  <td>Permits first-time adopters to continue recognizing regulatory deferral account balances.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 15</strong></td>
+                  <td>Revenue from Contracts with Customers</td>
+                  <td>Provides a comprehensive framework for revenue recognition.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 16</strong></td>
+                  <td>Leases</td>
+                  <td>Outlines accounting for leases by lessees and lessors.</td>
+                </tr>
+                <tr>
+                  <td><strong>IFRS 17</strong></td>
+                  <td>Insurance Contracts</td>
+                  <td>Provides comprehensive guidance on the recognition, measurement, presentation, and disclosure of insurance contracts.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- IAS STANDARDS -->
+          <div class="content-card">
+            <h3>3. IAS STANDARDS</h3>
+            <p>International Accounting Standards that form the foundation of IFRS reporting framework.</p>
+            
+            <table class="standards-table">
+              <thead>
+                <tr>
+                  <th style="width: 15%">STANDARD</th>
+                  <th style="width: 25%">NAME</th>
+                  <th style="width: 60%">DESCRIPTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>IAS 1</strong></td>
+                  <td>Presentation of Financial Statements</td>
+                  <td>Sets out overall requirements for financial statements, including structure and content.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 2</strong></td>
+                  <td>Inventories</td>
+                  <td>Provides guidance on the accounting treatment for inventories.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 7</strong></td>
+                  <td>Statement of Cash Flows</td>
+                  <td>Prescribes how to present information about changes in cash and cash equivalents.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 8</strong></td>
+                  <td>Accounting Policies, Changes in Accounting Estimates and Errors</td>
+                  <td>Provides criteria for selecting and changing accounting policies.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 10</strong></td>
+                  <td>Events After the Reporting Period</td>
+                  <td>Deals with events occurring after the reporting period.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 12</strong></td>
+                  <td>Income Taxes</td>
+                  <td>Prescribes the accounting treatment for current and deferred tax.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 16</strong></td>
+                  <td>Property, Plant and Equipment</td>
+                  <td>Provides guidance on accounting for tangible fixed assets.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 19</strong></td>
+                  <td>Employee Benefits</td>
+                  <td>Covers accounting for all employee benefits, including pensions.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 20</strong></td>
+                  <td>Accounting for Government Grants and Disclosure of Government Assistance</td>
+                  <td>Deals with accounting for, and disclosure of, government grants.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 21</strong></td>
+                  <td>The Effects of Changes in Foreign Exchange Rates</td>
+                  <td>Prescribes how to account for foreign currency transactions and operations.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 23</strong></td>
+                  <td>Borrowing Costs</td>
+                  <td>Prescribes the accounting for borrowing costs.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 24</strong></td>
+                  <td>Related Party Disclosures</td>
+                  <td>Requires disclosure of related party relationships and transactions.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 26</strong></td>
+                  <td>Accounting and Reporting by Retirement Benefit Plans</td>
+                  <td>Specifies the reporting requirements for retirement benefit plans.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 27</strong></td>
+                  <td>Separate Financial Statements</td>
+                  <td>Deals with accounting for investments in subsidiaries, jointly controlled entities and associates in separate financial statements.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 28</strong></td>
+                  <td>Investments in Associates and Joint Ventures</td>
+                  <td>Prescribes the accounting for investments in associates and joint ventures.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 29</strong></td>
+                  <td>Financial Reporting in Hyperinflationary Economies</td>
+                  <td>Provides guidance on financial reporting in hyperinflationary environments.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 32</strong></td>
+                  <td>Financial Instruments: Presentation</td>
+                  <td>Establishes principles for presenting financial instruments.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 33</strong></td>
+                  <td>Earnings per Share</td>
+                  <td>Prescribes principles for determining and presenting earnings per share.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 34</strong></td>
+                  <td>Interim Financial Reporting</td>
+                  <td>Prescribes the content of an interim financial report.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 36</strong></td>
+                  <td>Impairment of Assets</td>
+                  <td>Prescribes the procedures to ensure assets are not carried at more than their recoverable amount.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 37</strong></td>
+                  <td>Provisions, Contingent Liabilities and Contingent Assets</td>
+                  <td>Addresses accounting for provisions and contingencies.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 38</strong></td>
+                  <td>Intangible Assets</td>
+                  <td>Prescribes the accounting for intangible assets not dealt with in other standards.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 40</strong></td>
+                  <td>Investment Property</td>
+                  <td>Covers the accounting for investment property.</td>
+                </tr>
+                <tr>
+                  <td><strong>IAS 41</strong></td>
+                  <td>Agriculture</td>
+                  <td>Deals with the accounting for agricultural activity.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="navigation-buttons">
+            <a href="modules.html" class="nav-button">
+              <i class="fa fa-arrow-left"></i> Back to All Modules
+            </a>
+            <a href="module-1.html" class="nav-button">
+              Proceed to Module 1 <i class="fa fa-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Loader Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const pageLoader = document.getElementById('pageLoader');
+      
+      // Update copyright year automatically
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      
+      setTimeout(() => {
+          pageLoader.classList.add('hidden');
+          
+          setTimeout(() => {
+              pageLoader.remove();
+          }, 500);
+      }, 1500);
+  });
+
+  document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (link && link.href && !link.href.includes('javascript:') && 
+          !link.href.includes('#') && link.target !== '_blank') {
+          const pageLoader = document.getElementById('pageLoader');
+          if (pageLoader) {
+              pageLoader.classList.remove('hidden');
+          }
+      }
+  });
+  </script>
+</body>
+</html>

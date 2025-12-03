@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <title>Module 14: Insurance Service Result | Kenbright</title>
+    
+    <!-- CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <style>
+        /* Apply Gill Sans font to entire page with specified sizes */
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .nav li a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .btn, .main-button a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Page Loader Styles */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: white;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .kenbright-loader {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .loader-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .loader-progress-bar {
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            animation: progress 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        /* Content Styling */
+        .section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .main-module-content {
+            font-size: 20px;
+        }
+        
+        .content-section {
+            margin: 50px 0;
+        }
+        
+        .content-section h4 {
+            color: #1e3c72;
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #14B8A6;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 35px;
+            font-size: 20px;
+        }
+        
+        .content-card h5 {
+            color: #1e3c72;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .content-card h6 {
+            color: #1e3c72;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .content-card p {
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            font-size: 20px;
+            line-height: 1.7;
+        }
+        
+        .key-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        
+        /* Learning Objectives */
+        .learning-objectives h3 {
+            font-size: 28px;
+        }
+        
+        .objective-item {
+            font-size: 20px;
+        }
+
+        /* Header styling */
+        .header-area {
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        .main-nav .nav {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .main-nav .nav li a:hover {
+            color: #3B82F6;
+        }
+
+        /* Search input styling */
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input input {
+            width: 100%;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .search-input i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 130px;
+            width: auto;
+            max-width: 500px;
+        }
+
+        /* Banner */
+        .main-banner {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #2563EB 100%);
+            padding: 120px 0px 80px 0px;
+        }
+
+        .main-banner .header-text h2 {
+            color: #fff !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 42px;
+        }
+        
+        .main-banner .header-text p {
+            color: #E2E8F0 !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 22px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-nav {
+            background: #f8f9fa;
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .breadcrumb-item a {
+            color: #1e3c72;
+            font-weight: 500;
+        }
+
+        /* Module Header Card */
+        .module-header-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .module-meta-info {
+            font-size: 20px;
+        }
+
+        .module-number {
+            font-size: 20px;
+        }
+
+        .progress-status {
+            font-size: 20px;
+        }
+
+        /* Enhanced Income Statement Tables - Unique Styling */
+        .service-income-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            margin: 30px 0;
+            border: 1px solid #e9ecef;
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        .service-income-table th {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            padding: 22px 18px;
+            font-size: 20px;
+            border: none;
+            letter-spacing: 0.5px;
+        }
+
+        .service-income-table td {
+            padding: 18px 18px;
+            vertical-align: middle;
+            border-bottom: 1px solid #f1f3f4;
+            font-size: 18px;
+        }
+
+        .service-income-table .line-item {
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 19px;
+        }
+
+        .service-income-table .amount-col {
+            text-align: right;
+            font-weight: 600;
+            color: #495057;
+            background: linear-gradient(to right, #f8f9fa, #ffffff);
+            font-size: 19px;
+        }
+
+        .service-income-table .description-col {
+            color: #6c757d;
+            font-size: 17px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .service-income-table .sub-total {
+            background: linear-gradient(to right, #e8f5e8, #f8fff8);
+            font-weight: 700;
+            border-top: 3px solid #28a745;
+            font-size: 20px;
+        }
+
+        .service-income-table .sub-total .line-item {
+            color: #155724;
+        }
+
+        .service-income-table .sub-total .amount-col {
+            color: #155724;
+        }
+
+        .service-income-table .total-row {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 21px;
+        }
+
+        .service-income-table tbody tr:hover {
+            background-color: #f5f9ff;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Service Result Components - Enhanced */
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .component-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border-top: 5px solid #667eea;
+            transition: all 0.3s ease;
+            font-size: 19px;
+        }
+
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .component-card.revenue {
+            border-top-color: #28a745;
+            background: linear-gradient(to bottom, #ffffff, #f8fff9);
+        }
+
+        .component-card.expense {
+            border-top-color: #dc3545;
+            background: linear-gradient(to bottom, #ffffff, #fff8f8);
+        }
+
+        .component-card.reinsurance {
+            border-top-color: #ffc107;
+            background: linear-gradient(to bottom, #ffffff, #fffcf0);
+        }
+
+        .component-card h5 {
+            color: #2c3e50;
+            margin-bottom: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+        }
+
+        .component-card h5 i {
+            font-size: 1.3rem;
+            color: inherit;
+        }
+
+        .component-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 19px;
+        }
+
+        /* Model Comparison - Enhanced */
+        .model-comparison {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 6px solid #17a2b8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .model-card {
+            background: white;
+            padding: 28px;
+            border-radius: 10px;
+            margin: 18px 0;
+            border-left: 5px solid #17a2b8;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            font-size: 19px;
+        }
+
+        .model-card:hover {
+            transform: translateX(5px);
+        }
+
+        .model-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .model-badge {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .model-header h6 {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 21px;
+            margin: 0;
+        }
+
+        /* Implementation Section - Enhanced */
+        .implementation-section {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 35px 0;
+            border-left: 6px solid #ff9800;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .implementation-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 22px;
+            padding: 22px;
+            background: white;
+            border-radius: 10px;
+            border-left: 5px solid #ff9800;
+            transition: all 0.3s ease;
+            font-size: 19px;
+        }
+
+        .implementation-step:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 20px;
+            box-shadow: 0 3px 8px rgba(255, 152, 0, 0.3);
+        }
+
+        .step-content strong {
+            color: #e65100;
+            font-size: 20px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+            font-size: 19px;
+        }
+
+        /* Revenue Recognition Flow - Enhanced */
+        .revenue-flow {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            margin: 30px 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 22px;
+            padding: 22px;
+            background: linear-gradient(to right, #f8f9fa, #ffffff);
+            border-radius: 10px;
+            border-left: 5px solid #28a745;
+            transition: all 0.3s ease;
+            font-size: 19px;
+        }
+
+        .flow-step:hover {
+            transform: translateX(5px);
+            background: linear-gradient(to right, #f0fff4, #ffffff);
+        }
+
+        .flow-icon {
+            background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 22px;
+            flex-shrink: 0;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+
+        .flow-content h6 {
+            color: #155724;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 21px;
+        }
+
+        .flow-content p {
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+            font-size: 19px;
+        }
+
+        /* Enhanced Alert Styling */
+        .service-result-alert {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 6px solid #2196F3;
+            padding: 28px;
+            border-radius: 10px;
+            margin: 25px 0;
+            font-size: 19px;
+        }
+
+        .service-result-alert h6 {
+            color: #1565c0;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 21px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-result-alert p {
+            color: #37474f;
+            line-height: 1.7;
+            margin: 0;
+            font-size: 19px;
+        }
+
+        .service-result-alert.warning {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left-color: #ffc107;
+        }
+
+        .service-result-alert.warning h6 {
+            color: #856404;
+        }
+
+        .service-result-alert.success {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left-color: #28a745;
+        }
+
+        .service-result-alert.success h6 {
+            color: #155724;
+        }
+
+        /* Scope Cards - Enhanced */
+        .scope-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .scope-card {
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            font-size: 19px;
+            transition: all 0.3s ease;
+        }
+
+        .scope-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .scope-card h5 {
+            font-size: 22px;
+            margin-bottom: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .scope-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .scope-card ul li {
+            font-size: 19px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        .scope-card.in-scope {
+            border-left: 5px solid #28a745;
+            background: linear-gradient(to right, #f0fff4, #ffffff);
+        }
+
+        .scope-card.in-scope h5 {
+            color: #155724;
+        }
+
+        /* Measurement Cards - Enhanced */
+        .measurement-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .measurement-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            font-size: 19px;
+        }
+
+        .measurement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .measurement-card h6 {
+            font-size: 21px;
+            color: #1e3c72;
+            margin-bottom: 18px;
+            font-weight: 600;
+            border-bottom: 2px solid #f1f3f4;
+            padding-bottom: 10px;
+        }
+
+        .measurement-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .measurement-card ul li {
+            font-size: 19px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        /* Navigation */
+        .nav-button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        .nav-button.prev {
+            background: #f8f9fa;
+            color: #1e3c72;
+            border: 2px solid #667eea;
+        }
+
+        .nav-button.prev:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-button.next {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .nav-button.next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Module Actions */
+        .module-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .module-actions button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        .module-actions .main-button.outline {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .module-actions .main-button.outline:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .module-actions .main-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .module-actions .main-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .module-actions .main-button.primary {
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+        }
+
+        .module-actions .main-button.primary:hover {
+            box-shadow: 0 5px 15px rgba(20, 184, 166, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 18px;
+            margin: 0;
+            text-align: center;
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 25px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 22px;
+            }
+            
+            .content-card h6 {
+                font-size: 20px;
+            }
+            
+            .content-section h4 {
+                font-size: 24px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 32px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 18px;
+            }
+            
+            .service-income-table th {
+                font-size: 18px;
+                padding: 15px 12px;
+            }
+            
+            .service-income-table td {
+                font-size: 16px;
+                padding: 12px;
+            }
+            
+            .service-income-table .line-item {
+                font-size: 17px;
+            }
+            
+            .service-income-table .amount-col {
+                font-size: 17px;
+            }
+            
+            .service-income-table .description-col {
+                font-size: 15px;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-input {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .main-nav .nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .logo-image {
+                height: 35px;
+                max-width: 150px;
+            }
+            
+            .module-actions {
+                flex-direction: column;
+            }
+            
+            .module-actions button {
+                width: 100%;
+            }
+            
+            .component-grid,
+            .measurement-cards,
+            .scope-cards {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .model-comparison,
+            .implementation-section,
+            .revenue-flow {
+                padding: 20px;
+            }
+            
+            .service-result-alert {
+                padding: 20px;
+                font-size: 17px;
+            }
+            
+            .flow-step,
+            .implementation-step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .flow-icon,
+            .step-number {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 20px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 20px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 28px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 16px;
+            }
+            
+            .logo-image {
+                height: 30px;
+                max-width: 130px;
+            }
+            
+            .nav-button {
+                font-size: 16px;
+                padding: 10px 20px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .module-navigation .row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .module-navigation .col-lg-6 {
+                width: 100%;
+            }
+            
+            .module-navigation .text-end {
+                text-align: left !important;
+            }
+            
+            .service-income-table {
+                font-size: 14px;
+            }
+            
+            .service-income-table th,
+            .service-income-table td {
+                padding: 8px 6px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+          <div class="kenbright-loader">Kenbright</div>
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading Module 14...</div>
+          <div class="loader-progress">
+              <div class="loader-progress-bar"></div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+                    </a>
+                    
+                    <!-- Search -->
+                    <div class="search-input">
+                        <form id="search" action="#">
+                            <input type="text" placeholder="Search IFRS 17 concepts..." id='searchText' name="searchKeyword" />
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </div>
+                    
+                    <!-- Main Navigation -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="modules.html" class="active">Training Modules</a></li>
+                        <li><a href="assessments.html">Test Assessments</a></li>
+                        <li><a href="progress.html">My Progress</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2>Module 14: Insurance Service Result</h2>
+            <p>Mastering Operational Performance Measurement under IFRS 17</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Training Modules</a></li>
+          <li class="breadcrumb-item active">Module 14</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Module Content Area -->
+  <section class="section module-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <!-- Module Header Card -->
+          <div class="module-header-card">
+            <div class="module-meta-info">
+              <span class="module-number">Module 14</span>
+              <span class="progress-status">0% Complete</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <!-- Learning Objectives -->
+          <div class="learning-objectives">
+            <h3><i class="fa fa-bullseye"></i> Learning Objectives</h3>
+            <div class="objectives-grid">
+              <div class="objective-item">
+                <i class="fa fa-chart-line"></i>
+                <span>Understand the components and calculation of insurance service result</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-file-invoice-dollar"></i>
+                <span>Apply presentation requirements for insurance service revenue and expenses</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-exchange-alt"></i>
+                <span>Differentiate between net and detailed reinsurance presentation options</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-calculator"></i>
+                <span>Calculate insurance service result under different measurement models</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-clipboard-list"></i>
+                <span>Implement enhanced disclosure requirements for service result components</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Topics -->
+          <div class="key-topics">
+            <h4><i class="fa fa-key"></i> Key Topics Covered</h4>
+            <div class="topics-list">
+              <span class="topic-badge">Service Result Components</span>
+              <span class="topic-badge">Revenue Recognition</span>
+              <span class="topic-badge">Expense Analysis</span>
+              <span class="topic-badge">Reinsurance Presentation</span>
+              <span class="topic-badge">GMM vs PAA Comparison</span>
+              <span class="topic-badge">Implementation Guidance</span>
+            </div>
+          </div>
+
+          <!-- Main Module Content -->
+          <div class="main-module-content">
+            
+            <!-- 14.1 Module Objective -->
+            <div class="content-section">
+              <h4>14.1 Module Objective</h4>
+              
+              <div class="content-card">
+                <p>This module provides a comprehensive overview of the components, calculation, and treatment of the insurance service result as specified in IFRS 17 paragraphs 83 to 86. The insurance service result represents the core operational performance of an insurer, excluding investment-related activities, and provides stakeholders with clear insights into the profitability of insurance contract services.</p>
+                
+                <div class="service-result-alert success">
+                  <h6><i class="fa fa-info-circle"></i> Core Performance Indicator:</h6>
+                  <p>The insurance service result represents the core operational performance of an insurer, excluding investment-related activities, and provides stakeholders with clear insights into the profitability of insurance contract services.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 14.2 Presentation in Statement of Financial Performance -->
+            <div class="content-section">
+              <h4>14.2 Presentation in the Statement of Financial Performance</h4>
+              
+              <div class="content-card">
+                <p>As per IFRS 17 standards, insurance companies must disaggregate (split) their financial results into two main categories:</p>
+                
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Insurance Service Result</h6>
+                    <p>Core operational performance from insurance services</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Insurance Finance Income or Expenses</h6>
+                    <p>Financial effects from time value and discounting</p>
+                  </div>
+                </div>
+
+                <p>This fundamental breakdown is presented in the statement of profit or loss and other comprehensive income, also referred to as the statement of financial performance. The separation ensures that users of financial statements can clearly distinguish between the results from insurance services and those from financial activities.</p>
+              </div>
+            </div>
+
+            <!-- 14.3 Reinsurance Contracts Presentation -->
+            <div class="content-section">
+              <h4>14.3 Reinsurance Contracts Presentation</h4>
+              
+              <div class="content-card">
+                <p>IFRS 17 mandates that entities present income or expenses from reinsurance contracts held separately from those of insurance contracts issued. This separation enhances transparency and allows for better assessment of the reinsurance program's effectiveness.</p>
+
+                <div class="service-result-alert">
+                  <h6><i class="fa fa-exchange-alt"></i> Presentation Options:</h6>
+                  <p>Entities have two presentation options for reinsurance contracts:</p>
+                </div>
+
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Option 1: Net Presentation</h5>
+                    <p>Present a net amount (i.e., the total income or expense from a group of reinsurance contracts held)</p>
+                  </div>
+                  
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Option 2: Detailed Presentation</h5>
+                    <p>Present separately the amounts:</p>
+                    <ul>
+                      <li><strong>Recovered from the reinsurer</strong>, and</li>
+                      <li><strong>An allocation of the premiums paid</strong> to the reinsurer</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="key-point">
+                  <strong>Equivalent Net Effect:</strong> Both approaches result in the same net effect but provide different levels of detail to financial statement users.
+                </div>
+              </div>
+            </div>
+
+            <!-- 14.4 Insurance Service Result Components -->
+            <div class="content-section">
+              <h4>14.4 Insurance Service Result Components</h4>
+              
+              <div class="content-card">
+                <div class="component-grid">
+                  <div class="component-card revenue">
+                    <h5><i class="fa fa-money-bill-wave"></i> Insurance Service Revenue</h5>
+                    <p>The Insurance Service Result (before reinsurance contracts held) represents the difference between Insurance Service Revenue and Insurance Service Expenses.</p>
+                    <p>Insurance Service Revenue reflects the income earned for providing insurance coverage and other services during the reporting period.</p>
+                  </div>
+                  
+                  <div class="component-card expense">
+                    <h5><i class="fa fa-file-invoice-dollar"></i> Insurance Service Expenses</h5>
+                    <p>Insurance Service Expenses represent all costs related to claims, services, and insurance contract management.</p>
+                    <p>These include incurred claims, acquisition cost amortization, and changes in fulfillment cash flows.</p>
+                  </div>
+                </div>
+
+                <h5>Revenue Composition by Measurement Model:</h5>
+                <div class="model-comparison">
+                  <div class="model-card">
+                    <div class="model-header">
+                      <span class="model-badge">PAA</span>
+                      <h6>Premium Allocation Approach</h6>
+                    </div>
+                    <p>Insurance revenue typically resembles the earned premium over the coverage period, making it similar to traditional premium recognition patterns.</p>
+                  </div>
+                  
+                  <div class="model-card">
+                    <div class="model-header">
+                      <span class="model-badge">GMM</span>
+                      <h6>General Measurement Model</h6>
+                    </div>
+                    <p>Insurance service revenue includes four key components:</p>
+                    <ul>
+                      <li><strong>Expected claims and expenses</strong> for the coverage provided in the period</li>
+                      <li><strong>Risk adjustment</strong> for non-financial risk</li>
+                      <li><strong>Release of the contractual service margin (CSM)</strong></li>
+                      <li><strong>Recovery of insurance acquisition cash flows</strong></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h5>Detailed Expense Components:</h5>
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-list"></i> Insurance Service Expenses Include:</h5>
+                    <ul>
+                      <li><strong>Incurred claims and other incurred insurance service expenses</strong></li>
+                      <li><strong>Amortization of insurance acquisition cash flows</strong></li>
+                      <li><strong>Changes that relate to past service</strong> - changes in fulfillment cash flows relating to the liability for incurred claims</li>
+                      <li><strong>Changes that relate to future service</strong> - losses on onerous groups of contracts and reversals of such losses</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="service-result-alert warning">
+                  <h6><i class="fa fa-exclamation-triangle"></i> Critical Requirement:</h6>
+                  <p>A critical requirement under IFRS 17 is that insurance service revenue and insurance service expenses presented in profit or loss must exclude any investment components. This ensures that the insurance service result purely reflects the performance of insurance services rather than investment activities.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 14.5 Sample Income Statement Presentations -->
+            <div class="content-section">
+              <h4>14.5 Sample Income Statement Presentations</h4>
+              
+              <div class="content-card">
+                <h5>Option 1: Net Presentation of Reinsurance</h5>
+                <p>The table below illustrates the income statement presentation using the net approach for reinsurance contracts:</p>
+
+                <div class="table-responsive">
+                  <table class="table service-income-table">
+                    <thead>
+                      <tr>
+                        <th width="40%">Income Statement Line Item</th>
+                        <th width="20%">Amount</th>
+                        <th width="40%">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="line-item">Insurance Revenue</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Total revenue from insurance contracts issued</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Insurance Service Expenses</td>
+                        <td class="amount-col">(X)</td>
+                        <td class="description-col">Total expenses related to insurance services</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Insurance Service Result (before reinsurance)</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Initial result excluding reinsurance effects</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Net Income/Expense from Reinsurance Contracts Held</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Net effect of reinsurance contracts (premiums paid less recoveries received)</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Insurance Service Result</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Net result from insurance services before finance components</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Insurance Finance Income or Expenses</td>
+                        <td class="amount-col">(X)</td>
+                        <td class="description-col">Finance effects on insurance contract measurements</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Net Investment Income</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Income from investment activities</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Net Financial Result</td>
+                        <td class="amount-col">XX</td>
+                        <td class="description-col">Combined result of insurance finance and investment activities</td>
+                      </tr>
+                      <tr class="total-row">
+                        <td>Profit/Loss Before Tax</td>
+                        <td>XXXX</td>
+                        <td>Total comprehensive result before tax effects</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h5>Option 2: Detailed Presentation of Reinsurance</h5>
+                <p>The table below demonstrates the income statement presentation with detailed reinsurance disclosure:</p>
+
+                <div class="table-responsive">
+                  <table class="table service-income-table">
+                    <thead>
+                      <tr>
+                        <th width="40%">Income Statement Line Item</th>
+                        <th width="20%">Amount</th>
+                        <th width="40%">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="line-item">Insurance Revenue</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Revenue from insurance contracts issued</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Insurance Service Expenses</td>
+                        <td class="amount-col">(X)</td>
+                        <td class="description-col">Expenses related to insurance services</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Insurance Service Result (before reinsurance contracts held)</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Initial insurance service result excluding reinsurance effects</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Allocation of reinsurance premium</td>
+                        <td class="amount-col">(X)</td>
+                        <td class="description-col">Portion of premium allocated to reinsurance contracts</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Amounts Recoverable from Reinsurers</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Claims and benefits recoverable under reinsurance arrangements</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Net Income/Expense from Reinsurance Contract Held</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Net effect of reinsurance activities</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Insurance Service Result</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Final insurance service result including reinsurance</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Insurance Finance Income or Expenses</td>
+                        <td class="amount-col">(X)</td>
+                        <td class="description-col">Time value of money and financial risk effects</td>
+                      </tr>
+                      <tr>
+                        <td class="line-item">Net Investment Income</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Income from investment portfolio</td>
+                      </tr>
+                      <tr class="sub-total">
+                        <td class="line-item">Net Financial Result</td>
+                        <td class="amount-col">X</td>
+                        <td class="description-col">Combined finance-related results</td>
+                      </tr>
+                      <tr class="total-row">
+                        <td>Profit/Loss Before Tax</td>
+                        <td>XXXXX</td>
+                        <td>Comprehensive pre-tax financial performance</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 14.6 Detailed Component Analysis -->
+            <div class="content-section">
+              <h4>14.6 Detailed Component Analysis</h4>
+              
+              <div class="content-card">
+                <h5>Insurance Revenue Recognition</h5>
+                <p>Insurance revenue under IFRS 17 reflects the pattern of service provision rather than simply cash receipt timing.</p>
+
+                <div class="revenue-flow">
+                  <div class="flow-step">
+                    <div class="flow-icon">1</div>
+                    <div class="flow-content">
+                      <h6>Service Pattern Alignment</h6>
+                      <p>Revenue is recognized as insurance coverage and services are provided, ensuring matching with the period of risk coverage.</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flow-step">
+                    <div class="flow-icon">2</div>
+                    <div class="flow-content">
+                      <h6>CSM Amortization</h6>
+                      <p>The contractual service margin is systematically amortized into revenue over the coverage period, representing the unearned profit recognition.</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flow-step">
+                    <div class="flow-icon">3</div>
+                    <div class="flow-content">
+                      <h6>Risk Adjustment Release</h6>
+                      <p>The risk adjustment for non-financial risk is released into revenue as the risk expires, reflecting the reduction in uncertainty over time.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <h5>Expense Recognition Principles</h5>
+                <div class="component-grid">
+                  <div class="component-card">
+                    <h5><i class="fa fa-clock"></i> Incurred Claims</h5>
+                    <p>Recognition when the insured event occurs, regardless of when claims are paid.</p>
+                  </div>
+                  
+                  <div class="component-card">
+                    <h5><i class="fa fa-chart-line"></i> Acquisition Cost Amortization</h5>
+                    <p>Systematic allocation of acquisition costs over the coverage period, aligned with revenue recognition.</p>
+                  </div>
+                  
+                  <div class="component-card">
+                    <h5><i class="fa fa-exclamation-triangle"></i> Onerous Contract Recognition</h5>
+                    <p>Immediate recognition of losses on contracts expected to be unprofitable.</p>
+                  </div>
+                </div>
+
+                <h5>Reinsurance Accounting Treatment</h5>
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Key Considerations:</h5>
+                    <ul>
+                      <li><strong>Separate Measurement:</strong> Reinsurance contracts are measured separately from underlying insurance contracts.</li>
+                      <li><strong>Presentation Options:</strong> Choice between net presentation or detailed disclosure of reinsurance premiums and recoveries.</li>
+                      <li><strong>Risk Transfer Assessment:</strong> Continuous evaluation of whether reinsurance contracts provide significant risk transfer.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 14.7 Implementation Considerations -->
+            <div class="content-section">
+              <h4>14.7 Implementation Considerations</h4>
+              
+              <div class="content-card">
+                <h5>Measurement Model Selection</h5>
+                <p>The choice between GMM and PAA affects insurance service result calculation:</p>
+
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>GMM Application</h6>
+                    <ul>
+                      <li>Provides more detailed measurement</li>
+                      <li>Requires complex calculations of CSM, risk adjustment, and fulfillment cash flows</li>
+                      <li>Suitable for complex, long-duration contracts</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="measurement-card">
+                    <h6>PAA Application</h6>
+                    <ul>
+                      <li>Simplified approach</li>
+                      <li>Suitable for short-duration contracts with coverage periods of one year or less</li>
+                      <li>Resembles traditional premium recognition patterns</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="implementation-section">
+                  <h5>Transition Adjustments</h5>
+                  <p>Implementation of IFRS 17 may require significant adjustments to insurance service result calculation:</p>
+                  
+                  <div class="implementation-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                      <strong>CSM Establishment</strong>
+                      <p>Initial recognition of contractual service margin at transition date</p>
+                    </div>
+                  </div>
+                  
+                  <div class="implementation-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                      <strong>Risk Adjustment Calibration</strong>
+                      <p>Development of methodology for risk adjustment calculation</p>
+                    </div>
+                  </div>
+                  
+                  <div class="implementation-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                      <strong>Acquisition Cost Treatment</strong>
+                      <p>Integration of acquisition costs into fulfillment cash flows rather than separate deferral</p>
+                    </div>
+                  </div>
+                </div>
+
+                <h5>Disclosure Requirements</h5>
+                <p>Enhanced disclosures supporting the insurance service result include:</p>
+                
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-file-alt"></i> Required Disclosures:</h5>
+                    <ul>
+                      <li><strong>Revenue Reconciliation:</strong> Detailed breakdown of insurance revenue components</li>
+                      <li><strong>Expense Analysis:</strong> Comprehensive analysis of insurance service expenses</li>
+                      <li><strong>Reinsurance Disclosures:</strong> Information about reinsurance arrangements and their impact on financial results</li>
+                      <li><strong>CSM Movement Analysis:</strong> Detailed reconciliation of contractual service margin changes</li>
+                      <li><strong>Risk Adjustment Disclosure:</strong> Methodology and changes in risk adjustment for non-financial risk</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="key-point">
+                  <strong>Comprehensive Transformation:</strong> This comprehensive approach to insurance service result presentation under IFRS 17 ensures that stakeholders receive transparent, comparable information about an insurer's operational performance, enabling better assessment of business sustainability and profitability.
+                </div>
+              </div>
+            </div>
+
+            <!-- 14.8 Conclusion -->
+            <div class="content-section conclusion">
+              <h4>14.8 Conclusion: Mastering Insurance Service Result</h4>
+              <div class="conclusion-card">
+                <p>Module 14 provides comprehensive guidance on calculating and presenting the insurance service result under IFRS 17, ensuring clear communication of an insurer's operational performance. The separation of insurance service results from financial activities enhances transparency and enables stakeholders to better assess the core profitability of insurance operations.</p>
+                
+                <div class="key-takeaways">
+                  <h5>Key Implementation Focus Areas:</h5>
+                  <ul>
+                    <li>Clear separation between insurance service result and insurance finance income/expenses</li>
+                    <li>Proper application of revenue recognition principles aligned with service provision</li>
+                    <li>Appropriate selection between net and detailed reinsurance presentation</li>
+                    <li>Exclusion of investment components from insurance service result</li>
+                    <li>Enhanced disclosures supporting service result components and movements</li>
+                  </ul>
+                </div>
+                
+                <div class="next-module">
+                  <strong>Next Module:</strong> Module 15: Insurance Finance Income or Expenses
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <!-- Module Navigation - UPDATED AS REQUESTED -->
+          <div class="module-navigation">
+            <div class="row">
+              <div class="col-lg-6">
+                <a href="module-13.html" class="nav-button prev">
+                  <i class="fa fa-arrow-left"></i> Previous Module
+                </a>
+              </div>
+              <div class="col-lg-6 text-end">
+                <!-- CHANGED: Next Module button replaced with Take Module Assessment -->
+                <a href="assessment-14.html" class="nav-button next">
+                  Take Module Assessment <i class="fa fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module Actions - UPDATED AS REQUESTED -->
+          <div class="module-actions">
+            <button class="main-button outline" id="saveProgress">Save Progress</button>
+            <!-- CHANGED: Take Module Assessment button replaced with Next Module -->
+            <button class="main-button" id="nextModuleBtn" onclick="window.location.href='module-15.html'">
+              Next Module
+            </button>
+            <button class="main-button primary" id="markComplete">Mark Complete</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/module-progress.js"></script>
+
+  <!-- Loader Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const pageLoader = document.getElementById('pageLoader');
+      
+      // Update copyright year automatically
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      
+      setTimeout(() => {
+          pageLoader.classList.add('hidden');
+          
+          setTimeout(() => {
+              pageLoader.remove();
+          }, 500);
+      }, 1500);
+  });
+
+  document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (link && link.href && !link.href.includes('javascript:') && 
+          !link.href.includes('#') && link.target !== '_blank') {
+          const pageLoader = document.getElementById('pageLoader');
+          if (pageLoader) {
+              pageLoader.classList.remove('hidden');
+          }
+      }
+  });
+  </script>
+</body>
+</html>

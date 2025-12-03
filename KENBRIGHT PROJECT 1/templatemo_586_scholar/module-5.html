@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <title>Module 5: Measurement on Initial Recognition | Kenbright</title>
+    
+    <!-- CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <style>
+        /* Apply Gill Sans font to entire page with specified sizes */
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .nav li a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .btn, .main-button a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Page Loader Styles */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: white;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .kenbright-loader {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .loader-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .loader-progress-bar {
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            animation: progress 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        /* Content Styling */
+        .section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .main-module-content {
+            font-size: 20px;
+        }
+        
+        .content-section {
+            margin: 50px 0;
+        }
+        
+        .content-section h4 {
+            color: #1e3c72;
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #14B8A6;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 35px;
+            font-size: 20px;
+        }
+        
+        .content-card h5 {
+            color: #1e3c72;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .content-card h6 {
+            color: #1e3c72;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .content-card p {
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            font-size: 20px;
+            line-height: 1.7;
+        }
+        
+        .key-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        
+        /* Learning Objectives */
+        .learning-objectives h3 {
+            font-size: 28px;
+        }
+        
+        .objective-item {
+            font-size: 20px;
+        }
+        
+        /* Measurement Approaches Diagram Styling */
+        .measurement-diagram-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin: 40px 0;
+            font-family: 'Gill Sans', sans-serif;
+            text-align: center;
+        }
+
+        .measurement-diagram-title {
+            color: #1e3c72;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #14B8A6;
+        }
+
+        /* REPLACE OR MODIFY THESE STYLES IN MODULE 5 */
+
+        .measurement-image-container {
+            margin: 30px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .measurement-image {
+            max-width: 95%;
+            width: 1000px;
+            height: auto;
+            max-height: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            object-fit: contain;
+        }
+
+        .measurement-caption {
+            font-size: 18px;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        /* Summary Diagram Styling */
+        .summary-diagram-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin: 40px 0;
+            font-family: 'Gill Sans', sans-serif;
+            text-align: center;
+        }
+
+        .summary-diagram-title {
+            color: #1e3c72;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #14B8A6;
+        }
+
+        /* REPLACE OR MODIFY THESE STYLES IN MODULE 5 */
+
+        .summary-image-container {
+            margin: 30px 0;
+            padding: 35px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+        }
+
+        .summary-image {
+            max-width: 95%;
+            width: 1100px;
+            height: auto;
+            max-height: 700px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            object-fit: contain;
+        }
+
+        .summary-caption {
+            font-size: 18px;
+            color: #666;
+            margin-top: 25px;
+            font-style: italic;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        /* Calculation Examples */
+        .calculation-example {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 25px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .calculation-step {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #28a745;
+            font-size: 20px;
+        }
+
+        .calculation-result {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 2px solid #28a745;
+            font-size: 20px;
+        }
+
+        .onerous-example {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+
+        .onerous-result {
+            background: #f8d7da;
+            border-color: #dc3545;
+            font-size: 20px;
+        }
+
+        .formula-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* Header styling */
+        .header-area {
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        .main-nav .nav {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .main-nav .nav li a:hover {
+            color: #3B82F6;
+        }
+
+        /* Search input styling */
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input input {
+            width: 100%;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .search-input i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 130px;
+            width: auto;
+            max-width: 500px;
+        }
+
+        /* Banner */
+        .main-banner {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #2563EB 100%);
+            padding: 120px 0px 80px 0px;
+        }
+
+        .main-banner .header-text h2 {
+            color: #fff !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 42px;
+        }
+        
+        .main-banner .header-text p {
+            color: #E2E8F0 !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 22px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-nav {
+            background: #f8f9fa;
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .breadcrumb-item a {
+            color: #1e3c72;
+            font-weight: 500;
+        }
+
+        /* Module Header Card */
+        .module-header-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .module-meta-info {
+            font-size: 20px;
+        }
+
+        .module-number {
+            font-size: 20px;
+        }
+
+        .progress-status {
+            font-size: 20px;
+        }
+
+        /* Tables - Enhanced Styling */
+        .measurement-table th {
+            font-size: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .measurement-table td {
+            font-size: 20px;
+            padding: 15px;
+            vertical-align: top;
+        }
+
+        .measurement-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .measurement-table tbody tr:hover {
+            background-color: #e9ecef;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Measurement Cards */
+        .measurement-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .measurement-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .measurement-card h6 {
+            font-size: 22px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        .measurement-card ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Scope Cards */
+        .scope-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .scope-card {
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .scope-card h5 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .scope-card ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .scope-card.in-scope {
+            border-left: 4px solid #28a745;
+            background: linear-gradient(to right, #f0fff4, #ffffff);
+        }
+
+        /* Aggregation Steps */
+        .aggregation-steps {
+            margin: 25px 0;
+        }
+
+        .aggregation-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(to right, #f8f9fa, #ffffff);
+            border-radius: 10px;
+            border-left: 4px solid #14B8A6;
+        }
+
+        .step-number {
+            font-size: 22px;
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content h6 {
+            font-size: 22px;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            font-size: 20px;
+            color: #4a4a4a;
+            margin: 0;
+        }
+
+        /* Conclusion */
+        .conclusion-card {
+            padding: 40px;
+            font-size: 22px;
+            background: linear-gradient(135deg, #5f89b4 0%, #ffffff 100%);
+            border-left: 4px solid #14B8A6;
+        }
+
+        .key-takeaways h5 {
+            font-size: 24px;
+            color: #1e3c72;
+        }
+
+        .key-takeaways li {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .next-module {
+            font-size: 22px;
+            color: #1e3c72;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .nav-button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button.prev {
+            background: #f8f9fa;
+            color: #1e3c72;
+            border: 2px solid #667eea;
+        }
+
+        .nav-button.prev:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-button.next {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .nav-button.next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Module Actions */
+        .module-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .module-actions button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .module-actions .main-button.outline {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .module-actions .main-button.outline:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .module-actions .main-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .module-actions .main-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .module-actions .main-button.primary {
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+        }
+
+        .module-actions .main-button.primary:hover {
+            box-shadow: 0 5px 15px rgba(20, 184, 166, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 18px;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 25px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 22px;
+            }
+            
+            .content-card h6 {
+                font-size: 20px;
+            }
+            
+            .content-section h4 {
+                font-size: 24px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 32px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 18px;
+            }
+            
+            .measurement-diagram-container,
+            .summary-diagram-container {
+                padding: 25px;
+            }
+            
+            .measurement-diagram-title,
+            .summary-diagram-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            
+            .measurement-image-container,
+            .summary-image-container {
+                padding: 15px;
+            }
+            
+            .measurement-caption,
+            .summary-caption {
+                font-size: 16px;
+            }
+            
+            .measurement-table th {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .measurement-table td {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-input {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .main-nav .nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .logo-image {
+                height: 35px;
+                max-width: 150px;
+            }
+            
+            .module-actions {
+                flex-direction: column;
+            }
+            
+            .module-actions button {
+                width: 100%;
+            }
+            
+            .measurement-cards,
+            .scope-cards {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .calculation-example {
+                padding: 20px;
+            }
+            
+            .calculation-step,
+            .calculation-result,
+            .formula-box {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 20px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 20px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 28px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 16px;
+            }
+            
+            .logo-image {
+                height: 30px;
+                max-width: 130px;
+            }
+            
+            .nav-button {
+                font-size: 16px;
+                padding: 10px 20px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .module-navigation .row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .module-navigation .col-lg-6 {
+                width: 100%;
+            }
+            
+            .module-navigation .text-end {
+                text-align: left !important;
+            }
+            
+            .aggregation-step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+            }
+            
+            .formula-box {
+                font-size: 16px;
+                padding: 15px;
+            }
+        }
+
+        /* ADD THIS to BOTH Module 4 and Module 5 CSS */
+@media (max-width: 768px) {
+    .recognition-image,
+    .measurement-image,
+    .summary-image {
+        max-width: 100%;
+        width: 100%;
+        max-height: none;
+    }
+    
+    .recognition-image-container,
+    .measurement-image-container,
+    .summary-image-container {
+        padding: 20px;
+        margin: 20px 0;
+        min-height: auto;
+    }
+    
+    .recognition-caption,
+    .measurement-caption,
+    .summary-caption {
+        margin-top: 15px;
+        font-size: 16px;
+        max-width: 100%;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+          <div class="kenbright-loader">Kenbright</div>
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading Module 5...</div>
+          <div class="loader-progress">
+              <div class="loader-progress-bar"></div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+                    </a>
+                    
+                    <!-- Search -->
+                    <div class="search-input">
+                        <form id="search" action="#">
+                            <input type="text" placeholder="Search IFRS 17 concepts..." id='searchText' name="searchKeyword" />
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </div>
+                    
+                    <!-- Main Navigation -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="modules.html" class="active">Training Modules</a></li>
+                        <li><a href="assessments.html">Test Assessments</a></li>
+                        <li><a href="progress.html">My Progress</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2>Module 5: Measurement on Initial Recognition</h2>
+            <p>Mastering Initial Measurement Requirements under IFRS 17</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Training Modules</a></li>
+          <li class="breadcrumb-item active">Module 5</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Module Content Area -->
+  <section class="section module-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <!-- Module Header Card -->
+          <div class="module-header-card">
+            <div class="module-meta-info">
+              <span class="module-number">Module 5</span>
+              <span class="progress-status">0% Complete</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <!-- Learning Objectives -->
+          <div class="learning-objectives">
+            <h3><i class="fa fa-bullseye"></i> Learning Objectives</h3>
+            <div class="objectives-grid">
+              <div class="objective-item">
+                <i class="fa fa-balance-scale"></i>
+                <span>Apply the three recognition criteria to determine when insurance contracts must be recognized</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-calculator"></i>
+                <span>Calculate the initial measurement amount using the General Measurement Model components</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-chart-line"></i>
+                <span>Differentiate between the three measurement models and their appropriate applications</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-exclamation-triangle"></i>
+                <span>Identify and account for onerous contracts with immediate loss recognition</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-file-invoice-dollar"></i>
+                <span>Apply the Premium Allocation Approach for eligible short-duration contracts</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Topics -->
+          <div class="key-topics">
+            <h4><i class="fa fa-key"></i> Key Topics Covered</h4>
+            <div class="topics-list">
+              <span class="topic-badge">Recognition Criteria</span>
+              <span class="topic-badge">Measurement Models Overview</span>
+              <span class="topic-badge">General Measurement Model</span>
+              <span class="topic-badge">Contractual Service Margin</span>
+              <span class="topic-badge">Onerous Contracts</span>
+              <span class="topic-badge">Premium Allocation Approach</span>
+            </div>
+          </div>
+
+          <!-- Main Module Content -->
+          <div class="main-module-content">
+            
+            <!-- 5.1 Introduction -->
+            <div class="content-section">
+              <h4>5.1 Introduction</h4>
+              
+              <div class="content-card">
+                <p>This module details the specific requirements for measuring groups of insurance contracts at the point of initial recognition, as mandated by IFRS 17 (Paragraphs 32–52). It establishes the framework for determining the initial carrying amount on the statement of financial position, ensuring it reflects the entity's obligations and rights from the contract.</p>
+                
+                <div class="key-point">
+                  <strong>Scope:</strong> Covers IFRS 17 paragraphs 32-52 on initial measurement requirements and model selection.
+                </div>
+              </div>
+            </div>
+
+            <!-- 5.2 Recognition Criteria -->
+            <div class="content-section">
+              <h4>5.2 Recognition Criteria</h4>
+              
+              <div class="content-card">
+                <p>A group of insurance contracts must be recognized on the balance sheet at the earliest of the following three dates, ensuring timely capture of risk and economic impact:</p>
+                
+                <div class="aggregation-steps">
+                  <div class="aggregation-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                      <h6>Beginning of Coverage Period</h6>
+                      <p>When the entity is first exposed to insurance risk</p>
+                    </div>
+                  </div>
+                  <div class="aggregation-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                      <h6>First Premium Due Date</h6>
+                      <p>When a legally enforceable right to receive consideration arises</p>
+                    </div>
+                  </div>
+                  <div class="aggregation-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                      <h6>Onerous Identification Date</h6>
+                      <p>To prevent delayed recognition of losses</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5.3 Measurement Approaches -->
+            <div class="content-section">
+              <h4>5.3 Measurement Approaches Overview</h4>
+              
+              <div class="content-card">
+                <p>IFRS 17 provides a suite of measurement models. The applicability of each depends on the specific characteristics of the insurance contract.</p>
+                
+                <div class="table-responsive">
+                  <table class="table table-bordered measurement-table">
+                    <thead class="table-primary">
+                      <tr>
+                        <th>Measurement Model</th>
+                        <th>Applicability</th>
+                        <th>Key Features & Objective</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>General Measurement Model (GMM)</strong></td>
+                        <td>The default model for most insurance contracts, particularly those of longer duration</td>
+                        <td>Based on fulfilment value. Components include: Fulfilment Cash Flows (FCF) and a Contractual Service Margin (CSM) to defer profit</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Premium Allocation Approach (PAA)</strong></td>
+                        <td>A practical expedient for: 1) Contracts with a coverage period of one year or less, or 2) Where the result is not materially different from applying the GMM</td>
+                        <td>A simplified model that often resembles existing premium-based accounting. It measures a liability for remaining coverage without explicitly calculating a CSM</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Variable Fee Approach (VFA)</strong></td>
+                        <td>Specifically for contracts with direct participation features where the policyholder's benefits are heavily linked to underlying items</td>
+                        <td>A modification of the GMM where the CSM is adjusted for changes in the underlying items, treating the entity's fee as variable</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- ADDED: Measurement Approaches Diagram - TASK 6 REQUIREMENT -->
+            <div class="content-section">
+              <h4>5.3.1 Measurement Approaches Overview</h4>
+              
+              <div class="measurement-diagram-container">
+                  <h3 class="measurement-diagram-title">IFRS 17 Measurement Models</h3>
+                  
+                  <div class="measurement-image-container">
+                      <img src="assets/images/measurementApproaches.png" alt="IFRS 17 Measurement Approaches" class="measurement-image">
+                      <p class="measurement-caption">Visual comparison of the three measurement models under IFRS 17</p>
+                  </div>
+              </div>
+            </div>
+
+            <!-- 5.4 Components of Measurement -->
+            <div class="content-section">
+              <h4>5.4 Components of Measurement at Initial Recognition</h4>
+              
+              <div class="content-card">
+                <h5>The General Measurement Model (GMM) in Detail</h5>
+                <p>The initial measurement under GMM is the sum of two primary components, ensuring no day-one profit is recognized.</p>
+                
+                <div class="formula-box">
+                  Initial Liability = Fulfilment Cash Flows (FCF) + Contractual Service Margin (CSM)
+                </div>
+
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>1. Fulfilment Cash Flows (FCF)</h6>
+                    <p>This represents the present value of the entity's net cash flows from fulfilling the contract, encompassing:</p>
+                    <ul>
+                      <li><strong>Future Cash Flows:</strong> An unbiased, probability-weighted estimate of all future cash inflows (premiums) and outflows (claims, benefits, direct expenses)</li>
+                      <li><strong>Discounting:</strong> Adjusts the future cash flows to reflect the time value of money and the financial risks</li>
+                      <li><strong>Risk Adjustment (RA):</strong> A explicit margin for non-financial risk (e.g., uncertainty in claims frequency or severity)</li>
+                    </ul>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>2. Contractual Service Margin (CSM)</h6>
+                    <p><strong>Purpose:</strong> The CSM is a liability component that represents the unearned profit of the contract group. Its purpose is to ensure that profit is recognized in profit or loss in proportion to the provision of insurance coverage services over time.</p>
+                    
+                    <div class="formula-box">
+                      CSM = Present Value of Expected Inflows - (Present Value of Expected Outflows + Risk Adjustment)
+                    </div>
+                    
+                    <p><strong>The Zero Floor Test:</strong> If this calculation results in a negative amount, the CSM is set to zero and the difference is recognized immediately as a loss in profit or loss, identifying the group as onerous.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5.5 CSM Calculation Example -->
+            <div class="content-section">
+              <h4>5.5 Contractual Service Margin (CSM) Calculation & Illustration</h4>
+              
+              <div class="content-card">
+                <h5>Profitable Contract Example</h5>
+                <p>Assume the following for a group of contracts:</p>
+                
+                <div class="calculation-example">
+                  <div class="calculation-step">
+                    <strong>Expected Premiums (PV):</strong> BWP 3,000
+                  </div>
+                  <div class="calculation-step">
+                    <strong>Expected Claims & Expenses (PV):</strong> BWP 2,100
+                  </div>
+                  <div class="calculation-step">
+                    <strong>Risk Adjustment for Non-Financial Risk:</strong> BWP 150
+                  </div>
+                  <div class="calculation-step">
+                    <strong>Impact of Discounting (already in PV figures):</strong> BWP 250
+                  </div>
+                  
+                  <div class="calculation-result">
+                    <h6>Calculation:</h6>
+                    <div class="calculation-step">
+                      <strong>Fulfilment Cash Flows (FCF)</strong> = PV Outflows + Risk Adjustment = BWP 2,100 + BWP 150 = <strong>BWP 2,250</strong>
+                    </div>
+                    <div class="calculation-step">
+                      <strong>CSM</strong> = PV Inflows - FCF = BWP 3,000 - BWP 2,250 = <strong>BWP 750</strong>
+                    </div>
+                    <div class="calculation-step">
+                      <strong>Total Initial Liability</strong> = FCF + CSM = BWP 2,250 + BWP 750 = <strong>BWP 3,000</strong>
+                    </div>
+                  </div>
+                  
+                  <div class="alert alert-info mt-3">
+                    <strong>Interpretation:</strong> At initial recognition, the total liability is BWP 3,000. The CSM of BWP 750 will be systematically released to profit or loss over the coverage period.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5.6 Onerous Contracts -->
+            <div class="content-section">
+              <h4>5.6 Treatment of Onerous Contracts</h4>
+              
+              <div class="content-card">
+                <p>A group of contracts is onerous when the fulfilment cash flows (the net obligation) are a liability without a corresponding CSM to offset it. This occurs when the present value of expected outflows and the risk adjustment exceeds the present value of expected inflows.</p>
+                
+                <div class="alert alert-warning critical-outcome">
+                  <strong>Key Accounting Treatment:</strong>
+                  <ul>
+                    <li>No CSM is established (it is set to zero)</li>
+                    <li>The entire net loss is recognized immediately in profit or loss</li>
+                    <li>The liability is measured at the full amount of the Fulfilment Cash Flows</li>
+                  </ul>
+                </div>
+
+                <h5>Onerous Contract Illustration</h5>
+                <p>Assume the following for a different group of contracts:</p>
+                
+                <div class="calculation-example onerous-example">
+                  <div class="calculation-step">
+                    <strong>Expected Premiums (PV):</strong> BWP 9,000
+                  </div>
+                  <div class="calculation-step">
+                    <strong>Expected Claims & Expenses (PV):</strong> BWP 10,000
+                  </div>
+                  <div class="calculation-step">
+                    <strong>Risk Adjustment for Non-Financial Risk:</strong> BWP 500
+                  </div>
+                  <div class="calculation-step">
+                    <strong>Impact of Discounting:</strong> BWP (200) [This could be a net finance benefit]
+                  </div>
+                  
+                  <div class="calculation-result onerous-result">
+                    <h6>Onerous Loss Calculation:</h6>
+                    <div class="calculation-step">
+                      <strong>Fulfilment Cash Flows (FCF)</strong> = PV Outflows + Risk Adjustment + Discounting = BWP 10,000 + BWP 500 - BWP 200 = <strong>BWP 10,300</strong>
+                    </div>
+                    <div class="calculation-step">
+                      Since PV Inflows (BWP 9,000) are less than FCF (BWP 10,300), the contract is onerous
+                    </div>
+                    <div class="calculation-step">
+                      <strong>Onerous Loss</strong> = FCF - PV Inflows = BWP 10,300 - BWP 9,000 = <strong>BWP 1,300</strong>
+                    </div>
+                  </div>
+                  
+                  <div class="alert alert-danger mt-3">
+                    <strong>Accounting Impact:</strong> This loss of BWP 1,300 is recognized immediately in P&L. The initial liability for the group is the FCF amount of BWP 10,300.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5.7 Premium Allocation Approach -->
+            <div class="content-section">
+              <h4>5.7 Premium Allocation Approach (PAA)</h4>
+              
+              <div class="content-card">
+                <p>The PAA is a simplified model that is often operationally easier to apply than the GMM.</p>
+                
+                <h5>Eligibility (IFRS 17, Para 53)</h5>
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Eligibility Criteria</h5>
+                    <ul>
+                      <li>The coverage period is one year or less, or</li>
+                      <li>The entity can demonstrate that the PAA would produce a measurement for the liability for remaining coverage that is not materially different from applying the GMM</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h5>Measurement at Initial Recognition</h5>
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Liability Measurement</h6>
+                    <p>The liability for remaining coverage is measured based on the premiums received (or receivable) less any insurance acquisition cash flows paid (or payable).</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Acquisition Costs</h6>
+                    <p>The entity must choose an accounting policy to either:</p>
+                    <ul>
+                      <li>Defer these costs as part of the liability and amortize them, or</li>
+                      <li>Expense them immediately in profit or loss</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ADDED: Summary Diagram - TASK 6 REQUIREMENT -->
+            <div class="content-section">
+              <h4>5.7.1 Measurement Summary</h4>
+              
+              <div class="summary-diagram-container">
+                  <h3 class="summary-diagram-title">Summary of Measurement on Initial Recognition</h3>
+                  
+                  <div class="summary-image-container">
+                      <img src="assets/images/summaryofMeasurementonInitialRecognition.png" alt="Summary of Measurement on Initial Recognition" class="summary-image">
+                      <p class="summary-caption">Comprehensive overview of initial measurement requirements under IFRS 17</p>
+                  </div>
+              </div>
+            </div>
+
+            <!-- 5.8 Key Takeaways -->
+            <div class="content-section conclusion">
+              <h4>5.8 Key Takeaways</h4>
+              <div class="conclusion-card">
+                <div class="key-takeaways">
+                  <h5>Critical Learning Points:</h5>
+                  <ul>
+                    <li><strong>Recognition is Timely:</strong> Driven by the earliest of three key events to ensure transparency</li>
+                    <li><strong>GMM is Principle-Based:</strong> It measures contracts at current fulfillment value, deferring profit via the CSM</li>
+                    <li><strong>CSM is a P&L Deferral Mechanism:</strong> It is the unearned profit and cannot be negative. A negative result triggers immediate loss recognition</li>
+                    <li><strong>Onerous = Immediate Loss:</strong> There is no "negative profit" to defer; losses are recognized upfront</li>
+                    <li><strong>PAA is a Simplification:</strong> Used for short-duration contracts, it relies on a premium-based measurement</li>
+                    <li><strong>Acquisition Cost Treatment Varies:</strong> Capitalized and amortized under GMM/VFA, but a choice exists under PAA</li>
+                  </ul>
+                </div>
+                
+                <div class="next-module">
+                  <strong>Next Module:</strong> Module 6 - Premium Allocation Approach (PAA): Detailed coverage of the simplified measurement approach
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <!-- Module Navigation - UPDATED FOR TASK 6 -->
+          <div class="module-navigation">
+            <div class="row">
+              <div class="col-lg-6">
+                <a href="module-4.html" class="nav-button prev">
+                  <i class="fa fa-arrow-left"></i> Previous Module
+                </a>
+              </div>
+              <div class="col-lg-6 text-end">
+                <!-- CHANGED: Next Module button replaced with Take Module Assessment -->
+                <a href="assessment-5.html" class="nav-button next">
+                  Take Module Assessment <i class="fa fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module Actions - UPDATED FOR TASK 6 -->
+          <div class="module-actions">
+            <button class="main-button outline" id="saveProgress">Save Progress</button>
+            <!-- CHANGED: Take Module Assessment button replaced with Next Module -->
+            <button class="main-button" id="nextModuleBtn" onclick="window.location.href='module-6.html'">
+              Next Module
+            </button>
+            <button class="main-button primary" id="markComplete">Mark Complete</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/module-progress.js"></script>
+
+  <!-- Loader Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const pageLoader = document.getElementById('pageLoader');
+      
+      // Update copyright year automatically
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      
+      setTimeout(() => {
+          pageLoader.classList.add('hidden');
+          
+          setTimeout(() => {
+              pageLoader.remove();
+          }, 500);
+      }, 1500);
+  });
+
+  document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (link && link.href && !link.href.includes('javascript:') && 
+          !link.href.includes('#') && link.target !== '_blank') {
+          const pageLoader = document.getElementById('pageLoader');
+          if (pageLoader) {
+              pageLoader.classList.remove('hidden');
+          }
+      }
+  });
+  </script>
+</body>
+</html>

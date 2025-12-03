@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Module 14 Assessment | Kenbright IFRS 17 Training</title>
+    
+    <!-- CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <style>
+        /* Apply Gill Sans font to entire page with 20px font size */
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .nav li a {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+        }
+        
+        .btn, .main-button a {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+        }
+
+        /* Simplified header styling */
+        .header-area {
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        /* Ensure navigation items are properly spaced */
+        .main-nav .nav {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+        }
+
+        .main-nav .nav li a:hover {
+            color: #3B82F6;
+        }
+
+        /* Search input styling */
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+        }
+
+        .search-input i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 20px;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 130px;
+            width: auto;
+            max-width: 500px;
+        }
+
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .assessment-container {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 35px;
+            margin: 30px 0;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+        }
+        
+        .question-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        
+        .question-number {
+            background: #667eea;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 22px;
+        }
+        
+        .option-item {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+        }
+        
+        .option-item:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+        
+        .option-item.selected {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+        
+        .option-item.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .option-item.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .quiz-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+        }
+        
+        .results-container {
+            display: none;
+            background: #fff;
+            border-radius: 15px;
+            padding: 35px;
+            margin-top: 35px;
+            border: 2px solid #e9ecef;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+        }
+        
+        .score-display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #667eea;
+            text-align: center;
+            margin: 25px 0;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .progress-summary {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 35px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-input {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .main-nav .nav {
+                gap: 15px;
+            }
+            
+            .logo-image {
+                height: 35px;
+                max-width: 150px;
+            }
+            
+            body {
+                font-size: 18px;
+            }
+            
+            .question-card, .option-item, .assessment-container, .quiz-header {
+                font-size: 18px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 30px;
+                max-width: 130px;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            .question-card, .option-item, .assessment-container, .quiz-header {
+                font-size: 16px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+          <div class="kenbright-loader">Kenbright</div>
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading Assessment...</div>
+      </div>
+  </div>
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+                    </a>
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="modules.html">Training Modules</a></li>
+                        <li><a href="assessments.html" class="active">Test Assessments</a></li>
+                        <li><a href="progress.html">My Progress</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2>Module 14 Assessment</h2>
+            <p>Insurance Service Result & Finance Income/Expenses</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Assessment Container -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <div class="quiz-header">
+            <h3><i class="fa fa-question-circle"></i> Module 14 Quiz</h3>
+            <p>Test your understanding of Insurance Service Result & Finance Income/Expenses</p>
+            <div class="progress" style="height: 10px; background: rgba(255,255,255,0.3);">
+              <div class="progress-bar" id="quizProgress" style="width: 0%"></div>
+            </div>
+            <small id="progressText" style="font-size: 18px;">Question 1 of 15</small>
+          </div>
+
+          <div class="assessment-container">
+            <div id="questionsContainer">
+              <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="navigation-buttons">
+              <button class="main-button outline" id="prevQuestion" style="display: none; font-size: 20px;">
+                <i class="fa fa-arrow-left"></i> Previous
+              </button>
+              <button class="main-button" id="submitQuiz" style="display: none; font-size: 20px;">
+                Submit Assessment
+              </button>
+              <button class="main-button" id="nextQuestion" style="display: none; font-size: 20px;">
+                Next <i class="fa fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="results-container" id="resultsContainer">
+            <h3 class="text-center"><i class="fa fa-chart-bar"></i> Assessment Results</h3>
+            <div class="score-display" id="finalScore">0/15</div>
+            
+            <div class="progress-summary">
+              <div class="progress" style="height: 25px;">
+                <div class="progress-bar" id="scoreProgress" role="progressbar" style="width: 0%"></div>
+              </div>
+              <div class="progress-text text-center mt-3">
+                <span id="scorePercentage">0%</span> - <span id="performanceText">Beginner Level</span>
+              </div>
+            </div>
+
+            <div id="questionsReview">
+              <!-- Questions review will be loaded here -->
+            </div>
+
+            <div class="text-center mt-4">
+              <button class="main-button outline" onclick="window.location.href='module-14.html'" style="font-size: 20px;">
+                <i class="fa fa-book"></i> Review Module
+              </button>
+              <button class="main-button" id="nextModuleBtn" onclick="window.location.href='module-15.html'" style="font-size: 20px;">
+                <i class="fa fa-arrow-right"></i> Proceed to Module 15
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  
+  <script>
+    // Module 14 Questions Data with UPDATED CORRECT answers
+    const module14Questions = [
+      {
+        question: "What is the primary objective of separating the Insurance Service Result from Insurance Finance Income or Expenses under IFRS 17?",
+        options: [
+          "To provide a clearer and more transparent view of an insurer's operational performance versus financial market impacts",
+          "To complicate financial reporting for insurers",
+          "To align with previous accounting standards",
+          "To reduce the overall profit reported by insurers"
+        ],
+        correctAnswer: 0, // 1st choice
+        explanation: "Separating service result from finance result provides clearer insight into operational vs. financial performance."
+      },
+      {
+        question: "Which of the following components is NOT generally included in Insurance Service Revenue under the General Measurement Model (GMM)?",
+        options: [
+          "Investment components that do not transfer significant insurance risk",
+          "Expected claims and expenses for the coverage provided in the period",
+          "Release of the contractual service margin",
+          "Recovery of insurance acquisition cash flows"
+        ],
+        correctAnswer: 1, // 2nd choice
+        explanation: "Investment components are excluded from insurance service revenue."
+      },
+      {
+        question: "How should reinsurance contracts held be presented in the financial statements?",
+        options: [
+          "Separately from insurance contracts issued",
+          "Together with insurance contracts issued",
+          "Only in other comprehensive income",
+          "As a deferred liability"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "Reinsurance contracts held are presented separately from insurance contracts issued."
+      },
+      {
+        question: "Under IFRS 17, the Insurance Service Result represents?",
+        options: [
+          "The operational profit from insurance services",
+          "The total investment return of the insurance company",
+          "The difference between premiums received and claims paid",
+          "The finance income from investment contracts"
+        ],
+        correctAnswer: 0, // 1st choice
+        explanation: "The Insurance Service Result represents operational profit from insurance services."
+      },
+      {
+        question: "Insurance Service Expenses include which of the following?",
+        options: [
+          "Incurred claims and changes in fulfilment cash flows",
+          "Investment income",
+          "Premiums received from policyholders",
+          "Recovered amounts from reinsurers"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "Insurance Service Expenses include incurred claims and changes in fulfilment cash flows."
+      },
+      {
+        question: "When an entity does not disaggregate the change in risk adjustment, how is it treated?",
+        options: [
+          "Entire amount is included in the insurance service result",
+          "Must be split between finance and service result",
+          "Cannot be included in any result",
+          "Classified under insurance finance income"
+        ],
+        correctAnswer: 0, // 1st choice
+        explanation: "If not disaggregated, the entire change in risk adjustment goes to insurance service result."
+      },
+      {
+        question: "Which of the following may not be reported in profit or loss if inconsistent with IFRS 17?",
+        options: [
+          "Premium details not aligned with Paragraph 83",
+          "Income from reinsurance contracts",
+          "Risk adjustments",
+          "Insurance service expenses"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "Premium details not aligned with Paragraph 83 requirements cannot be reported in P&L."
+      },
+      {
+        question: "How can entities present reinsurance contracts held in the financial statements?",
+        options: [
+          "Either as a net total or split into recoveries and premium allocations",
+          "As part of investment income",
+          "Only as a single combined amount",
+          "Only as separate line items"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "Reinsurance contracts can be presented as net totals or split between recoveries and premiums."
+      },
+      {
+        question: "When using the Premium Allocation Approach (PAA), insurance service revenue is often similar to?",
+        options: [
+          "Earned premium over the coverage period",
+          "Contractual Service Margin release",
+          "Written premium",
+          "Total premiums received"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "Under PAA, insurance service revenue is similar to earned premium over coverage period."
+      },
+      {
+        question: "If a group of insurance contracts transitions from profitable to onerous, how is the loss recognized in the Insurance Service Result under IFRS 17?",
+        options: [
+          "The loss is recognized immediately in the Insurance Service Expenses in the period the contracts become onerous",
+          "The entire expected loss is deferred and recognized over the remaining contract period",
+          "The loss is added to the Contractual Service Margin",
+          "The loss is presented in Other Comprehensive Income (OCI)"
+        ],
+        correctAnswer: 1, // 2nd choice
+        explanation: "Losses from profitable to onerous transition are recognized immediately in Insurance Service Expenses."
+      },
+      {
+        question: "Losses on onerous groups of contracts and reversals of such losses are components of Insurance Service Expenses related to?",
+        options: [
+          "Future service",
+          "Incurred claims",
+          "Amortization of acquisition cash flows",
+          "Risk adjustment"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "Losses on onerous contracts are related to future service."
+      },
+      {
+        question: "What does IFRS 17 aim to achieve by separating service result and finance result?",
+        options: [
+          "Enhanced transparency and comparability",
+          "Compliance with local GAAP",
+          "Tax optimization",
+          "Maximizing investment returns"
+        ],
+        correctAnswer: 0, // 1st choice
+        explanation: "Separating service and finance results enhances transparency and comparability."
+      },
+      {
+        question: "What does 'operational profit' in the context of Insurance Service Result refer to?",
+        options: [
+          "Profit derived directly from the core business of providing insurance coverage",
+          "Profit generated from selling investment products",
+          "Profit before deducting any financial expenses",
+          "Profit from non-insurance-related activities"
+        ],
+        correctAnswer: 3, // 4th choice
+        explanation: "Operational profit refers to profit from core insurance services."
+      },
+      {
+        question: "If an entity reverses a previous loss on onerous contracts, which impact will this have?",
+        options: [
+          "Decrease in liabilities and increase in insurance service result",
+          "Increase in insurance finance income",
+          "Reduction in insurance service revenue",
+          "Increase in insurance acquisition costs"
+        ],
+        correctAnswer: 2, // 3rd choice
+        explanation: "Reversing onerous contract losses decreases liabilities and increases insurance service result."
+      },
+      {
+        question: "What is a critical requirement for insurance service revenue and expenses under IFRS 17?",
+        options: [
+          "They must exclude any investment components",
+          "They must include investment components to show total performance",
+          "They should be presented net of all reinsurance effects",
+          "They must be equal to the cash received and paid during the period"
+        ],
+        correctAnswer: 0, // 1st choice
+        explanation: "Insurance service revenue and expenses must exclude investment components."
+      }
+    ];
+
+    // Quiz functionality
+    let currentQuestion = 0;
+    let userAnswers = new Array(module14Questions.length).fill(null);
+    let quizSubmitted = false;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const pageLoader = document.getElementById('pageLoader');
+        
+        // Update copyright year automatically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        setTimeout(() => {
+            pageLoader.classList.add('hidden');
+            setTimeout(() => {
+                pageLoader.remove();
+                initializeQuiz();
+            }, 500);
+        }, 1500);
+
+        // Add event listeners to buttons
+        document.getElementById('nextQuestion').addEventListener('click', nextQuestion);
+        document.getElementById('prevQuestion').addEventListener('click', prevQuestion);
+        document.getElementById('submitQuiz').addEventListener('click', submitQuiz);
+    });
+
+    function initializeQuiz() {
+        displayQuestion(currentQuestion);
+        updateNavigation();
+        updateProgress();
+    }
+
+    function displayQuestion(questionIndex) {
+        const questionsContainer = document.getElementById('questionsContainer');
+        const question = module14Questions[questionIndex];
+        
+        let optionsHtml = '';
+        question.options.forEach((option, index) => {
+            const isSelected = userAnswers[questionIndex] === index;
+            optionsHtml += `
+                <div class="option-item ${isSelected ? 'selected' : ''}" onclick="selectOption(${index})">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question${questionIndex}" 
+                               id="option${index}" ${isSelected ? 'checked' : ''} style="transform: scale(1.3); margin-right: 15px;">
+                        <label class="form-check-label" for="option${index}" style="font-size: 20px;">
+                            ${option}
+                        </label>
+                    </div>
+                </div>
+            `;
+        });
+
+        questionsContainer.innerHTML = `
+            <div class="question-card">
+                <div class="d-flex align-items-start">
+                    <div class="question-number">${questionIndex + 1}</div>
+                    <div class="flex-grow-1">
+                        <h5 style="font-size: 24px;">${question.question}</h5>
+                        <div class="options-container mt-4">
+                            ${optionsHtml}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        updateNavigation();
+    }
+
+    function updateNavigation() {
+        const hasAnswer = userAnswers[currentQuestion] !== null;
+        const isLastQuestion = currentQuestion === module14Questions.length - 1;
+        const isFirstQuestion = currentQuestion === 0;
+
+        // Show/hide previous button
+        document.getElementById('prevQuestion').style.display = isFirstQuestion ? 'none' : 'inline-block';
+        
+        // Show/hide next and submit buttons
+        if (isLastQuestion) {
+            document.getElementById('nextQuestion').style.display = 'none';
+            document.getElementById('submitQuiz').style.display = hasAnswer ? 'inline-block' : 'none';
+        } else {
+            document.getElementById('nextQuestion').style.display = hasAnswer ? 'inline-block' : 'none';
+            document.getElementById('submitQuiz').style.display = 'none';
+        }
+    }
+
+    function selectOption(optionIndex) {
+        userAnswers[currentQuestion] = optionIndex;
+        displayQuestion(currentQuestion);
+        updateNavigation();
+        updateProgress();
+    }
+
+    function nextQuestion() {
+        if (currentQuestion < module14Questions.length - 1) {
+            currentQuestion++;
+            displayQuestion(currentQuestion);
+            updateNavigation();
+            updateProgress();
+        }
+    }
+
+    function prevQuestion() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            displayQuestion(currentQuestion);
+            updateNavigation();
+            updateProgress();
+        }
+    }
+
+    function updateProgress() {
+        const progress = ((currentQuestion + 1) / module14Questions.length) * 100;
+        document.getElementById('quizProgress').style.width = `${progress}%`;
+        document.getElementById('progressText').textContent = `Question ${currentQuestion + 1} of ${module14Questions.length}`;
+    }
+
+    function submitQuiz() {
+        quizSubmitted = true;
+        calculateScore();
+        showResults();
+    }
+
+    function calculateScore() {
+        let score = 0;
+        module14Questions.forEach((question, index) => {
+            if (userAnswers[index] === question.correctAnswer) {
+                score++;
+            }
+        });
+        return score;
+    }
+
+    function showResults() {
+        const score = calculateScore();
+        const percentage = (score / module14Questions.length) * 100;
+        
+        document.getElementById('finalScore').textContent = `${score}/${module14Questions.length}`;
+        document.getElementById('scoreProgress').style.width = `${percentage}%`;
+        document.getElementById('scorePercentage').textContent = `${percentage.toFixed(1)}%`;
+        
+        let performanceText = '';
+        if (percentage >= 90) performanceText = 'Excellent!';
+        else if (percentage >= 80) performanceText = 'Very Good';
+        else if (percentage >= 70) performanceText = 'Good';
+        else if (percentage >= 60) performanceText = 'Satisfactory';
+        else performanceText = 'Needs Improvement';
+        
+        document.getElementById('performanceText').textContent = performanceText;
+        
+        // Show questions review
+        let reviewHtml = '<h4 class="mt-4" style="font-size: 24px;">Question Review</h4>';
+        module14Questions.forEach((question, index) => {
+            const userAnswer = userAnswers[index];
+            const isCorrect = userAnswer === question.correctAnswer;
+            const userAnswerText = userAnswer !== null ? question.options[userAnswer] : 'Not answered';
+            const correctAnswerText = question.options[question.correctAnswer];
+            
+            reviewHtml += `
+                <div class="question-card ${isCorrect ? 'border-success' : 'border-danger'}">
+                    <div class="d-flex align-items-start">
+                        <div class="question-number ${isCorrect ? 'bg-success' : 'bg-danger'}">${index + 1}</div>
+                        <div class="flex-grow-1">
+                            <h5 style="font-size: 22px;">${question.question}</h5>
+                            <div class="mt-3" style="font-size: 20px;">
+                                <p><strong>Your answer:</strong> 
+                                <span class="${isCorrect ? 'text-success' : 'text-danger'}">${userAnswerText}</span></p>
+                                ${!isCorrect ? `<p><strong>Correct answer:</strong> 
+                                <span class="text-success">${correctAnswerText}</span></p>` : ''}
+                                <p><strong>Explanation:</strong> ${question.explanation}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        document.getElementById('questionsReview').innerHTML = reviewHtml;
+        document.getElementById('resultsContainer').style.display = 'block';
+        
+        // Save progress to localStorage
+        saveProgress(score, module14Questions.length);
+    }
+
+    function saveProgress(score, totalQuestions) {
+        const progressData = {
+            module: 14,
+            score: score,
+            totalQuestions: totalQuestions,
+            percentage: (score / totalQuestions) * 100,
+            completed: true,
+            timestamp: new Date().toISOString()
+        };
+        
+        let allProgress = JSON.parse(localStorage.getItem('kenbright_assessment_progress') || '[]');
+        allProgress = allProgress.filter(item => item.module !== 14);
+        allProgress.push(progressData);
+        localStorage.setItem('kenbright_assessment_progress', JSON.stringify(allProgress));
+        
+        updateModuleCompletion(14);
+    }
+
+    function updateModuleCompletion(moduleNumber) {
+        let moduleProgress = JSON.parse(localStorage.getItem('kenbright_module_progress') || '{}');
+        moduleProgress[`module_${moduleNumber}`] = {
+            completed: true,
+            completionDate: new Date().toISOString(),
+            score: calculateScore()
+        };
+        localStorage.setItem('kenbright_module_progress', JSON.stringify(moduleProgress));
+    }
+
+    // Make functions global for onclick events
+    window.selectOption = selectOption;
+    window.nextQuestion = nextQuestion;
+    window.prevQuestion = prevQuestion;
+    window.submitQuiz = submitQuiz;
+  </script>
+</body>
+</html>

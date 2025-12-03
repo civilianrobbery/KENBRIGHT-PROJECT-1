@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Gill+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <title>Module 7: Discounting, CSM and Risk Adjustment | Kenbright</title>
+    
+    <!-- CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <style>
+        /* Apply Gill Sans font to entire page with specified sizes */
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .nav li a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .btn, .main-button a {
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        /* Page Loader Styles */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: white;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .kenbright-loader {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .loader-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-family: 'Gill Sans', sans-serif;
+        }
+        
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .loader-progress-bar {
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            animation: progress 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        /* Content Styling */
+        .section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .main-module-content {
+            font-size: 20px;
+        }
+        
+        .content-section {
+            margin: 50px 0;
+        }
+        
+        .content-section h4 {
+            color: #1e3c72;
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #14B8A6;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 35px;
+            font-size: 20px;
+        }
+        
+        .content-card h5 {
+            color: #1e3c72;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .content-card h6 {
+            color: #1e3c72;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .content-card p {
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            font-size: 20px;
+            line-height: 1.7;
+        }
+        
+        .key-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        
+        /* Learning Objectives */
+        .learning-objectives h3 {
+            font-size: 28px;
+        }
+        
+        .objective-item {
+            font-size: 20px;
+        }
+
+        /* Fulfilment Cash Flows Diagram Styling */
+        .fulfilment-diagram-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin: 40px 0;
+            font-family: 'Gill Sans', sans-serif;
+            text-align: center;
+        }
+
+        .fulfilment-diagram-title {
+            color: #1e3c72;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #14B8A6;
+        }
+
+        .fulfilment-image-container {
+            margin: 30px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .fulfilment-image {
+            max-width: 95%;
+            width: 1000px;
+            height: auto;
+            max-height: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            object-fit: contain;
+        }
+
+        .fulfilment-caption {
+            font-size: 18px;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        /* Discounting Approaches Diagram Styling */
+        .discounting-diagram-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin: 40px 0;
+            font-family: 'Gill Sans', sans-serif;
+            text-align: center;
+        }
+
+        .discounting-diagram-title {
+            color: #1e3c72;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #14B8A6;
+        }
+
+        .discounting-image-container {
+            margin: 30px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .discounting-image {
+            max-width: 95%;
+            width: 1000px;
+            height: auto;
+            max-height: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            object-fit: contain;
+        }
+
+        .discounting-caption {
+            font-size: 18px;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        /* CSM at Initial Recognition Diagram Styling */
+        .csm-initial-diagram-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            margin: 40px 0;
+            font-family: 'Gill Sans', sans-serif;
+            text-align: center;
+        }
+
+        .csm-initial-diagram-title {
+            color: #1e3c72;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #14B8A6;
+        }
+
+        .csm-initial-image-container {
+            margin: 30px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .csm-initial-image {
+            max-width: 95%;
+            width: 1000px;
+            height: auto;
+            max-height: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            object-fit: contain;
+        }
+
+        .csm-initial-caption {
+            font-size: 18px;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        /* Header styling */
+        .header-area {
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        .main-nav .nav {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav .nav li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .main-nav .nav li a:hover {
+            color: #3B82F6;
+        }
+
+        /* Search input styling */
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input input {
+            width: 100%;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .search-input i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            height: 130px;
+            width: auto;
+            max-width: 500px;
+        }
+
+        /* Banner */
+        .main-banner {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #2563EB 100%);
+            padding: 120px 0px 80px 0px;
+        }
+
+        .main-banner .header-text h2 {
+            color: #fff !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 42px;
+        }
+        
+        .main-banner .header-text p {
+            color: #E2E8F0 !important;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 22px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-nav {
+            background: #f8f9fa;
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .breadcrumb-item a {
+            color: #1e3c72;
+            font-weight: 500;
+        }
+
+        /* Module Header Card */
+        .module-header-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .module-meta-info {
+            font-size: 20px;
+        }
+
+        .module-number {
+            font-size: 20px;
+        }
+
+        .progress-status {
+            font-size: 20px;
+        }
+
+        /* Tables - Enhanced Styling */
+        .concept-table th {
+            font-size: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .concept-table td {
+            font-size: 20px;
+            padding: 15px;
+            vertical-align: top;
+        }
+
+        .concept-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .concept-table tbody tr:hover {
+            background-color: #e9ecef;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Measurement Cards */
+        .measurement-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .measurement-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .measurement-card h6 {
+            font-size: 22px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        .measurement-card ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Scope Cards */
+        .scope-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .scope-card {
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .scope-card h5 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .scope-card ul li {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .scope-card.in-scope {
+            border-left: 4px solid #28a745;
+            background: linear-gradient(to right, #f0fff4, #ffffff);
+        }
+
+        /* Formula and Calculation Examples */
+        .formula-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 20px;
+            white-space: pre-wrap;
+        }
+
+        .calculation-example {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 25px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .flow-diagram {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #ffc107;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+        }
+
+        /* Conclusion */
+        .conclusion-card {
+            padding: 40px;
+            font-size: 22px;
+            background: linear-gradient(135deg, #5f89b4 0%, #ffffff 100%);
+            border-left: 4px solid #14B8A6;
+        }
+
+        .key-takeaways h5 {
+            font-size: 24px;
+            color: #1e3c72;
+        }
+
+        .key-takeaways li {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .next-module {
+            font-size: 22px;
+            color: #1e3c72;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .nav-button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button.prev {
+            background: #f8f9fa;
+            color: #1e3c72;
+            border: 2px solid #667eea;
+        }
+
+        .nav-button.prev:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-button.next {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .nav-button.next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Module Actions */
+        .module-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .module-actions button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .module-actions .main-button.outline {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .module-actions .main-button.outline:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .module-actions .main-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .module-actions .main-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .module-actions .main-button.primary {
+            background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+        }
+
+        .module-actions .main-button.primary:hover {
+            box-shadow: 0 5px 15px rgba(20, 184, 166, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 18px;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 25px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 22px;
+            }
+            
+            .content-card h6 {
+                font-size: 20px;
+            }
+            
+            .content-section h4 {
+                font-size: 24px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 32px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 18px;
+            }
+            
+            .fulfilment-diagram-container,
+            .discounting-diagram-container,
+            .csm-initial-diagram-container {
+                padding: 25px;
+            }
+            
+            .fulfilment-diagram-title,
+            .discounting-diagram-title,
+            .csm-initial-diagram-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            
+            .fulfilment-image-container,
+            .discounting-image-container,
+            .csm-initial-image-container {
+                padding: 20px;
+                margin: 20px 0;
+                min-height: auto;
+            }
+            
+            .fulfilment-image,
+            .discounting-image,
+            .csm-initial-image {
+                max-width: 100%;
+                width: 100%;
+                max-height: none;
+            }
+            
+            .fulfilment-caption,
+            .discounting-caption,
+            .csm-initial-caption {
+                font-size: 16px;
+                max-width: 100%;
+            }
+            
+            .concept-table th {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .concept-table td {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-input {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .main-nav .nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .logo-image {
+                height: 35px;
+                max-width: 150px;
+            }
+            
+            .module-actions {
+                flex-direction: column;
+            }
+            
+            .module-actions button {
+                width: 100%;
+            }
+            
+            .measurement-cards,
+            .scope-cards {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .calculation-example {
+                padding: 20px;
+            }
+            
+            .formula-box,
+            .flow-diagram {
+                font-size: 16px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 18px;
+            }
+            
+            .content-card {
+                padding: 20px;
+                font-size: 18px;
+            }
+            
+            .content-card h5 {
+                font-size: 20px;
+            }
+            
+            .main-banner .header-text h2 {
+                font-size: 28px;
+            }
+            
+            .main-banner .header-text p {
+                font-size: 16px;
+            }
+            
+            .logo-image {
+                height: 30px;
+                max-width: 130px;
+            }
+            
+            .nav-button {
+                font-size: 16px;
+                padding: 10px 20px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .module-navigation .row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .module-navigation .col-lg-6 {
+                width: 100%;
+            }
+            
+            .module-navigation .text-end {
+                text-align: left !important;
+            }
+            
+            .formula-box {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+          <div class="kenbright-loader">Kenbright</div>
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading Module 7...</div>
+          <div class="loader-progress">
+              <div class="loader-progress-bar"></div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Header Area -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kenbright-logo.png" alt="Kenbright" class="logo-image">
+                    </a>
+                    
+                    <!-- Search -->
+                    <div class="search-input">
+                        <form id="search" action="#">
+                            <input type="text" placeholder="Search IFRS 17 concepts..." id='searchText' name="searchKeyword" />
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </div>
+                    
+                    <!-- Main Navigation -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="modules.html" class="active">Training Modules</a></li>
+                        <li><a href="assessments.html">Test Assessments</a></li>
+                        <li><a href="progress.html">My Progress</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2>Module 7: Discounting, CSM and Risk Adjustment</h2>
+            <p>Mastering Core Measurement Components under IFRS 17</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Training Modules</a></li>
+          <li class="breadcrumb-item active">Module 7</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Module Content Area -->
+  <section class="section module-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <!-- Module Header Card -->
+          <div class="module-header-card">
+            <div class="module-meta-info">
+              <span class="module-number">Module 7</span>
+              <span class="progress-status">0% Complete</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <!-- Learning Objectives -->
+          <div class="learning-objectives">
+            <h3><i class="fa fa-bullseye"></i> Learning Objectives</h3>
+            <div class="objectives-grid">
+              <div class="objective-item">
+                <i class="fa fa-calculator"></i>
+                <span>Apply discounting principles to calculate present values of future insurance cash flows</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-balance-scale"></i>
+                <span>Calculate and adjust the Contractual Service Margin throughout the contract lifecycle</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-chart-line"></i>
+                <span>Determine appropriate Risk Adjustment using confidence levels and calculation methods</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-sitemap"></i>
+                <span>Integrate discounting, CSM, and risk adjustment into comprehensive insurance contract measurement</span>
+              </div>
+              <div class="objective-item">
+                <i class="fa fa-exchange-alt"></i>
+                <span>Differentiate between bottom-up and top-down discounting approaches</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Topics -->
+          <div class="key-topics">
+            <h4><i class="fa fa-key"></i> Key Topics Covered</h4>
+            <div class="topics-list">
+              <span class="topic-badge">Discounting Principles</span>
+              <span class="topic-badge">Contractual Service Margin</span>
+              <span class="topic-badge">Risk Adjustment Methods</span>
+              <span class="topic-badge">Fulfilment Cash Flows</span>
+              <span class="topic-badge">Measurement Integration</span>
+              <span class="topic-badge">Regulatory Framework</span>
+            </div>
+          </div>
+
+          <!-- Main Module Content -->
+          <div class="main-module-content">
+            
+            <!-- 7.1 Introduction -->
+            <div class="content-section">
+              <h4>7.1 Introduction</h4>
+              
+              <div class="content-card">
+                <p>This module provides an overview of Discounting, Contractual Service Margin (CSM) and Risk Adjustment (RA) under IFRS 17. These three components form the foundation of insurance contract measurement, ensuring accurate valuation of liabilities and proper profit recognition timing.</p>
+                
+                <div class="key-point">
+                  <strong>Module Objective:</strong> This module provides an overview of Discounting, Contractual Service Margin (CSM) and Risk Adjustment (RA) under IFRS 17.
+                </div>
+              </div>
+            </div>
+
+            <!-- 7.2 Fulfilment Cash Flows -->
+            <div class="content-section">
+              <h4>7.2 Fulfilment Cash Flows</h4>
+              
+              <div class="content-card">
+                <p>At initial recognition, an entity is required to measure a group of insurance contracts as the sum of:</p>
+                
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Fulfilment Cash Flows (FCF)</h6>
+                    <p>Includes:</p>
+                    <ul>
+                      <li>Estimates of future cash inflows and outflows</li>
+                      <li>A discount adjustment to reflect the time value of money and financial risks</li>
+                      <li>A risk adjustment for non-financial uncertainty</li>
+                    </ul>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Contractual Service Margin (CSM)</h6>
+                    <p>Represents the unearned profit from the contracts</p>
+                  </div>
+                </div>
+
+                <h5>Key Components</h5>
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Fulfilment Cash Flows</h5>
+                    <ul>
+                      <li>Risk-adjusted present value of future cashflows (premiums, claims)</li>
+                      <li>Includes discount adjustment and risk adjustment</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Contractual Service Margin</h5>
+                    <ul>
+                      <li>Represents unearned profit for the insurer</li>
+                      <li>Ensures no day-one profit recognition</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- ADDED: Fulfilment Cash Flows Diagram - TASK 7 REQUIREMENT -->
+                <div class="content-section">
+                  <div class="fulfilment-diagram-container">
+                      <h3 class="fulfilment-diagram-title">Fulfilment Cash Flows Structure</h3>
+                      
+                      <div class="fulfilment-image-container">
+                          <img src="assets/images/fulfilmentCashFlows.png" alt="Fulfilment Cash Flows Structure" class="fulfilment-image">
+                          <p class="fulfilment-caption">Visual representation of the fulfilment cash flows components and structure under IFRS 17</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 7.3 Discounting -->
+            <div class="content-section">
+              <h4>7.3 Discounting</h4>
+              
+              <div class="content-card">
+                <p>This sub-module introduces the key principle of discounting in IFRS 17, highlighting the need to adjust future cash flows to account for the time value of money. This process ensures that projected future payments and receipts are presented in today's terms, leading to a more accurate valuation of insurance liabilities.</p>
+                
+                <h5>Regulatory Framework</h5>
+                <div class="table-responsive">
+                  <table class="table table-bordered concept-table">
+                    <thead class="table-primary">
+                      <tr>
+                        <th>Paragraph</th>
+                        <th>Requirement</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Paragraph 38</strong></td>
+                        <td>Includes discounting as part of the fulfilment cash flows</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Paragraphs 38–39</strong></td>
+                        <td>Outline the key characteristics that discount rates must reflect</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Paragraphs 44(b) and 47</strong></td>
+                        <td>Explain how interest is accreted on the CSM using the original discount rate set at contract inception</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Appendix B72–B85</strong></td>
+                        <td>Provides detailed guidance on selecting appropriate discount rates and constructing yield curves</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h5>What is Discounting?</h5>
+                <p>Discounting is the process of converting future cash flows into present values based on the principle that a sum of money held now is more valuable than the same amount received later — this is known as the time value of money.</p>
+                
+                <p>The discount rate used should capture features such as liquidity, inflation expectations, and how the cash flows are influenced by any underlying items.</p>
+
+                <div class="formula-box">
+Present Value = Future Cash Flow / (1 + r)^n
+Where:
+r = discount rate
+n = number of periods
+                </div>
+
+                <h5>Why Are Future Cash Flows Discounted in IFRS 17?</h5>
+                <p>To reflect the time value of money and financial risks not already captured in the estimates.</p>
+                
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Purpose</h6>
+                    <ul>
+                      <li>Ensure liabilities are shown realistically on the balance sheet</li>
+                      <li>Helps compare cash flows that occur at different times</li>
+                      <li>Adjusts for liquidity and financial risk</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 7.4 Discounting Approaches -->
+            <div class="content-section">
+              <h4>7.4 Discounting Approaches</h4>
+              
+              <div class="content-card">
+                <p>IFRS 17 outlines two methods insurers can use to determine appropriate discount rates:</p>
+                
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>a) Bottom-Up Approach</h6>
+                    <p><strong>How It Works:</strong></p>
+                    <ul>
+                      <li>Begins with a risk-free yield curve (such as government bond rates)</li>
+                      <li>Adds a liquidity premium if the insurance contracts are not easily tradable (i.e., illiquid)</li>
+                    </ul>
+                    <div class="formula-box">
+Discount Rate = Risk-Free Rate + Liquidity Premium
+                    </div>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>b) Top-Down Approach</h6>
+                    <p><strong>How It Works:</strong></p>
+                    <ul>
+                      <li>Starts with the total yield of a reference asset portfolio</li>
+                      <li>Eliminates components not relevant to insurance (e.g., credit risk, other market risks)</li>
+                    </ul>
+                    <div class="formula-box">
+Discount Rate = Portfolio Yield - Credit Risk - Other Irrelevant Risks
+                    </div>
+                  </div>
+                </div>
+
+                <div class="alert alert-info">
+                  <strong>Market Consistency Requirement:</strong> IFRS 17 requires that discount rates exclude market variables that don't affect the cash flows of the insurance contract, even if these variables are reflected in market prices. This ensures accuracy in aligning economic reality with liability measurement.
+                </div>
+
+                <h5>Key Discounting Concepts in IFRS 17</h5>
+                <div class="table-responsive">
+                  <table class="table table-bordered concept-table">
+                    <thead class="table-primary">
+                      <tr>
+                        <th>Concept</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Time Value of Money</strong></td>
+                        <td>Money today is more valuable than money tomorrow</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Discount Rate</strong></td>
+                        <td>The rate used to bring future cash flows to the present value</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Bottom-Up Approach</strong></td>
+                        <td>Start with a risk-free rate, then adjust for liquidity</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Top-Down Approach</strong></td>
+                        <td>Start with a portfolio yield, then remove credit and other risks not relevant to the insurance contract</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Liquidity Premium</strong></td>
+                        <td>Adjustment made to a liquid risk-free yield curve to reflect differences between liquidity characteristics of the financial instruments that underlie the risk-free rates and insurance contracts</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Market Consistency</strong></td>
+                        <td>Use observable market data only if it reflects the characteristics of the liability</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h5>Discount Rate Determination Process</h5>
+                <p>The following diagram illustrates the two approaches to determining discount rates under IFRS 17:</p>
+
+                <!-- ADDED: Discounting Approaches Diagram - TASK 7 REQUIREMENT -->
+                <div class="content-section">
+                  <div class="discounting-diagram-container">
+                      <h3 class="discounting-diagram-title">Discount Rate Determination Approaches</h3>
+                      
+                      <div class="discounting-image-container">
+                          <img src="assets/images/discountingApproaches.png" alt="Discounting Approaches" class="discounting-image">
+                          <p class="discounting-caption">Visual comparison of bottom-up and top-down discounting approaches under IFRS 17</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 7.5 Contractual Service Margin -->
+            <div class="content-section">
+              <h4>7.5 Contractual Service Margin</h4>
+              
+              <div class="content-card">
+                <p>This sub-module provides a comprehensive overview of how the CSM is calculated, adjusted, and released under IFRS 17.</p>
+                
+                <h5>Regulatory Framework</h5>
+                <div class="table-responsive">
+                  <table class="table table-bordered concept-table">
+                    <thead class="table-primary">
+                      <tr>
+                        <th>Paragraph</th>
+                        <th>What It Covers</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>38–39</strong></td>
+                        <td>Fulfilment cash flows (FCF), basis for CSM</td>
+                      </tr>
+                      <tr>
+                        <td><strong>43</strong></td>
+                        <td>No gain at initial recognition — CSM absorbs positive FCF</td>
+                      </tr>
+                      <tr>
+                        <td><strong>44–45</strong></td>
+                        <td>CSM changes: interest, release, updates to cash flows</td>
+                      </tr>
+                      <tr>
+                        <td><strong>46</strong></td>
+                        <td>Onerous contracts: CSM set to zero, loss component created</td>
+                      </tr>
+                      <tr>
+                        <td><strong>47</strong></td>
+                        <td>Use of locked-in discount rate for interest accretion</td>
+                      </tr>
+                      <tr>
+                        <td><strong>B84–B96</strong></td>
+                        <td>Allocation of CSM to coverage periods</td>
+                      </tr>
+                      <tr>
+                        <td><strong>B97–B100</strong></td>
+                        <td>Adjustments for changes in estimates or derecognition</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h5>What Is the Contractual Service Margin (CSM)?</h5>
+                <p>CSM represents the unearned profit an insurance company expects to earn as it provides coverage over the life of an insurance contract. It is part of the Liability for Remaining Coverage (LRC).</p>
+                
+                <div class="alert alert-info">
+                  <strong>Analogy:</strong> Imagine selling a 4-year gym membership today. The full fee is paid upfront, but you haven't provided the service yet. The profit you're expecting to make is spread over the 4 years – that's your CSM.
+                </div>
+              </div>
+            </div>
+
+            <!-- 7.6 CSM at Initial Recognition -->
+            <div class="content-section">
+              <h4>7.6 CSM at Initial Recognition</h4>
+              
+              <div class="content-card">
+                <p>When a group of insurance contracts is first recognised (usually at the point of inception), IFRS 17 requires calculating a "Contractual Service Margin (CSM)" if the contract is expected to be profitable.</p>
+                
+                <h5>Calculation Formula:</h5>
+                <div class="formula-box">
+CSM = Present Value of Future Inflows - (Present Value of Future Outflows + Risk Adjustment)
+                </div>
+
+                <h5>Initial CSM Decision Flow:</h5>
+                <p>The following diagram illustrates the CSM decision process at initial recognition:</p>
+
+                <!-- ADDED: CSM at Initial Recognition Diagram - TASK 7 REQUIREMENT -->
+                <div class="content-section">
+                  <div class="csm-initial-diagram-container">
+                      <h3 class="csm-initial-diagram-title">CSM Initial Recognition Process</h3>
+                      
+                      <div class="csm-initial-image-container">
+                          <img src="assets/images/csmatInitialRecognition.png" alt="CSM at Initial Recognition" class="csm-initial-image">
+                          <p class="csm-initial-caption">Visual representation of the CSM decision and calculation process at initial recognition</p>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="alert alert-warning">
+                  <strong>Critical Decision Point:</strong> If the result is positive — this becomes the initial CSM (unearned profit). If the result is negative — the contract is onerous and no CSM is recognised. Instead, a loss component is created.
+                </div>
+              </div>
+            </div>
+
+            <!-- 7.7 CSM at Subsequent Measurement -->
+            <div class="content-section">
+              <h4>7.7 CSM at Subsequent Measurement</h4>
+              
+              <div class="content-card">
+                <p>Once the initial CSM is set up, it's not static. It gets adjusted over time to reflect:</p>
+                
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Interest Accretion</h6>
+                    <p>CSM increases over time using the discount rate at initial recognition</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Profit Release (reduction)</h6>
+                    <p>CSM is released as revenue as the insurer provides coverage. Usually done evenly unless another pattern better reflects the service</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Adjustments for Changes in Estimates</h6>
+                    <p>If assumptions about future cash flows change (e.g., fewer claims expected), the CSM is adjusted, but only if the contract is not onerous</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Onerous Contracts</h6>
+                    <p>If the group becomes loss-making: CSM is set to zero. A loss component is recognised for the shortfall</p>
+                  </div>
+                </div>
+
+                <h5>CSM Adjustment Formula:</h5>
+                <div class="formula-box">
+CSM(t) = CSM(t-1) × (1 + r) - Release + Adjustments
+Where:
+r = locked-in discount rate
+Release = coverage-based amortization
+Adjustments = changes in future service FCF
+                </div>
+
+                <div class="alert alert-info">
+                  <strong>Loss Component Reversal:</strong> A loss component can be reversed in subsequent periods if there are favorable changes in the fulfilment cash flows related to future service, indicating that the group of contracts is no longer onerous.
+                </div>
+              </div>
+            </div>
+
+            <!-- 7.8 Risk Adjustment -->
+            <div class="content-section">
+              <h4>7.8 Risk Adjustment</h4>
+              
+              <div class="content-card">
+                <p>This sub-module focuses on the Risk Adjustment, a critical element in calculating insurance contract liabilities under IFRS 17.</p>
+                
+                <h5>Regulatory Framework</h5>
+                <div class="table-responsive">
+                  <table class="table table-bordered concept-table">
+                    <thead class="table-primary">
+                      <tr>
+                        <th>Paragraph</th>
+                        <th>Requirement</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Paragraph 37</strong></td>
+                        <td>Identifies the Risk Adjustment as a part of the fulfilment cash flows</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Paragraph 44</strong></td>
+                        <td>Requires disclosure of the methods used and the confidence level (or equivalent)</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Appendix B86–B92</strong></td>
+                        <td>Provides detailed guidance on its principles, methodologies, and influencing factors</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h5>What is Risk Adjustment in IFRS 17?</h5>
+                <p>The Risk Adjustment for non-financial risk represents the amount an insurer charges for bearing the uncertainty around timing and amount of future cash flows, stemming from risks such as mortality, morbidity, lapse, and expenses.</p>
+                
+                <div class="alert alert-info">
+                  <strong>Purpose:</strong> While expected cash flows capture the average outcome, the risk adjustment reflects variability and uncertainty around those expectations. It ensures liabilities include not just a neutral estimate, but also a margin that aligns with the insurer's risk appetite and capacity to bear risk.
+                </div>
+              </div>
+            </div>
+
+            <!-- 7.9 Risk Adjustment Factors -->
+            <div class="content-section">
+              <h4>7.9 Factors That Influence the Risk Adjustment</h4>
+              
+              <div class="content-card">
+                <p>The Risk Adjustment for non-financial risk reflects the level of compensation the insurer requires for bearing the uncertainty around cash flows. According to IFRS 17 Appendix B88–B91, key influencing factors include:</p>
+                
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Degree of Uncertainty</h6>
+                    <p>Greater uncertainty in the timing or amount of future cash flows leads to a higher risk adjustment</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Duration of Contracts</h6>
+                    <p>Longer coverage periods increase the risk exposure over time, resulting in a higher risk adjustment due to more future uncertainty</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Amount of Claims</h6>
+                    <p>Higher potential variability in future claim amounts contributes to a greater need for compensation</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Policyholder Characteristics & Options</h6>
+                    <p>Contracts with features such as lapse options, guarantees, or uncertain policyholder behaviour increase complexity and raise risk adjustment</p>
+                  </div>
+                </div>
+
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>Quality of Data and Estimates</h6>
+                    <p>Less credible or incomplete data increases estimation uncertainty, resulting in a higher risk adjustment</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Diversification</h6>
+                    <p>Portfolios with higher diversification benefits may require lower aggregate risk adjustments, as risks offset each other</p>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>Reinsurance Impact</h6>
+                    <p>When risk is transferred through reinsurance, the risk adjustment is recognized separately for the cost and the reinsurer, reflecting the risk retained and assumed</p>
+                  </div>
+                </div>
+
+                <h5>Confidence Level Considerations</h5>
+                <p>Different confidence levels represent varying degrees of risk coverage and cost implications:</p>
+
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> 75% Confidence Interval</h5>
+                    <ul>
+                      <li>Provides moderate coverage of obligations, balancing risk and cost</li>
+                      <li>Lower risk adjustment, lower cost</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> 90% Confidence Interval</h5>
+                    <ul>
+                      <li>Offers high coverage, ensuring most obligations are met but at a higher cost</li>
+                      <li>Higher risk adjustment, greater protection</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 7.10 Risk Adjustment Methods -->
+            <div class="content-section">
+              <h4>7.10 Methods of Determining Risk Adjustment</h4>
+              
+              <div class="content-card">
+                <p>IFRS 17 does not mandate a specific calculation method for the risk adjustment. However, it sets out the principles that any method must meet:</p>
+                
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Required Principles</h5>
+                    <ul>
+                      <li>The RA must reflect the compensation an entity requires for bearing uncertainty from non-financial risks</li>
+                      <li>It must be explicitly and separately disclosed from other fulfilment cash flow components</li>
+                      <li>The method chosen must be consistent with the entity's own risk assessment — it should reflect how the entity would internally price and manage non-financial risk</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h5>Common Approaches</h5>
+                <div class="measurement-cards">
+                  <div class="measurement-card">
+                    <h6>1. Confidence Level Approach (Quantile Method)</h6>
+                    <ul>
+                      <li>Sets the Risk Adjustment based on a selected confidence level</li>
+                      <li>Determines the value of future cash flows such that the entity is 75% or 90% confident it can meet its obligations</li>
+                    </ul>
+                    <div class="formula-box">
+RA = Value at Risk(confidence level) - Expected Value
+                    </div>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>2. Cost of Capital Method</h6>
+                    <ul>
+                      <li>Estimates the RA as the cost of holding capital to support non-financial risk over the lifetime of the contract</li>
+                      <li>Components: Risk capital amount, capital holding period, cost of capital rate (e.g., 6%)</li>
+                    </ul>
+                    <div class="formula-box">
+RA = Σ [Capital Requirement_t × Cost of Capital Rate × (1 + r)^{-t}]
+                    </div>
+                  </div>
+                  <div class="measurement-card">
+                    <h6>3. Conditional Tail Expectation (CTE)</h6>
+                    <ul>
+                      <li>Also known as Tail Value at Risk</li>
+                      <li>Looks at the average loss beyond a selected confidence level, capturing extreme outcomes</li>
+                    </ul>
+                    <div class="formula-box">
+RA = E[Loss | Loss > Value at Risk(confidence level)] - Expected Value
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 7.11 Integrated Measurement Framework -->
+            <div class="content-section">
+              <h4>7.11 Integrated Measurement Framework</h4>
+              
+              <div class="content-card">
+                <h5>Complete Insurance Contract Measurement</h5>
+                <div class="formula-box">
+Insurance Contract Liability = Fulfilment Cash Flows + Contractual Service Margin
+Where:
+Fulfilment Cash Flows = Present Value(Future Cash Flows) + Risk Adjustment
+                </div>
+
+                <h5>Measurement Relationships</h5>
+                <div class="scope-cards">
+                  <div class="scope-card in-scope">
+                    <h5><i class="fa fa-check-circle"></i> Integration Principles</h5>
+                    <ul>
+                      <li>Discounting affects present value of both cash flows and CSM interest accretion</li>
+                      <li>Risk Adjustment directly impacts CSM calculation at initial recognition</li>
+                      <li>CSM ensures systematic profit recognition aligned with service delivery</li>
+                      <li>All components must be consistently measured and regularly updated</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="key-point">
+                  <strong>Comprehensive Approach:</strong> This integrated framework ensures that insurance contracts are measured comprehensively, reflecting both the economic reality of the obligations and the appropriate timing of profit recognition.
+                </div>
+              </div>
+            </div>
+
+            <!-- 7.12 Conclusion -->
+            <div class="content-section conclusion">
+              <h4>7.12 Conclusion: Mastering Core Measurement Components</h4>
+              <div class="conclusion-card">
+                <p>Module 7 establishes the comprehensive framework for discounting, contractual service margin, and risk adjustment under IFRS 17. These three interconnected components form the foundation of accurate insurance contract measurement, ensuring proper liability valuation and profit recognition timing.</p>
+                
+                <div class="key-takeaways">
+                  <h5>Key Takeaways:</h5>
+                  <ul>
+                    <li>Discounting converts future cash flows to present value using appropriate rates and approaches</li>
+                    <li>CSM represents unearned profit and ensures systematic profit recognition over service periods</li>
+                    <li>Risk Adjustment compensates for non-financial uncertainty using confidence levels and calculation methods</li>
+                    <li>All components integrate to provide comprehensive insurance contract measurement</li>
+                    <li>Regular updates and consistent application are essential for accurate financial reporting</li>
+                  </ul>
+                </div>
+                
+                <div class="next-module">
+                  <strong>Next Module:</strong> Module 8 - Premium Allocation Approach (PAA): Detailed coverage of the simplified measurement approach
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <!-- Module Navigation - UPDATED FOR TASK 7 -->
+          <div class="module-navigation">
+            <div class="row">
+              <div class="col-lg-6">
+                <a href="module-6.html" class="nav-button prev">
+                  <i class="fa fa-arrow-left"></i> Previous Module
+                </a>
+              </div>
+              <div class="col-lg-6 text-end">
+                <!-- CHANGED: Next Module button replaced with Take Module Assessment -->
+                <a href="assessment-7.html" class="nav-button next">
+                  Take Module Assessment <i class="fa fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module Actions - UPDATED FOR TASK 7 -->
+          <div class="module-actions">
+            <button class="main-button outline" id="saveProgress">Save Progress</button>
+            <!-- CHANGED: Take Module Assessment button replaced with Next Module -->
+            <button class="main-button" id="nextModuleBtn" onclick="window.location.href='module-8.html'">
+              Next Module
+            </button>
+            <button class="main-button primary" id="markComplete">Mark Complete</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © <span id="currentYear">2025</span> Kenbright IFRS 17 Training Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/module-progress.js"></script>
+
+  <!-- Loader Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const pageLoader = document.getElementById('pageLoader');
+      
+      // Update copyright year automatically
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      
+      setTimeout(() => {
+          pageLoader.classList.add('hidden');
+          
+          setTimeout(() => {
+              pageLoader.remove();
+          }, 500);
+      }, 1500);
+  });
+
+  document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (link && link.href && !link.href.includes('javascript:') && 
+          !link.href.includes('#') && link.target !== '_blank') {
+          const pageLoader = document.getElementById('pageLoader');
+          if (pageLoader) {
+              pageLoader.classList.remove('hidden');
+          }
+      }
+  });
+  </script>
+</body>
+</html>
