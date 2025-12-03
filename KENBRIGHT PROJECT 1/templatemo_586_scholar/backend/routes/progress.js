@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 const db = require('../database');
 
 // Middleware to verify token
@@ -30,8 +31,6 @@ const verifyToken = (req, res, next) => {
     }
 };
 
-// Import jwt for proper verification
-const jwt = require('jsonwebtoken');
 
 // Get user's overall progress
 router.get('/', verifyToken, (req, res) => {
